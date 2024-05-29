@@ -6,8 +6,8 @@ plugins {
     signing
 }
 
-group = "org.metaborg.spoofax3"
-description = "The Spoofax 3 Gradle convention plugin."
+group = "org.metaborg"
+description = "The Metaborg Gradle convention plugin."
 
 dependencies {
     testImplementation(libs.kotest)
@@ -17,9 +17,9 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("metaborg-java-library") {
-            id = "org.metaborg.spoofax3.gradle-convention.java-library"
-            implementationClass = "org.metaborg.spoofax3.gradleconvention.JavaLibraryPlugin"
+        create("gradle-convention.java") {
+            id = "org.metaborg.gradle-convention.java"
+            implementationClass = "org.metaborg.gradleconvention.JavaPlugin"
         }
     }
 }
@@ -29,7 +29,7 @@ publishing {
         publications {
             withType<MavenPublication> {
                 pom {
-                    name.set("Spoofax 3 Gradle convention plugin")
+                    name.set("Metaborg Gradle convention plugins")
                 }
             }
         }

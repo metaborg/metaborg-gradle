@@ -1,4 +1,4 @@
-rootProject.name = "spoofax3-gradle"
+rootProject.name = "metaborg-gradle"
 
 dependencyResolutionManagement {
     repositories {
