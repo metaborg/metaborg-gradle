@@ -1,0 +1,16 @@
+---
+name: Build
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    tags:
+      - "release-*.*.*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: metaborg/actions/.github/workflows/gradle-build-matrix.yaml@main
