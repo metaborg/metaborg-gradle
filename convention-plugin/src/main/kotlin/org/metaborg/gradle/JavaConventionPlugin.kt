@@ -18,7 +18,7 @@ import org.gradle.kotlin.dsl.*
 @Suppress("unused")
 class JavaConventionPlugin: Plugin<Project> {
     override fun apply(project: Project): Unit = with(project) {
-        // Apply the configuration extension
+        // Add the configuration extension
         val extension = extensions.create<JavaConventionExtension>("javaConvention")
         extension.setConvention()
 
