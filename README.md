@@ -9,7 +9,7 @@ This repository contains the Spoofax 3 Gradle plugins.
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | `org.metaborg.spoofax3.gradle.convention`  | [![org.metaborg.spoofax3.gradle.convention][gradle-convention-maven-badge]][gradle-convention-maven] |
 
-
+ 
 
 ## Gradle Convention
 The `org.metaborg.spoofax3.gradle.convention` plugin applies any conventional configuration to Spoofax 3 projects.
