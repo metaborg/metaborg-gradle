@@ -18,8 +18,8 @@ dependencies {
 gradlePlugin {
     plugins {
         create("gradle-convention.java") {
-            id = "org.metaborg.gradle-convention.java"
-            implementationClass = "org.metaborg.gradleconvention.JavaPlugin"
+            id = "org.metaborg.gradle.java-convention"
+            implementationClass = "org.metaborg.gradle.JavaConventionPlugin"
         }
     }
 }
