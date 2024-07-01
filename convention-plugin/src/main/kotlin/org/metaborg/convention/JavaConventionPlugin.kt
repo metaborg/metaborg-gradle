@@ -22,6 +22,9 @@ class JavaConventionPlugin: Plugin<Project> {
         val extension = extensions.create<JavaConventionExtension>("javaConvention")
         extension.setConvention()
 
+        // Apply the Java plugin
+        plugins.apply("java")
+
         repositories {
             // Maven Artifacts repository
             maven(url = "https://artifacts.metaborg.org/content/groups/public/")
