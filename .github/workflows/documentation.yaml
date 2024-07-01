@@ -1,0 +1,14 @@
+---
+name: 'Documentation'
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - master
+  workflow_dispatch: {} # Allow running this workflow manually (Actions tab)
+
+jobs:
+  documentation:
+    uses: metaborg/actions/.github/workflows/mkdocs-material.yaml@main
+    with:
+      docs-dir: 'docs'
