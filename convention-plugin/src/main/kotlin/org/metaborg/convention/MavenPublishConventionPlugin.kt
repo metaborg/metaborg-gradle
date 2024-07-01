@@ -27,6 +27,10 @@ class MavenPublishConventionPlugin: Plugin<Project> {
         // Apply the Maven Publish plugin
         plugins.apply("maven-publish")
 
+        extra["isReleaseVersion"] = !version.toString().endsWith("-SNAPSHOT")
+        extra["isDirtyVersion"] = version.toString().endsWith("+dirty")
+        extra["isCI"] = !System.getenv("CI").isNullOrEmpty()
+
         // Set the metadata for (existing) publications
         configure<PublishingExtension> {
             afterEvaluate {
@@ -71,30 +75,30 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                         }
                     }
                 }
-            }
 
-            // Configure the repositories to publish to
-            repositories {
+                // Configure the repositories to publish to
+                repositories {
 
-                // Configure publishing to Metaborg Artifacts
-                maven {
-                    val releasesRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/releases/")
-                    val snapshotsRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/snapshots/")
-                    name = METABORG_ARTIFACTS_PUBLICATION_NAME
-                    url = if (project.extra["isReleaseVersion"] as Boolean) releasesRepoUrl else snapshotsRepoUrl
-                    credentials {
-                        username = project.findProperty("publish.repository.metaborg.artifacts.username") as String? ?: System.getenv("METABORG_ARTIFACTS_USERNAME")
-                        password = project.findProperty("publish.repository.metaborg.artifacts.password") as String? ?: System.getenv("METABORG_ARTIFACTS_PASSWORD")
+                    // Configure publishing to Metaborg Artifacts
+                    maven {
+                        val releasesRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/releases/")
+                        val snapshotsRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/snapshots/")
+                        name = METABORG_ARTIFACTS_PUBLICATION_NAME
+                        url = if (project.extra["isReleaseVersion"] as Boolean) releasesRepoUrl else snapshotsRepoUrl
+                        credentials {
+                            username = project.findProperty("publish.repository.metaborg.artifacts.username") as String? ?: System.getenv("METABORG_ARTIFACTS_USERNAME")
+                            password = project.findProperty("publish.repository.metaborg.artifacts.password") as String? ?: System.getenv("METABORG_ARTIFACTS_PASSWORD")
+                        }
                     }
-                }
 
-                // Configure publishing to GitHub Packages
-                maven {
-                    name = GITHUB_PACKAGES_PUBLICATION_NAME
-                    url = with(extension.repoOwner, extension.repoName) { owner, name -> uri("https://maven.pkg.github.com/$owner/$name") }.get()
-                    credentials {
-                        username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
-                        password = project.findProperty("gpr.publishKey") as String? ?: System.getenv("GITHUB_TOKEN")
+                    // Configure publishing to GitHub Packages
+                    maven {
+                        name = GITHUB_PACKAGES_PUBLICATION_NAME
+                        url = with(extension.repoOwner, extension.repoName) { owner, name -> uri("https://maven.pkg.github.com/$owner/$name") }.get()
+                        credentials {
+                            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                            password = project.findProperty("gpr.publishKey") as String? ?: System.getenv("GITHUB_TOKEN")
+                        }
                     }
                 }
             }
