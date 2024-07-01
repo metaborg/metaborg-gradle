@@ -2,8 +2,11 @@
 [![Build][github-build-badge]][github-build]
 [![License][license-badge]][license]
 [![GitHub Release][github-release-badge]][github-release]
+[![Documentation][documentation-badge]][documentation]
 
-This repository contains the Metaborg Gradle convention and development plugins.
+The Metaborg Gradle convention and development plugins.
+
+[![Documentation][documentation-button]][documentation]
 
 | Artifact                                  | Latest Release                                                                                       |
 |-------------------------------------------| ---------------------------------------------------------------------------------------------------- |
@@ -28,12 +31,16 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 
 
-[github-build-badge]: https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/build.yaml
+[github-build-badge]: 
+https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/build.yaml
 [github-build]: https://github.com/metaborg/metaborg-gradle/actions
 [license-badge]: https://img.shields.io/github/license/metaborg/metaborg-gradle
 [license]: https://github.com/metaborg/metaborg-gradle/blob/main/LICENSE
 [github-release-badge]: https://img.shields.io/github/v/release/metaborg/metaborg-gradle
 [github-release]: https://github.com/metaborg/metaborg-gradle/releases
+[documentation-badge]: https://img.shields.io/badge/docs-latest-brightgreen
+[documentation]: https://spoofax.dev/metaborg-gradle/
+[documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
 
 [convention-maven-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fgradle.convention%2Fmaven-metadata.xml
 [convention-maven]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~gradle.convention~~~
