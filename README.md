@@ -8,9 +8,10 @@ The Metaborg Gradle convention and development plugins.
 
 [![Documentation][documentation-button]][documentation]
 
-| Artifact                                  | Latest Release                                                                                       |
-|-------------------------------------------| ---------------------------------------------------------------------------------------------------- |
-| `org.metaborg.convention` | [![org.metaborg.convention][convention-maven-badge]][convention-maven] |
+| Artifact                                | Latest Release                                                            |
+|-----------------------------------------|---------------------------------------------------------------------------|
+| `org.metaborg.convention.java`          | [![org.metaborg.convention.java][convention-java-badge]][convention-java] |
+| `org.metaborg.convention.maven-publish` | [![org.metaborg.convention.maven-publish][convention-maven-publish-badge]][convention-maven-publish] |
 
  
 
@@ -42,5 +43,7 @@ https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/b
 [documentation]: https://spoofax.dev/metaborg-gradle/
 [documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
 
-[convention-maven-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fgradle.convention%2Fmaven-metadata.xml
-[convention-maven]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~gradle.convention~~~
+[convention-java-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fjava%2Forg.metaborg.convention.java.gradle.plugin%2Fmaven-metadata.xml
+[convention-java]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.java~org.metaborg.convention.java.gradle.plugin~~~
+[convention-maven-publish-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fmaven-publish%2Forg.metaborg.convention.maven-publish.gradle.plugin%2Fmaven-metadata.xml
+[convention-maven-publish]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.maven-publish.gradle.plugin~~~
