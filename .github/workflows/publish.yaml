@@ -12,6 +12,8 @@ jobs:
     with:
       gradle-command: |
         gradle :convention-plugin:assemble :convention-plugin:publish
+      gradle-version-command: |
+        gradle -q :convention-plugin:printVersion
     secrets:
       METABORG_ARTIFACTS_USERNAME: ${{ secrets.METABORG_ARTIFACTS_USERNAME }}
       METABORG_ARTIFACTS_PASSWORD: ${{ secrets.METABORG_ARTIFACTS_PASSWORD }}
