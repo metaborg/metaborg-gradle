@@ -1,4 +1,4 @@
-package org.metaborg.gradle
+package org.metaborg.convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
