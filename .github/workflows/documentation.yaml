@@ -4,7 +4,7 @@ name: 'Documentation'
 on:  # yamllint disable-line rule:truthy
   push:
     branches:
-      - master
+      - main
   workflow_dispatch: {} # Allow running this workflow manually (Actions tab)
 
 jobs:
