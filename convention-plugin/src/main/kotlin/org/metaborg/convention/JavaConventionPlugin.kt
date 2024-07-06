@@ -13,7 +13,7 @@ import org.gradle.kotlin.dsl.*
 /**
  * Configures a Gradle project that builds a Java library or application.
  *
- * Also apply the `java`, `java-library` or `application` plugin to the project.
+ * Also applies the `java-base` plugin to the project. Apply the `java` or `java-library` plugin manually.
  */
 @Suppress("unused")
 class JavaConventionPlugin: Plugin<Project> {
@@ -22,8 +22,8 @@ class JavaConventionPlugin: Plugin<Project> {
         val extension = extensions.create<JavaConventionExtension>("javaConvention")
         extension.setConvention()
 
-        // Apply the Java plugin
-        plugins.apply("java")
+        // Apply the Java base plugin
+        plugins.apply("java-base")
 
         repositories {
             // Maven Artifacts repository
