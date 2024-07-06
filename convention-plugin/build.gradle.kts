@@ -36,6 +36,10 @@ gradlePlugin {
             id = "org.metaborg.convention.maven-publish"
             implementationClass = "org.metaborg.convention.MavenPublishConventionPlugin"
         }
+        create("convention.root-project") {
+            id = "org.metaborg.convention.root-project"
+            implementationClass = "org.metaborg.convention.RootProjectConventionPlugin"
+        }
     }
 }
 

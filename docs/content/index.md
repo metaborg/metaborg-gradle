@@ -12,9 +12,13 @@ To apply the plugin:
 
 ```kotlin title="build.gradle.kts"
 plugins {
-    id("org.metaborg.convention.java") version <version>
+    id("org.metaborg.convention.java") version "<version>"
+    `java-library`
 }
 ```
+
+!!! note "Kotlin"
+    When using Kotlin, it will automatically use the configured JVM toolchain.
 
 
 ## Maven Publish Convention
@@ -22,7 +26,7 @@ The Maven Publish convention plugin adds metadata to existing publications, and 
 
 ```kotlin title="build.gradle.kts"
 plugins {
-    id("org.metaborg.convention.maven-publish") version <version>
+    id("org.metaborg.convention.maven-publish") version "<version>"
 }
 
 // Group must be set
@@ -44,3 +48,12 @@ publishing {
 }
 ```
 
+
+## Root Project Convention
+The Root Project convention plugin adds tasks that invoke the corresponding tasks on the sub-builds and subprojects.
+
+```kotlin title="build.gradle.kts"
+plugins {
+    id("org.metaborg.convention.root-project") version "<version>"
+}
+```
