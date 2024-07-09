@@ -18,9 +18,14 @@ extra["isCI"] = !System.getenv("CI").isNullOrEmpty()
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
+    implementation(gradleApi())
+    implementation(gradleKotlinDsl())
+    api(libs.gradle.develocityPlugin)
+
     testImplementation(libs.kotest)
     testImplementation(libs.kotest.assertions)
     testImplementation(gradleTestKit())
@@ -28,6 +33,13 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        // Settings plugins
+        create("convention.settings") {
+            id = "org.metaborg.convention.settings"
+            implementationClass = "org.metaborg.convention.SettingsConventionPlugin"
+        }
+
+        // Project plugins
         create("convention.java") {
             id = "org.metaborg.convention.java"
             implementationClass = "org.metaborg.convention.JavaConventionPlugin"
