@@ -12,6 +12,7 @@ The Metaborg Gradle convention and development plugins.
 |-----------------------------------------|---------------------------------------------------------------------------|
 | `org.metaborg.convention.java`          | [![org.metaborg.convention.java][convention-java-badge]][convention-java] |
 | `org.metaborg.convention.maven-publish` | [![org.metaborg.convention.maven-publish][convention-maven-publish-badge]][convention-maven-publish] |
+| `org.metaborg.convention.root-project`  | [![org.metaborg.convention.root-project][convention-root-project-badge]][convention-root-project] |
 
  
 
@@ -20,6 +21,7 @@ The `org.metaborg.convention` plugins applies any conventional configuration to 
 
 - `org.metaborg.convention.java`: Configures a project as a Java project (library or application).
 - `org.metaborg.convention.maven-publish`: Configures the Maven publications for a project.
+- `org.metaborg.convention.root-project`: Configures the root project of a Gradle multi-project build.
 
 
 
@@ -47,3 +49,5 @@ https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/b
 [convention-java]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.java~org.metaborg.convention.java.gradle.plugin~~~
 [convention-maven-publish-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fmaven-publish%2Forg.metaborg.convention.maven-publish.gradle.plugin%2Fmaven-metadata.xml
 [convention-maven-publish]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.maven-publish.gradle.plugin~~~
+[convention-root-project-badge]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fmaven-publish%2Forg.metaborg.convention.root-project.gradle.plugin%2Fmaven-metadata.xml
+[convention-root-project]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.root-project.gradle.plugin~~~
