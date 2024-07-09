@@ -12,7 +12,7 @@ import org.gradle.kotlin.dsl.maven
 @Suppress("unused")
 class SettingsConventionPlugin: Plugin<Settings> {
 
-    private val catalogVersion = "0.3.9"
+    private val catalogVersion = "0.3.10"
 
     @Suppress("UnstableApiUsage")
     override fun apply(settings: Settings): Unit = with(settings) {
