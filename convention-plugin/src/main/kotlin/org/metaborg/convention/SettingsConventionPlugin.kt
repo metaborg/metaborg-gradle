@@ -12,7 +12,7 @@ import org.gradle.kotlin.dsl.maven
 @Suppress("unused")
 class SettingsConventionPlugin: Plugin<Settings> {
 
-    private val catalogVersion = "0.3.6"
+    private val catalogVersion = "0.3.7"
 
     @Suppress("UnstableApiUsage")
     override fun apply(settings: Settings): Unit = with(settings) {
@@ -38,6 +38,9 @@ class SettingsConventionPlugin: Plugin<Settings> {
                 }
             }
         }
+
+        // Apply the Foojay plugin
+        plugins.apply("org.gradle.toolchains.foojay-resolver-convention")
 
         // Apply and configure the Develocity plugin
         plugins.apply("com.gradle.develocity")

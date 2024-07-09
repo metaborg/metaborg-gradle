@@ -25,6 +25,7 @@ dependencies {
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
     api(libs.gradle.develocityPlugin)
+    api(libs.gradle.foojayPlugin)
 
     testImplementation(libs.kotest)
     testImplementation(libs.kotest.assertions)
