@@ -57,3 +57,19 @@ plugins {
     id("org.metaborg.convention.root-project") version "<version>"
 }
 ```
+
+
+## Settings Convention
+The Settings convention applies the Gradle Develocity and Foojay plugins, and installs the Metaborg version catalog.
+
+```kotlin title="settings.gradle.kts"
+pluginManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+    }
+}
+
+plugins {
+    id("org.metaborg.convention.settings") version "0.0.11"
+}
+```
