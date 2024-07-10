@@ -94,6 +94,7 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                     // Configure publishing to GitHub Packages
                     maven {
                         name = GITHUB_PACKAGES_PUBLICATION_NAME
+                        // NOTE: If repoOwner or repoName are not specified, this will fail. In that case we can't configure GitHub Packages
                         url = with(extension.repoOwner, extension.repoName) { owner, name -> uri("https://maven.pkg.github.com/$owner/$name") }.get()
                         credentials {
                             username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")

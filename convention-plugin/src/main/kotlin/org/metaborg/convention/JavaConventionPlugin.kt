@@ -66,8 +66,11 @@ class JavaConventionPlugin: Plugin<Project> {
                     // Use UTF-8 encoding by default
                     encoding = "UTF-8"
                     charset("UTF-8")
-                    // Silence doclint warnings
+                    // Reduce doclint warnings
+                    addStringOption("Xmaxwarns", "1")
+                    // Silence doclint lints
                     addStringOption("Xdoclint:none", "-quiet")
+                    // Silence!
                     quiet()
                 }
             }
