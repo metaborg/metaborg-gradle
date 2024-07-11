@@ -48,6 +48,19 @@ publishing {
 }
 ```
 
+The `repoOwner` and `repoName` fields must be set, but usually it is easier to set it once on the root project's `build.gradle.kts` for all projects that apply the Maven Publish convention plugin, like this:
+
+```kotlin title="build.gradle.kts"
+allprojects {
+    pluginManager.withPlugin("org.metaborg.convention.maven-publish") {
+        extensions.configure(MavenPublishConventionExtension::class.java) {
+            repoOwner.set("metaborg")
+            repoName.set("convention-plugin-example")
+        }
+    }
+}
+```
+
 
 ## Root Project Convention
 The Root Project convention plugin adds tasks that invoke the corresponding tasks on the sub-builds and subprojects.
