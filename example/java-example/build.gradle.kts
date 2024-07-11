@@ -11,7 +11,7 @@ javaConvention {
     javaVersion.set(JavaLanguageVersion.of(17))     // Optional
 }
 
-// This is required, either here or on the root project
+// Required, either here or on the root project
 mavenPublishConvention {
     repoOwner.set("metaborg")
     repoName.set("convention-plugin-example")

@@ -4,10 +4,7 @@ plugins {
     id("org.metaborg.convention.root-project")
 }
 
-rootProjectConvention {
-    taskNameSuffix.set("All")
-}
-
+// Required, either here or on each subproject
 allprojects {
     pluginManager.withPlugin("org.metaborg.convention.maven-publish") {
         extensions.configure(MavenPublishConventionExtension::class.java) {
