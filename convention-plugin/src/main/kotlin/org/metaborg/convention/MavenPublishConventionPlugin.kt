@@ -32,8 +32,8 @@ class MavenPublishConventionPlugin: Plugin<Project> {
         extra["isCI"] = !System.getenv("CI").isNullOrEmpty()
 
         // Set the metadata for (existing) publications
-        configure<PublishingExtension> {
-            afterEvaluate {
+        afterEvaluate {
+            configure<PublishingExtension> {
                 val metadata = extension.metadata
                 publications {
                     withType<MavenPublication> {
