@@ -1,10 +1,12 @@
 package org.metaborg.convention
 
 import com.gradle.develocity.agent.gradle.DevelocityConfiguration
+import com.gradle.enterprise.gradleplugin.GradleEnterpriseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.initialization.Settings
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.maven
+
 
 /**
  * Configures a Gradle build.
@@ -43,17 +45,32 @@ class SettingsConventionPlugin: Plugin<Settings> {
         // Apply the Foojay plugin
         plugins.apply("org.gradle.toolchains.foojay-resolver-convention")
 
-        // Apply and configure the Develocity plugin
-        plugins.apply("com.gradle.develocity")
-        extensions.configure(DevelocityConfiguration::class.java) {
-            val isCI = System.getenv("CI").isNullOrEmpty()
-            buildScan {
-                termsOfUseUrl.set("https://gradle.com/help/legal-terms-of-use")
-                termsOfUseAgree.set("yes")
-                publishing.onlyIf { isCI }
-                if (isCI) tag("CI")
-                capture {
-                    fileFingerprints.set(true)
+        val isCI = System.getenv("CI").isNullOrEmpty()
+        gradle.settingsEvaluated {
+            if (plugins.hasPlugin("com.gradle.build-scan") || plugins.hasPlugin("com.gradle.enterprise")) {
+                // Configure the Gradle Enterprise plugin if it's configured
+                @Suppress("DEPRECATION")
+                settings.extensions.getByType(GradleEnterpriseExtension::class.java).apply {
+                    buildScan {
+                        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+                        termsOfServiceAgree = "yes"
+                        publishAlwaysIf(isCI)
+                        if (isCI) tag("CI")
+                    }
+                }
+            } else {
+                // Otherwise, apply and configure the Gradle Develocity plugin and configure it
+                plugins.apply("com.gradle.develocity")
+                settings.extensions.getByType(DevelocityConfiguration::class.java).apply {
+                    buildScan {
+                        termsOfUseUrl.set("https://gradle.com/help/legal-terms-of-use")
+                        termsOfUseAgree.set("yes")
+                        publishing.onlyIf { isCI }
+                        if (isCI) tag("CI")
+                        capture {
+                            fileFingerprints.set(true)
+                        }
+                    }
                 }
             }
         }
