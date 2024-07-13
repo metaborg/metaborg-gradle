@@ -7,18 +7,6 @@ pluginManagement {
     }
 }
 
-// This allows us to use the catalog in dependencies
-dependencyResolutionManagement {
-    repositories {
-        maven("https://artifacts.metaborg.org/content/groups/public/")
-    }
-    versionCatalogs {
-        create("libs") {
-            from("org.metaborg.spoofax3:catalog:0.5.1")
-        }
-    }
-}
-
 // This downloads an appropriate JVM if not already available
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"

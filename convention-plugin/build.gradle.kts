@@ -1,12 +1,11 @@
-// Workaround for issue: https://youtrack.jetbrains.com/issue/KTIJ-19369
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `java-library`
     `kotlin-dsl`
     `java-gradle-plugin`
     `maven-publish`
 //    signing
-    alias(libs.plugins.gitonium)
+    // We don't use the version catalog here, to avoid a bootstrapping problem.
+    id("org.metaborg.gitonium") version "1.4.0"
 }
 
 group = "org.metaborg"
@@ -24,11 +23,13 @@ repositories {
 dependencies {
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
-    api(libs.gradle.develocityPlugin)
-    api(libs.gradle.foojayPlugin)
+    // We don't use the version catalog here, to avoid a bootstrapping problem.
+    // Therefore, we need to keep the number of dependencies low.
+    api("com.gradle:develocity-gradle-plugin:3.17.5")
+    api("org.gradle.toolchains:foojay-resolver:0.8.0")
 
-    testImplementation(libs.kotest)
-    testImplementation(libs.kotest.assertions)
+    testImplementation("io.kotest:kotest-runner-junit5:5.8.1")
+    testImplementation("io.kotest:kotest-assertions-core:5.8.1")
     testImplementation(gradleTestKit())
 }
 
@@ -54,6 +55,11 @@ gradlePlugin {
             implementationClass = "org.metaborg.convention.RootProjectConventionPlugin"
         }
     }
+}
+
+// Get the current version into the program
+gitonium {
+    buildPropertiesFile.set(layout.buildDirectory.file("resources/main/version.properties"))
 }
 
 publishing {
