@@ -2,6 +2,7 @@ plugins {
     `version-catalog`
     `maven-publish`
     signing
+    id("org.metaborg.convention.maven-publish")
 }
 
 group = "org.metaborg"
