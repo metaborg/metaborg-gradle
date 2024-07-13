@@ -17,8 +17,10 @@ object BuildInfo {
         }
     }
 
-    /** The library version. */
+    /** The current version. */
     val version: String get() = checkNotNull(properties.getProperty("version"))
+    /** The most recent release version. */
+    val releaseVersion: String get() = checkNotNull(properties.getProperty("release-version"))
     /** The commit ID. */
     val commit: String get() = checkNotNull(properties.getProperty("short-revision"))
 
