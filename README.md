@@ -4,7 +4,7 @@
 [![GitHub Release][github-release-badge]][github-release]
 [![Documentation][documentation-badge]][documentation]
 
-The Metaborg Gradle convention and development plugins.
+The Metaborg Gradle convention and development plugins, and the Metaborg dependency management and Gradle platform.
 
 [![Documentation][documentation-button]][documentation]
 
@@ -14,6 +14,8 @@ The Metaborg Gradle convention and development plugins.
 | `org.metaborg.convention.java`          | [![org.metaborg.convention.java][maven-badge:convention.java]][maven:convention.java]                            |
 | `org.metaborg.convention.maven-publish` | [![org.metaborg.convention.maven-publish][maven-badge:convention.maven-publish]][maven:convention.maven-publish] |
 | `org.metaborg.convention.root-project`  | [![org.metaborg.convention.root-project][maven-badge:convention.root-project]][maven:convention.root-project]    |
+| `org.metaborg:catalog`                  | [![org.metaborg.spoofax3:catalog][maven-badge:catalog]][maven:catalog]                                           |
+| `org.metaborg:platform`                 | [![org.metaborg.spoofax3:platform][maven-badge:platform]][maven:platform]                                        |
 
  
 
@@ -25,6 +27,11 @@ The `org.metaborg.convention` plugins applies any conventional configuration to 
 - `org.metaborg.convention.maven-publish`: Configures the Maven publications for a project.
 - `org.metaborg.convention.root-project`: Configures the root project of a Gradle multi-project build.
 
+
+## Gradle Dependency Management
+The `org.metaborg:catalog` artifact provides recommended versions for dependencies, and should be used in projects that are part of Spoofax.
+
+The `org.metaborg:platform` artifact enforces particular versions for Spoofax dependencies, and should be used by consumers of Spoofax libraries.
 
 
 ## License
@@ -48,18 +55,16 @@ https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/b
 [documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
 
 
-|-----------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| `org.metaborg.convention.settings`      | [![org.metaborg.convention.settings][maven-badge:convention.settings]][maven:convention.settings]                      |
-| `org.metaborg.convention.java`          | [![org.metaborg.convention.java][maven-badge:convention.java]][maven:convention.java]                            |
-| `org.metaborg.convention.maven-publish` | [![org.metaborg.convention.maven-publish][maven-badge:convention.maven-publish]][maven:convention.maven-publish] |
-| `org.metaborg.convention.root-project`  | [![org.metaborg.convention.root-project][maven-badge:convention.root-project]][maven:convention.root-project]    |
-
 [maven-badge:convention.settings]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fsettings%2Forg.metaborg.convention.settings.gradle.plugin%2Fmaven-metadata.xml
 [maven-badge:convention.java]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fjava%2Forg.metaborg.convention.java.gradle.plugin%2Fmaven-metadata.xml
 [maven-badge:convention.maven-publish]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Fmaven-publish%2Forg.metaborg.convention.maven-publish.gradle.plugin%2Fmaven-metadata.xml
 [maven-badge:convention.root-project]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fconvention%2Froot-project%2Forg.metaborg.convention.root-project.gradle.plugin%2Fmaven-metadata.xml
+[maven-badge:catalog]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fcatalog%2Fmaven-metadata.xml
+[maven-badge:platform]: https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fartifacts.metaborg.org%2Fcontent%2Frepositories%2Freleases%2Forg%2Fmetaborg%2Fplatform%2Fmaven-metadata.xml
 
 [maven:convention.settings]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.settings~org.metaborg.convention.settings.gradle.plugin~~~
 [maven:convention.java]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.java~org.metaborg.convention.java.gradle.plugin~~~
 [maven:convention.maven-publish]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.maven-publish.gradle.plugin~~~
 [maven:convention.root-project]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.root-project~org.metaborg.convention.root-project.gradle.plugin~~~
+[maven:catalog]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~catalog~~~
+[maven:platform]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform~~~

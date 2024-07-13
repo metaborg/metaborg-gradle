@@ -1,9 +1,10 @@
 import org.metaborg.convention.MavenPublishConventionExtension
 
-rootProject.name = "convention-plugin-example"
+rootProject.name = "example-project"
 
 pluginManagement {
     includeBuild("../convention-plugin")
+    includeBuild("../depman")
 }
 
 plugins {

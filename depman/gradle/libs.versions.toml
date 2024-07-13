@@ -1,0 +1,430 @@
+[versions]
+# Plugins
+kotlin                          = "1.8.20"                  # https://kotlinlang.org/
+gitonium                        = "1.2.0"                   # https://github.com/metaborg/gitonium
+foojay                          = "0.8.0"                   # https://github.com/gradle/foojay-toolchains
+metaborg-gradle-config          = "0.7.0"                   # https://github.com/metaborg/gradle.config
+devenv-spoofax-gradle           = "0.5.9"                   # https://github.com/metaborg/spoofax.gradle
+metaborg-gradle-convention      = "0.0.4"                   # https://github.com/metaborg/metaborg-gradle
+develocity                      = "3.17.5"                  # https://docs.gradle.com/develocity/gradle-plugin/current/ (https://plugins.gradle.org/plugin/com.gradle.develocity)
+
+# Spoofax
+metaborg-common                 = "0.11.0"                  # https://github.com/metaborg/common/
+metaborg-depman                 = "0.3.8"                   # https://github.com/metaborg/spoofax3-depman/
+metaborg-log                    = "0.5.5"                   # https://github.com/metaborg/log/
+metaborg-pie                    = "0.21.0"                  # https://github.com/metaborg/pie/
+metaborg-resource               = "0.14.1"                  # https://github.com/metaborg/resource/
+spoofax3                        = "0.22.1"                  # https://github.com/metaborg/spoofax-pie/
+
+spoofax2                        = "2.6.0-SNAPSHOT"          # https://spoofax.dev/ (https://github.com/metaborg/spoofax-releng)
+esv                             = "0.1.36"                  # https://github.com/metaborg/esv/
+jsglr                           = "0.1.36"                  # https://github.com/metaborg/jsglr/
+mb-exec                         = "0.1.36"                  # https://github.com/metaborg/mb-exec/
+mb-rep                          = "0.1.36"                  # https://github.com/metaborg/mb-rep/
+nabl                            = "0.1.36"                  # https://github.com/metaborg/nabl/
+sdf                             = "0.1.36"                  # https://github.com/metaborg/sdf/
+spoofax-core                    = "0.1.36"                  # https://github.com/metaborg/spoofax/
+spoofax-gradle                  = "0.1.36"                  # https://github.com/metaborg/spoofax.gradle/
+spt                             = "0.1.36"                  # https://github.com/metaborg/spt/
+stratego                        = "0.1.36"                  # https://github.com/metaborg/stratego/
+strategoxt                      = "0.1.36"                  # https://github.com/metaborg/strategoxt/
+
+
+# Kotlin
+kotlinx-coroutines              = "1.8.1"                   # https://github.com/Kotlin/kotlinx.coroutines
+# Collections
+capsule                         = "0.6.3"                   # https://usethesource.io/projects/capsule/ (https://github.com/usethesource/capsule)
+# Dependency Injection
+guice                           = "5.1.0"                   # https://github.com/google/guice
+dagger                          = "2.36"                    # https://github.com/google/dagger
+# Annotations & Annotation Processors
+immutables                      = "2.10.1"                  # https://immutables.github.io/ (https://github.com/immutables/immutables)
+derive4j                        = "1.1.1"                   # https://github.com/derive4j/derive4j
+jakarta-annotation              = "2.1.1"                   # https://github.com/jakartaee/common-annotations-api
+jakarta-inject                  = "2.0.1"                   # https://github.com/jakartaee/inject
+javax-inject                    = "1"                       # https://github.com/javaee/javax.annotation
+checkerframework                = "3.16.0"                  # https://checkerframework.org/ (https://github.com/typetools/checker-framework/)
+jsr305                          = "3.0.2"                   # https://github.com/findbugsproject/findbugs
+# Maven
+maven-resolver                  = "1.3.3"                   # https://maven.apache.org/resolver/index.html (https://github.com/apache/maven-resolver)
+maven                           = "3.6.0"                   # https://maven.apache.org/ (https://github.com/apache/maven)
+bnd                             = "5.3.0"                   # https://bnd.bndtools.org/ (https://github.com/bndtools/bnd)
+# Gradle
+coronium                        = "0.4.0"                   # https://github.com/metaborg/coronium
+intellij                        = "1.4"                     #
+gradle                          = "5.6.4"                   # https://gradle.org/ (https://github.com/gradle/gradle)
+develocityAdapter               = "1.0.2"                   # https://github.com/gradle/develocity-agent-adapters
+# ECJ
+eclipse-jdt-core                = "3.25.0"                  # https://www.eclipse.org/jdt/core/
+eclipse-jdt-compiler-tool       = "1.2.1100"                # https://www.eclipse.org/jdt/
+eclipse-jdt-compiler-apt        = "1.3.1200"                # https://www.eclipse.org/jdt/
+# CLI
+picocli                         = "4.5.0"                   # https://picocli.info/ (https://github.com/remkop/picocli)
+# Templating
+jmustache                       = "1.15"                    # https://github.com/samskivert/jmustache
+# Logging
+slf4j                           = "1.7.30"                  # https://www.slf4j.org/ (https://github.com/qos-ch/slf4j)
+logback                         = "1.4.14"                  # https://logback.qos.ch/ (https://github.com/qos-ch/logback)
+# Data Formats
+jackson                         = "2.17.1"                  # https://github.com/FasterXML/jackson
+commons-configuration2-jackson  = "1.3.5"                   # https://github.com/Virtlink/commons-configuration2-jackson/
+snakeyaml                       = "1.26"                    # https://bitbucket.org/asomov/snakeyaml (https://github.com/snakeyaml/snakeyaml)
+# Utils
+commons-math3                   = "3.6.1"                   # https://commons.apache.org/proper/commons-math/ (https://github.com/apache/commons-math)
+commons-io                      = "2.15.1"                  # https://commons.apache.org/proper/commons-io/ (https://github.com/apache/commons-io)
+commons-compress                = "1.18"                    # https://commons.apache.org/proper/commons-compress/ (https://github.com/apache/commons-compress)
+commons-vfs2                    = "2.6.0"                   # https://commons.apache.org/proper/commons-vfs/ (https://github.com/apache/commons-vfs)
+commons-lang3                   = "3.4"                     # https://commons.apache.org/proper/commons-lang/ (https://github.com/apache/commons-lang)
+commons-configuration2          = "2.10.1"                  # https://commons.apache.org/proper/commons-configuration/ (https://github.com/apache/commons-configuration)
+guava                           = "31.1-jre"                # https://github.com/google/guava
+failureaccess                   = "1.0.1"                   # https://github.com/google/guava
+rxjava                          = "3.0.2"                   # https://github.com/ReactiveX/RxJava?tab=readme-ov-file
+jimfs                           = "1.1"                     # https://github.com/google/jimfs
+fst                             = "2.56"                    # https://github.com/RuedigerMoeller/fast-serialization
+kryo                            = "5.0.0"                   # https://github.com/EsotericSoftware/kryo
+lmdbjava                        = "0.8.1"                   # https://github.com/lmdbjava/lmdbjava
+opencsv                         = "4.1"                     # https://opencsv.sourceforge.net/ (https://sourceforge.net/p/opencsv/source/ci/master/tree/)
+classgraph                      = "4.8.102"                 # https://github.com/classgraph/classgraph
+# Testing
+junit                           = "5.10.1"                  # https://junit.org/
+junit4                          = "4.13.2"                  # https://junit.org/junit4/
+kotest                          = "5.8.1"                   # https://kotest.io/
+equalsverifier                  = "3.16.1"                  # https://jqno.nl/equalsverifier/ (https://github.com/jqno/equalsverifier)
+mockito-kotlin                  = "2.2.0"                   # https://github.com/mockito/mockito-kotlin
+jmh                             = "1.26"                    # https://openjdk.java.net/projects/code-tools/jmh/ (https://github.com/openjdk/jmh)
+
+
+[plugins]
+kotlin-jvm                                  = { id = "org.jetbrains.kotlin.jvm",                                        version.ref = "kotlin" }
+gitonium                                    = { id = "org.metaborg.gitonium",                                           version.ref = "gitonium" }
+coronium-bundle                             = { id = "org.metaborg.coronium.bundle",                                    version.ref = "coronium" }
+foojay-resolver-convention                  = { id = "org.gradle.toolchains.foojay-resolver-convention",                version.ref = "foojay" }
+metaborg-gradle-rootproject                 = { id = "org.metaborg.gradle.config.root-project",                         version.ref = "metaborg-gradle-config" }
+metaborg-gradle-subproject                  = { id = "org.metaborg.gradle.config.sub-project",                          version.ref = "metaborg-gradle-config" }
+metaborg-gradle-java-library                = { id = "org.metaborg.gradle.config.java-library",                         version.ref = "metaborg-gradle-config" }
+metaborg-gradle-java-application            = { id = "org.metaborg.gradle.config.java-application",                     version.ref = "metaborg-gradle-config" }
+metaborg-gradle-java-gradleplugin           = { id = "org.metaborg.gradle.config.java-gradle-plugin",                   version.ref = "metaborg-gradle-config" }
+metaborg-gradle-kotlin-library              = { id = "org.metaborg.gradle.config.kotlin-library",                       version.ref = "metaborg-gradle-config" }
+metaborg-gradle-kotlin-application          = { id = "org.metaborg.gradle.config.kotlin-application",                   version.ref = "metaborg-gradle-config" }
+metaborg-gradle-kotlin-testingonly          = { id = "org.metaborg.gradle.config.kotlin-testing-only",                  version.ref = "metaborg-gradle-config" }
+metaborg-gradle-kotlin-gradleplugin         = { id = "org.metaborg.gradle.config.kotlin-gradle-plugin",                 version.ref = "metaborg-gradle-config" }
+metaborg-gradle-junit-testing               = { id = "org.metaborg.gradle.config.junit-testing",                        version.ref = "metaborg-gradle-config" }
+spoofax-gradle-base                         = { id = "org.metaborg.devenv.spoofax.gradle.base",                         version.ref = "spoofax-gradle" }
+spoofax-gradle-langspec                     = { id = "org.metaborg.devenv.spoofax.gradle.langspec",                     version.ref = "spoofax-gradle" }
+spoofax-gradle-project                      = { id = "org.metaborg.devenv.spoofax.gradle.project",                      version.ref = "spoofax-gradle" }
+spoofax-gradle-test                         = { id = "org.metaborg.devenv.spoofax.gradle.test",                         version.ref = "spoofax-gradle" }
+metaborg-convention-java                    = { id = "org.metaborg.convention.java",                                    version.ref = "metaborg-gradle-convention" }
+metaborg-convention-mavenpublish            = { id = "org.metaborg.convention.maven-publish",                           version.ref = "metaborg-gradle-convention" }
+metaborg-convention-rootproject             = { id = "org.metaborg.convention.root-project",                            version.ref = "metaborg-gradle-convention" }
+develocity                                  = { id = "org.gradle.develocity",                                           version.ref = "develocity" }
+bnd-builder                                 = { id = "biz.aQute.bnd.builder",                                           version.ref = "bnd" }
+intellij                                    = { id = "org.jetbrains.intellij",                                          version.ref = "intellij" }
+
+[libraries]
+# The below libraries ARE part of the Spoofax platform definition.
+# NOTE: Also update: platform/build.gradle.kts
+
+# Metaborg Common (https://github.com/metaborg/common)
+metaborg-common                             = { module = "org.metaborg:common",                                         version.ref = "metaborg-common" }
+
+# Metaborg Depman (https://github.com/metaborg/spoofax3-depman)
+metaborg-platform                           = { module = "org.metaborg.spoofax3:platform",                              version.ref = "metaborg-depman" }
+
+# Metaborg Log (https://github.com/metaborg/log)
+metaborg-log-api                            = { module = "org.metaborg:log.api",                                        version.ref = "metaborg-log" }
+metaborg-log-backend-logback                = { module = "org.metaborg:log.backend.logback",                            version.ref = "metaborg-log" }
+metaborg-log-backend-slf4j                  = { module = "org.metaborg:log.backend.slf4j",                              version.ref = "metaborg-log" }
+metaborg-log-dagger                         = { module = "org.metaborg:log.dagger",                                     version.ref = "metaborg-log" }
+
+# Metaborg PIE (https://github.com/metaborg/pie)
+metaborg-pie-api                            = { module = "org.metaborg:pie.api",                                        version.ref = "metaborg-pie" }
+metaborg-pie-api-test                       = { module = "org.metaborg:pie.api.test",                                   version.ref = "metaborg-pie" }
+metaborg-pie-dagger                         = { module = "org.metaborg:pie.dagger",                                     version.ref = "metaborg-pie" }
+metaborg-pie-graph                          = { module = "org.metaborg:pie.graph",                                      version.ref = "metaborg-pie" }
+metaborg-pie-lang                           = { module = "org.metaborg:pie.lang",                                       version.ref = "metaborg-pie" }
+metaborg-pie-lang-runtime-java              = { module = "org.metaborg:pie.lang.runtime.java",                          version.ref = "metaborg-pie" }
+metaborg-pie-lang-runtime-kotlin            = { module = "org.metaborg:pie.lang.runtime.kotlin",                        version.ref = "metaborg-pie" }
+metaborg-pie-lang-test                      = { module = "org.metaborg:pie.lang.test",                                  version.ref = "metaborg-pie" }
+metaborg-pie-runtime                        = { module = "org.metaborg:pie.runtime",                                    version.ref = "metaborg-pie" }
+metaborg-pie-runtime-test                   = { module = "org.metaborg:pie.runtime.test",                               version.ref = "metaborg-pie" }
+metaborg-pie-serde-fst                      = { module = "org.metaborg:pie.serde.fst",                                  version.ref = "metaborg-pie" }
+metaborg-pie-serde-kryo                     = { module = "org.metaborg:pie.serde.kryo",                                 version.ref = "metaborg-pie" }
+metaborg-pie-share-coroutine                = { module = "org.metaborg:pie.share.coroutine",                            version.ref = "metaborg-pie" }
+metaborg-pie-store-lmdb                     = { module = "org.metaborg:pie.store.lmdb",                                 version.ref = "metaborg-pie" }
+metaborg-pie-task-archive                   = { module = "org.metaborg:pie.task.archive",                               version.ref = "metaborg-pie" }
+metaborg-pie-task-java                      = { module = "org.metaborg:pie.task.java",                                  version.ref = "metaborg-pie" }
+metaborg-pie-task-java-ecj                  = { module = "org.metaborg:pie.task.java.ecj",                              version.ref = "metaborg-pie" }
+metaborg-pie-taskdefs-guice                 = { module = "org.metaborg:pie.taskdefs.guice",                             version.ref = "metaborg-pie" }
+
+# Metaborg Resource (https://github.com/metaborg/resource)
+metaborg-resource-api                       = { module = "org.metaborg:resource",                                       version.ref = "metaborg-resource" }
+metaborg-resource-dagger                    = { module = "org.metaborg:resource.dagger",                                version.ref = "metaborg-resource" }
+
+# Spoofax 3/PIE (https://github.com/metaborg/spoofax-pie)
+spoofax3-aterm-common                       = { module = "org.metaborg:aterm.common",                                   version.ref = "spoofax3" }
+spoofax3-cfg                                = { module = "org.metaborg:cfg",                                            version.ref = "spoofax3" }
+spoofax3-cfg-cli                            = { module = "org.metaborg:cfg.cli",                                        version.ref = "spoofax3" } # Not published
+spoofax3-cfg-eclipse                        = { module = "org.metaborg:cfg.eclipse",                                    version.ref = "spoofax3" } # Not published
+spoofax3-cfg-intellij                       = { module = "org.metaborg:cfg.intellij",                                   version.ref = "spoofax3" } # Not published
+spoofax3-cfg-spoofax2                       = { module = "org.metaborg:cfg.spoofax2",                                   version.ref = "spoofax3" }
+spoofax3-cli                                = { module = "org.metaborg:spoofax.cli",                                    version.ref = "spoofax3" }
+spoofax3-compiler                           = { module = "org.metaborg:spoofax.compiler",                               version.ref = "spoofax3" }
+spoofax3-compiler-eclipsebundle             = { module = "org.metaborg:spoofax.compiler.eclipsebundle",                 version.ref = "spoofax3" }
+spoofax3-compiler-gradle                    = { module = "org.metaborg:spoofax.compiler.gradle",                        version.ref = "spoofax3" }
+spoofax3-compiler-gradle-spoofax2           = { module = "org.metaborg:spoofax.compiler.gradle.spoofax2",               version.ref = "spoofax3" }
+spoofax3-compiler-interfaces                = { module = "org.metaborg:spoofax.compiler.interfaces",                    version.ref = "spoofax3" }
+spoofax3-compiler-spoofax2                  = { module = "org.metaborg:spoofax.compiler.spoofax2",                      version.ref = "spoofax3" }
+spoofax3-compiler-spoofax2-dagger           = { module = "org.metaborg:spoofax.compiler.spoofax2.dagger",               version.ref = "spoofax3" }
+spoofax3-constraint-common                  = { module = "org.metaborg:constraint.common",                              version.ref = "spoofax3" }
+spoofax3-constraint-pie                     = { module = "org.metaborg:constraint.pie",                                 version.ref = "spoofax3" }
+spoofax3-core                               = { module = "org.metaborg:spoofax.core",                                   version.ref = "spoofax3" }
+spoofax3-dynamix                            = { module = "org.metaborg:dynamix",                                        version.ref = "spoofax3" }
+spoofax3-dynamix-cli                        = { module = "org.metaborg:dynamix.cli",                                    version.ref = "spoofax3" } # Not published
+spoofax3-dynamix-eclipse                    = { module = "org.metaborg:dynamix.eclipse",                                version.ref = "spoofax3" } # Not published
+spoofax3-dynamix-intellij                   = { module = "org.metaborg:dynamix.intellij",                               version.ref = "spoofax3" } # Not published
+spoofax3-dynamix-spoofax2                   = { module = "org.metaborg:dynamix.spoofax2",                               version.ref = "spoofax3" }
+spoofax3-eclipse                            = { module = "org.metaborg:spoofax.eclipse",                                version.ref = "spoofax3" }
+spoofax3-esv                                = { module = "org.metaborg:esv",                                            version.ref = "spoofax3" }
+spoofax3-esv-cli                            = { module = "org.metaborg:esv.cli",                                        version.ref = "spoofax3" } # Not published
+spoofax3-esv-common                         = { module = "org.metaborg:esv.common",                                     version.ref = "spoofax3" }
+spoofax3-esv-eclipse                        = { module = "org.metaborg:esv.eclipse",                                    version.ref = "spoofax3" } # Not published
+spoofax3-esv-intellij                       = { module = "org.metaborg:esv.intellij",                                   version.ref = "spoofax3" } # Not published
+spoofax3-gpp                                = { module = "org.metaborg:gpp",                                            version.ref = "spoofax3" }
+spoofax3-gpp-eclipse                        = { module = "org.metaborg:gpp.eclipse",                                    version.ref = "spoofax3" }
+spoofax3-intellij                           = { module = "org.metaborg:spoofax.intellij",                               version.ref = "spoofax3" }
+spoofax3-jsglr-common                       = { module = "org.metaborg:jsglr.common",                                   version.ref = "spoofax3" }
+spoofax3-jsglr-pie                          = { module = "org.metaborg:jsglr.pie",                                      version.ref = "spoofax3" }
+spoofax3-jsglr1-common                      = { module = "org.metaborg:jsglr1.common",                                  version.ref = "spoofax3" }
+spoofax3-jsglr2-common                      = { module = "org.metaborg:jsglr2.common",                                  version.ref = "spoofax3" }
+spoofax3-libspoofax2                        = { module = "org.metaborg:libspoofax2",                                    version.ref = "spoofax3" }
+spoofax3-libspoofax2-eclipse                = { module = "org.metaborg:libspoofax2.eclipse",                            version.ref = "spoofax3" } # Not published
+spoofax3-libstatix                          = { module = "org.metaborg:libstatix",                                      version.ref = "spoofax3" }
+spoofax3-libstatix-eclipse                  = { module = "org.metaborg:libstatix.eclipse",                              version.ref = "spoofax3" } # Not published
+spoofax3-lwb-compiler                       = { module = "org.metaborg:spoofax.lwb.compiler",                           version.ref = "spoofax3" }
+spoofax3-lwb-compiler-gradle                = { module = "org.metaborg:spoofax.lwb.compiler.gradle",                    version.ref = "spoofax3" }
+spoofax3-lwb-dynamicloading                 = { module = "org.metaborg:spoofax.lwb.dynamicloading",                     version.ref = "spoofax3" }
+spoofax3-nabl2-common                       = { module = "org.metaborg:nabl2.common",                                   version.ref = "spoofax3" }
+spoofax3-resource                           = { module = "org.metaborg:spoofax.resource",                               version.ref = "spoofax3" }
+spoofax3-sdf3                               = { module = "org.metaborg:sdf3",                                           version.ref = "spoofax3" }
+spoofax3-sdf3-cli                           = { module = "org.metaborg:sdf3.cli",                                       version.ref = "spoofax3" } # Not published
+spoofax3-sdf3-eclipse                       = { module = "org.metaborg:sdf3.eclipse",                                   version.ref = "spoofax3" } # Not published
+spoofax3-sdf3-extdynamix                    = { module = "org.metaborg:sdf3_ext_dynamix",                               version.ref = "spoofax3" }
+spoofax3-sdf3-extdynamix-eclipse            = { module = "org.metaborg:sdf3_ext_dynamix.eclipse",                       version.ref = "spoofax3" } # Not published
+spoofax3-sdf3-extdynamix-spoofax2           = { module = "org.metaborg:sdf3_ext_dynamix.spoofax2",                      version.ref = "spoofax3" }
+spoofax3-sdf3-extstatix                     = { module = "org.metaborg:sdf3_ext_statix",                                version.ref = "spoofax3" }
+spoofax3-sdf3-extstatix-eclipse             = { module = "org.metaborg:sdf3_ext_statix.eclipse",                        version.ref = "spoofax3" } # Not published
+spoofax3-sdf3-intellij                      = { module = "org.metaborg:sdf3.intellij",                                  version.ref = "spoofax3" } # Not published
+spoofax3-spoofax-common                     = { module = "org.metaborg:spoofax.common",                                 version.ref = "spoofax3" }
+spoofax3-spoofax2-common                    = { module = "org.metaborg:spoofax2.common",                                version.ref = "spoofax3" }
+spoofax3-spt                                = { module = "org.metaborg:spt",                                            version.ref = "spoofax3" }
+spoofax3-spt-api                            = { module = "org.metaborg:spt.api",                                        version.ref = "spoofax3" }
+spoofax3-spt-cli                            = { module = "org.metaborg:spt.cli",                                        version.ref = "spoofax3" } # Not published
+spoofax3-spt-dynamicloading                 = { module = "org.metaborg:spt.dynamicloading",                             version.ref = "spoofax3" }
+spoofax3-spt-eclipse                        = { module = "org.metaborg:spt.eclipse",                                    version.ref = "spoofax3" } # Not published
+spoofax3-spt-intellij                       = { module = "org.metaborg:spt.intellij",                                   version.ref = "spoofax3" } # Not published
+spoofax3-statix                             = { module = "org.metaborg:statix",                                         version.ref = "spoofax3" }
+spoofax3-statix-cli                         = { module = "org.metaborg:statix.cli",                                     version.ref = "spoofax3" } # Not published
+spoofax3-statix-codecompletion              = { module = "org.metaborg:statix.codecompletion",                          version.ref = "spoofax3" }
+spoofax3-statix-codecompletion-pie          = { module = "org.metaborg:statix.codecompletion.pie",                      version.ref = "spoofax3" }
+spoofax3-statix-common                      = { module = "org.metaborg:statix.common",                                  version.ref = "spoofax3" }
+spoofax3-statix-eclipse                     = { module = "org.metaborg:statix.eclipse",                                 version.ref = "spoofax3" } # Not published
+spoofax3-statix-intellij                    = { module = "org.metaborg:statix.intellij",                                version.ref = "spoofax3" } # Not published
+spoofax3-statix-multilang                   = { module = "org.metaborg:statix.multilang",                               version.ref = "spoofax3" }
+spoofax3-statix-multilang-eclipse           = { module = "org.metaborg:statix.multilang.eclipse",                       version.ref = "spoofax3" }
+spoofax3-statix-pie                         = { module = "org.metaborg:statix.pie",                                     version.ref = "spoofax3" }
+spoofax3-stratego                           = { module = "org.metaborg:stratego",                                       version.ref = "spoofax3" }
+spoofax3-stratego-cli                       = { module = "org.metaborg:stratego.cli",                                   version.ref = "spoofax3" } # Not published
+spoofax3-stratego-common                    = { module = "org.metaborg:stratego.common",                                version.ref = "spoofax3" }
+spoofax3-stratego-eclipse                   = { module = "org.metaborg:stratego.eclipse",                               version.ref = "spoofax3" } # Not published
+spoofax3-stratego-intellij                  = { module = "org.metaborg:stratego.intellij",                              version.ref = "spoofax3" } # Not published
+spoofax3-stratego-pie                       = { module = "org.metaborg:stratego.pie",                                   version.ref = "spoofax3" }
+spoofax3-strategolib                        = { module = "org.metaborg:strategolib",                                    version.ref = "spoofax3" }
+spoofax3-strategolib-eclipse                = { module = "org.metaborg:strategolib.eclipse",                            version.ref = "spoofax3" }
+spoofax3-tego-runtime                       = { module = "org.metaborg:tego.runtime",                                   version.ref = "spoofax3" }
+spoofax3-test                               = { module = "org.metaborg:spoofax.test",                                   version.ref = "spoofax3" }
+spoofax3-tooling-eclipsebundle              = { module = "org.metaborg:tooling.eclipsebundle",                          version.ref = "spoofax3" }
+spoofax3-transform-pie                      = { module = "org.metaborg:transform.pie",                                  version.ref = "spoofax3" }
+
+
+# ESV (https://github.com/metaborg/esv)
+esv-lang                                    = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "esv" }
+
+# Flowspec (https://github.com/metaborg/flowspec)
+flowspec-runtime                            = { module = "org.metaborg:flowspec.runtime",                               version.ref = "spoofax2" }  # Only spoofax 2 build
+
+# JSGLR (https://github.com/metaborg/jsglr)
+interpreter-library-jsglr                   = { module = "org.metaborg.devenv:org.spoofax.interpreter.library.jsglr",   version.ref = "jsglr" }
+jsglr                                       = { module = "org.metaborg.devenv:org.spoofax.jsglr",                       version.ref = "jsglr" }
+jsglr-shared                                = { module = "org.metaborg.devenv:jsglr.shared",                            version.ref = "jsglr" }
+jsglr2                                      = { module = "org.metaborg.devenv:org.spoofax.jsglr2",                      version.ref = "jsglr" }
+makepermissive                              = { module = "org.metaborg:make-permissive",                                version.ref = "spoofax2" }  # Only spoofax 2 build
+
+# MB Exec (https://github.com/metaborg/mb-exec)
+interpreter-core                            = { module = "org.metaborg.devenv:org.spoofax.interpreter.core",            version.ref = "mb-exec" }
+interpreter-library-java                    = { module = "org.metaborg.devenv:org.spoofax.interpreter.library.java",    version.ref = "mb-exec" }
+interpreter-library-xml                     = { module = "org.metaborg.devenv:org.spoofax.interpreter.library.xml",     version.ref = "mb-exec" }
+metaborg-util                               = { module = "org.metaborg.devenv:org.metaborg.util",                       version.ref = "mb-exec" }
+util-vfs2                                   = { module = "org.metaborg.devenv:util-vfs2",                               version.ref = "mb-exec" }
+
+# MB Rep (https://github.com/metaborg/mb-rep)
+interpreter-library-index                   = { module = "org.metaborg.devenv:org.spoofax.interpreter.library.index",   version.ref = "mb-rep" }
+spoofax-terms                               = { module = "org.metaborg.devenv:org.spoofax.terms",                       version.ref = "mb-rep" }
+
+# NaBL (https://github.com/metaborg/nabl)
+nabl-lang                                   = { module = "org.metaborg:org.metaborg.meta.lang.nabl",                    version.ref = "spoofax2" }  # Only spoofax 2 build
+nabl-praffrayi                              = { module = "org.metaborg.devenv:p_raffrayi",                              version.ref = "nabl" }
+nabl-renaming-java                          = { module = "org.metaborg.devenv:renaming.java",                           version.ref = "nabl" }
+nabl-scopegraph                             = { module = "org.metaborg.devenv:scopegraph",                              version.ref = "nabl" }
+nabl2-lang                                  = { module = "org.metaborg.devenv:org.metaborg.meta.nabl2.lang",            version.ref = "nabl" }  # Not built in Spoofax 3?
+nabl2-runtime                               = { module = "org.metaborg.devenv:org.metaborg.meta.nabl2.runtime",         version.ref = "nabl" }
+nabl2-shared                                = { module = "org.metaborg.devenv:org.metaborg.meta.nabl2.shared",          version.ref = "nabl" }
+nabl2-solver                                = { module = "org.metaborg.devenv:nabl2.solver",                            version.ref = "nabl" }
+nabl2-terms                                 = { module = "org.metaborg.devenv:nabl2.terms",                             version.ref = "nabl" }
+statix-generator                            = { module = "org.metaborg.devenv:statix.generator",                        version.ref = "nabl" }
+statix-lang                                 = { module = "org.metaborg.devenv:statix.lang",                             version.ref = "nabl" }
+statix-runtime                              = { module = "org.metaborg.devenv:statix.runtime",                          version.ref = "nabl" }
+statix-solver                               = { module = "org.metaborg.devenv:statix.solver",                           version.ref = "nabl" }
+ts-lang                                     = { module = "org.metaborg:org.metaborg.meta.lang.ts",                      version.ref = "spoofax2" }  # Only spoofax 2 build
+
+# Runtime Libraries (https://github.com/metaborg/runtime-libraries)
+meta-lib-analysis                           = { module = "org.metaborg:org.metaborg.meta.lib.analysis",                 version.ref = "spoofax2" }  # Only spoofax 2 build
+metaborg-runtime-task                       = { module = "org.metaborg:org.metaborg.runtime.task",                      version.ref = "spoofax2" }  # Only spoofax 2 build
+
+# SDF (https://github.com/metaborg/sdf)
+parsetable                                  = { module = "org.metaborg.devenv:org.metaborg.parsetable",                 version.ref = "sdf" }
+sdf2parenthesize                            = { module = "org.metaborg.devenv:sdf2parenthesize",                        version.ref = "sdf" }
+sdf2table                                   = { module = "org.metaborg.devenv:sdf2table",                               version.ref = "sdf" }
+sdf3-extstatix                              = { module = "org.metaborg.devenv:sdf3.ext.statix",                         version.ref = "sdf" }
+sdf3-lang                                   = { module = "org.metaborg.devenv:org.metaborg.meta.lang.template",         version.ref = "sdf" }
+
+# Spoofax Core (https://github.com/metaborg/spoofax)
+metaborg-core                               = { module = "org.metaborg.devenv:org.metaborg.core",                       version.ref = "spoofax-core" }
+metaborg-core-test                          = { module = "org.metaborg.devenv:org.metaborg.core.test",                  version.ref = "spoofax-core" }
+metaborg-meta-core                          = { module = "org.metaborg.devenv:org.metaborg.meta.core",                  version.ref = "spoofax-core" }
+spoofax2-core                               = { module = "org.metaborg.devenv:org.metaborg.spoofax.core",               version.ref = "spoofax-core" }
+spoofax2-meta-core                          = { module = "org.metaborg.devenv:org.metaborg.spoofax.meta.core",          version.ref = "spoofax-core" }
+spoofax2-meta-lib-spoofax                   = { module = "org.metaborg.devenv:meta.lib.spoofax",                        version.ref = "spoofax-core" }
+spoofax2-nativebundle                       = { module = "org.metaborg.devenv:org.metaborg.spoofax.nativebundle",       version.ref = "spoofax-core" }
+
+# Spoofax Gradle (https://github.com/metaborg/spoofax.gradle)
+spoofax3-gradle                             = { module = "org.metaborg.devenv:spoofax.gradle",                          version.ref = "spoofax-gradle" }
+
+# SPT (https://github.com/metaborg/spt)
+mbt-core                                    = { module = "org.metaborg.devenv:org.metaborg.mbt.core",                   version.ref = "spt" }
+spt-core                                    = { module = "org.metaborg.devenv:org.metaborg.spt.core",                   version.ref = "spt" }
+spt-lang                                    = { module = "org.metaborg.devenv:org.metaborg.meta.lang.spt",              version.ref = "spt" }
+
+# Stratego (https://github.com/metaborg/stratego)
+stratego-build                              = { module = "org.metaborg.devenv:stratego.build",                          version.ref = "stratego" }
+stratego-build-spoofax2                     = { module = "org.metaborg.devenv:stratego.build.spoofax2",                 version.ref = "stratego" }
+stratego-lang                               = { module = "org.metaborg.devenv:meta.lang.stratego",                      version.ref = "stratego" }
+stratego2-lang                              = { module = "org.metaborg.devenv:stratego.lang",                           version.ref = "stratego" }
+
+# Stratego XT (https://github.com/metaborg/strategoxt)
+strategoxt-minjar                           = { module = "org.metaborg:strategoxt-min-jar",                             version.ref = "spoofax2" }      # TODO: Should this be prefixed with strategoxt? Should this be built by the StrategoXT repo Gradle?
+strategoxt-strj                             = { module = "org.metaborg.devenv:org.strategoxt.strj",                     version.ref = "strategoxt" }
+
+
+
+# ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- # ---- #
+# The below libraries must NOT be part of the Spoofax platform definition.
+# NOTE: Do NOT include these in platform/build.gradle.kts
+
+# Kotlin
+kotlinx-coroutines-core                     = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core",               version.ref = "kotlinx-coroutines" }
+
+# Collections
+capsule                                     = { module = "io.usethesource:capsule",                                     version.ref = "capsule" }
+
+# Dependency Injection
+guice                                       = { module = "com.google.inject:guice",                                     version.ref = "guice" }
+dagger                                      = { module = "com.google.dagger:dagger",                                    version.ref = "dagger" }
+dagger-compiler                             = { module = "com.google.dagger:dagger-compiler",                           version.ref = "dagger" }
+
+# Annotations & Annotation Processing
+immutables-serial                           = { module = "org.immutables:serial",                                       version.ref = "immutables" }
+immutables-value                            = { module = "org.immutables:value",                                        version.ref = "immutables" }
+immutables-value-annotations                = { module = "org.immutables:value-annotations",                            version.ref = "immutables" }
+derive4j                                    = { module = "org.derive4j:derive4j",                                       version.ref = "derive4j" }
+derive4j-annotation                         = { module = "org.derive4j:derive4j-annotation",                            version.ref = "derive4j" }
+jakarta-annotation                          = { module = "jakarta.annotation:jakarta.annotation-api",                   version.ref = "jakarta-annotation" }
+jakarta-inject                              = { module = "jakarta.inject:jakarta.inject-api",                           version.ref = "jakarta-inject" }
+javax-inject                                = { module = "javax.inject:javax.inject",                                   version.ref = "javax-inject" }
+checkerframework-android                    = { module = "org.checkerframework:checker-qual-android",                   version.ref = "checkerframework" }
+jsr305                                      = { module = "com.google.code.findbugs:jsr305",                             version.ref = "jsr305" }
+
+# Maven
+maven-resolver-api                          = { module = "org.apache.maven.resolver:maven-resolver-api",                version.ref = "maven-resolver" }
+maven-resolver-impl                         = { module = "org.apache.maven.resolver:maven-resolver-impl",               version.ref = "maven-resolver" }
+maven-resolver-connector-basic              = { module = "org.apache.maven.resolver:maven-resolver-connector-basic",    version.ref = "maven-resolver" }
+maven-resolver-transport-file               = { module = "org.apache.maven.resolver:maven-resolver-transport-file",     version.ref = "maven-resolver" }
+maven-resolver-provider                     = { module = "org.apache.maven:maven-resolver-provider",                    version.ref = "maven" }
+bnd-gradle                                  = { module = "biz.aQute.bnd:biz.aQute.bnd.gradle",                          version.ref = "bnd" }
+
+# Gradle
+coronium                                    = { module = "org.metaborg:coronium",                                       version.ref = "coronium" }
+gradle-develocityPlugin                     = { module = "com.gradle:develocity-gradle-plugin",                         version.ref = "develocity" }
+gradle-foojayPlugin                         = { module = "org.gradle.toolchains:foojay-resolver",                       version.ref = "foojay" }
+gradle-intellijPlugin                       = { module = "org.jetbrains.intellij:org.jetbrains.intellij.gradle.plugin", version = "1.0" } # Keep at 1.0 for JVM 8 compatibility
+gradle-tooling-api                          = { module = "org.gradle:gradle-tooling-api",                               version.ref = "gradle" }
+gradle-develocityAdapter                    = { module = "com.gradle:develocity-gradle-plugin-adapters",                version.ref = "develocityAdapter" }
+
+# ECJ
+eclipse-jdt-core                            = { module = "org.eclipse.jdt:org.eclipse.jdt.core",                        version.ref = "eclipse-jdt-core" }
+eclipse-jdt-compiler-tool                   = { module = "org.eclipse.jdt:org.eclipse.jdt.compiler.tool",               version.ref = "eclipse-jdt-compiler-tool" }
+eclipse-jdt-compiler-apt                    = { module = "org.eclipse.jdt:org.eclipse.jdt.compiler.apt",                version.ref = "eclipse-jdt-compiler-apt" }
+
+# CLI
+picocli                                     = { module = "info.picocli:picocli",                                        version.ref = "picocli" }
+picocli-codegen                             = { module = "info.picocli:picocli-codegen",                                version.ref = "picocli" }
+
+# Templating
+jmustache                                   = { module = "com.samskivert:jmustache",                                    version.ref = "jmustache" }
+
+# Logging
+slf4j-simple                                = { module = "org.slf4j:slf4j-simple",                                      version.ref = "slf4j" }
+slf4j-api                                   = { module = "org.slf4j:slf4j-api",                                         version.ref = "slf4j" }
+slf4j-nop                                   = { module = "org.slf4j:slf4j-nop",                                         version.ref = "slf4j" }
+jcl-over-slf4j                              = { module = "org.slf4j:jcl-over-slf4j",                                    version.ref = "slf4j" }
+logback-core                                = { module = "ch.qos.logback:logback-core",                                 version.ref = "logback" }
+logback                                     = { module = "ch.qos.logback:logback-classic",                              version.ref = "logback" }
+
+# Data Formats
+commons-configuration2-jackson              = { module = "com.virtlink.commons:commons-configuration2-jackson",         version.ref = "commons-configuration2-jackson" }
+jackson-core                                = { module = "com.fasterxml.jackson.core:jackson-core",                     version.ref = "jackson" }
+jackson-databind                            = { module = "com.fasterxml.jackson.core:jackson-databind",                 version.ref = "jackson" }
+jackson-annotations                         = { module = "com.fasterxml.jackson.core:jackson-annotations",              version.ref = "jackson" }
+jackson-dataformat-yaml                     = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml",    version.ref = "jackson" }
+snakeyaml                                   = { module = "org.yaml:snakeyaml",                                          version.ref = "snakeyaml" }
+
+# Utils
+commons-math3                               = { module = "org.apache.commons:commons-math3",                            version.ref = "commons-math3" }
+commons-io                                  = { module = "commons-io:commons-io",                                       version.ref = "commons-io" }
+commons-compress                            = { module = "org.apache.commons:commons-compress",                         version.ref = "commons-compress" }
+commons-vfs2                                = { module = "org.apache.commons:commons-vfs2",                             version.ref = "commons-vfs2" }
+commons-lang3                               = { module = "org.apache.commons:commons-lang3",                            version.ref = "commons-lang3" }
+commons-configuration2                      = { module = "org.apache.commons:commons-configuration2",                   version.ref = "commons-configuration2" }
+guava                                       = { module = "com.google.guava:guava",                                      version.ref = "guava" }
+failureaccess                               = { module = "com.google.guava:failureaccess",                              version.ref = "failureaccess" }
+rxjava                                      = { module = "io.reactivex.rxjava3:rxjava",                                 version.ref = "rxjava" }
+jimfs                                       = { module = "com.google.jimfs:jimfs",                                      version.ref = "jimfs" }
+fst                                         = { module = "de.ruedigermoeller:fst",                                      version.ref = "fst" }
+kryo                                        = { module = "com.esotericsoftware.kryo:kryo5",                             version.ref = "kryo" }
+lmdbjava                                    = { module = "org.lmdbjava:lmdbjava",                                       version.ref = "lmdbjava" }
+opencsv                                     = { module = "com.opencsv:opencsv",                                         version.ref = "opencsv" }
+classgraph                                  = { module = "io.github.classgraph:classgraph",                             version.ref = "classgraph" }
+
+# Testing
+junit                                       = { module = "org.junit.jupiter:junit-jupiter",                             version.ref = "junit" }
+junit-api                                   = { module = "org.junit.jupiter:junit-jupiter-api",                         version.ref = "junit" }
+junit-params                                = { module = "org.junit.jupiter:junit-jupiter-params",                      version.ref = "junit" }
+junit-vintage                               = { module = "org.junit.vintage:junit-vintage-engine",                      version.ref = "junit" }
+junit4                                      = { module = "junit:junit",                                                 version.ref = "junit4" }
+kotest                                      = { module = "io.kotest:kotest-runner-junit5",                              version.ref = "kotest" }
+kotest-assertions                           = { module = "io.kotest:kotest-assertions-core",                            version.ref = "kotest" }
+kotest-datatest                             = { module = "io.kotest:kotest-framework-datatest",                         version.ref = "kotest" }
+kotest-property                             = { module = "io.kotest:kotest-property",                                   version.ref = "kotest" }
+equalsverifier                              = { module = "nl.jqno.equalsverifier:equalsverifier",                       version.ref = "equalsverifier" }
+mockito-kotlin                              = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin",                  version.ref = "mockito-kotlin" }
+jmh-core                                    = { module = "org.openjdk.jmh:jmh-core",                                    version.ref = "jmh" }
+jmh-generator-annprocess                    = { module = "org.openjdk.jmh:jmh-generator-annprocess",                    version.ref = "jmh" }
