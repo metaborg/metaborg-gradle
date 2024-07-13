@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package org.metaborg.convention
 
 import com.gradle.develocity.agent.gradle.DevelocityConfiguration
@@ -49,7 +51,6 @@ class SettingsConventionPlugin: Plugin<Settings> {
         gradle.settingsEvaluated {
             if (plugins.hasPlugin("com.gradle.build-scan") || plugins.hasPlugin("com.gradle.enterprise")) {
                 // Configure the Gradle Enterprise plugin if it's configured
-                @Suppress("DEPRECATION")
                 settings.extensions.getByType(GradleEnterpriseExtension::class.java).apply {
                     buildScan {
                         termsOfServiceUrl = "https://gradle.com/terms-of-service"
