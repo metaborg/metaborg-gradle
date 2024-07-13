@@ -319,7 +319,4 @@ dependencies {
 afterEvaluate {
     // Do not try to publish this project
     tasks.withType<AbstractPublishToMaven>().configureEach { enabled = false }
-//    tasks.named("checkNotDirty") { enabled = false }
-//    tasks.named("assertNotDirty") { enabled = false }
-//    tasks.named("checkSnapshotDependencies") { enabled = false }
 }

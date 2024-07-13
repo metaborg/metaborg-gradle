@@ -16,4 +16,4 @@ jobs:
     uses: metaborg/actions/.github/workflows/gradle-build-matrix.yaml@main
     with:
       gradle-command: |
-        gradle :convention-plugin:publishToMavenLocal
+        gradle build 

@@ -11,7 +11,7 @@ jobs:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
       gradle-command: |
-        gradle :convention-plugin:assemble :convention-plugin:publish
+        gradle assemble publish
       gradle-version-command: |
         gradle -q :convention-plugin:printVersion
     secrets:
