@@ -8,7 +8,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.metaborg.convention.settings")
+    id("org.metaborg.convention.settings:0.6.3")
 }
 
 include(":java-example")
