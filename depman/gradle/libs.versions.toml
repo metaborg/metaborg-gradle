@@ -55,7 +55,7 @@ intellij                        = "1.4"                     #
 gradle                          = "5.6.4"                   # https://gradle.org/ (https://github.com/gradle/gradle)
 develocityAdapter               = "1.0.2"                   # https://github.com/gradle/develocity-agent-adapters
 # ECJ
-eclipse-jdt-core                = "3.25.0"                  # https://www.eclipse.org/jdt/core/
+eclipse-jdt-core                = "3.33.0"                  # https://www.eclipse.org/jdt/core/
 eclipse-jdt-compiler-tool       = "1.2.1100"                # https://www.eclipse.org/jdt/
 eclipse-jdt-compiler-apt        = "1.3.1200"                # https://www.eclipse.org/jdt/
 # CLI
