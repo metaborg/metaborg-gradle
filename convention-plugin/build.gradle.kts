@@ -59,7 +59,7 @@ gradlePlugin {
 
 // Get the current version into the program
 gitonium {
-    buildPropertiesFile.set(layout.buildDirectory.file("resources/main/version.properties"))
+    buildPropertiesFile.set(layout.buildDirectory.file("resources/main/org/metaborg/convention/version.properties"))
 }
 
 publishing {

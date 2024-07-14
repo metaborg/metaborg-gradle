@@ -11,7 +11,7 @@ object BuildInfo {
     private val properties = Properties()
 
     init {
-        val versionPropertiesResourcePath = "/version.properties"
+        val versionPropertiesResourcePath = "/org/metaborg/convention/version.properties"
         BuildInfo::class.java.getResourceAsStream(versionPropertiesResourcePath).use { inputStream ->
             properties.load(checkNotNull(inputStream))
         }
