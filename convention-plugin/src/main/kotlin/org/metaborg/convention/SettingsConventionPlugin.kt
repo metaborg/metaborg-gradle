@@ -17,7 +17,7 @@ import org.gradle.kotlin.dsl.maven
 class SettingsConventionPlugin: Plugin<Settings> {
 
     // Version of org.metaborg.spoofax3:catalog to be used for Metaborg projects
-    private val catalogVersion = BuildInfo.releaseVersion
+    private val catalogVersion: String? = BuildInfo.releaseVersion
 
     @Suppress("UnstableApiUsage")
     override fun apply(settings: Settings): Unit = with(settings) {
@@ -39,7 +39,7 @@ class SettingsConventionPlugin: Plugin<Settings> {
             }
             versionCatalogs {
                 create("libs") {
-                    from("org.metaborg:catalog:$catalogVersion")
+                    from("org.metaborg:catalog" + (catalogVersion?.let { ":$it" } ?: ""))
                 }
             }
         }

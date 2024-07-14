@@ -18,16 +18,16 @@ object BuildInfo {
     }
 
     /** The current version. */
-    val version: String get() = checkNotNull(properties.getProperty("version"))
+    val version: String? get() = properties.getProperty("version")
     /** The most recent release version. */
-    val releaseVersion: String get() = checkNotNull(properties.getProperty("release-version"))
+    val releaseVersion: String? get() = properties.getProperty("release-version")
     /** The commit ID. */
-    val commit: String get() = checkNotNull(properties.getProperty("short-revision"))
+    val commit: String? get() = properties.getProperty("short-revision")
 
     /** The application build time, as an [Instant]; or `null` when it could not be parsed. */
-    val buildTime: Instant? get() = tryParseOffsetDateTime(buildTimeString)
+    val buildTime: Instant? get() = buildTimeString?.let { tryParseOffsetDateTime(it) }
     /** The application build time, as a string. */
-    val buildTimeString: String get() = checkNotNull(properties.getProperty("build-time"))
+    val buildTimeString: String? get() = properties.getProperty("build-time")
 
 
     /**
