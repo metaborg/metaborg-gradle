@@ -11,10 +11,6 @@ plugins {
 group = "org.metaborg"
 description = "The Metaborg Gradle convention plugin."
 
-extra["isReleaseVersion"] = !version.toString().endsWith("-SNAPSHOT")
-extra["isDirtyVersion"] = version.toString().endsWith("+dirty")
-extra["isCI"] = !System.getenv("CI").isNullOrEmpty()
-
 repositories {
     mavenCentral()
     gradlePluginPortal()
@@ -100,7 +96,7 @@ publishing {
             val releasesRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/releases/")
             val snapshotsRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/snapshots/")
             name = "MetaborgArtifacts"
-            url = if (project.extra["isReleaseVersion"] as Boolean) releasesRepoUrl else snapshotsRepoUrl
+            url = if (!version.toString().contains("-SNAPSHOT")) releasesRepoUrl else snapshotsRepoUrl
             credentials {
                 username = project.findProperty("publish.repository.metaborg.artifacts.username") as String? ?: System.getenv("METABORG_ARTIFACTS_USERNAME")
                 password = project.findProperty("publish.repository.metaborg.artifacts.password") as String? ?: System.getenv("METABORG_ARTIFACTS_PASSWORD")
@@ -130,7 +126,7 @@ publishing {
 
 val checkNotDirty by tasks.registering {
     doLast {
-        if (project.extra["isDirtyVersion"] as Boolean) {
+        if (project.version.toString().endsWith("+dirty")) {
             throw GradleException("Cannot publish a dirty version: ${project.version}")
         }
     }

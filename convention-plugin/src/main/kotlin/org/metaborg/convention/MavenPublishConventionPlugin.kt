@@ -27,10 +27,6 @@ class MavenPublishConventionPlugin: Plugin<Project> {
         // Apply the Maven Publish plugin
         plugins.apply("maven-publish")
 
-        extra["isReleaseVersion"] = !version.toString().endsWith("-SNAPSHOT")
-        extra["isDirtyVersion"] = version.toString().endsWith("+dirty")
-        extra["isCI"] = !System.getenv("CI").isNullOrEmpty()
-
         // Set the metadata for (existing) publications
         afterEvaluate {
             configure<PublishingExtension> {
@@ -84,7 +80,7 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                         val releasesRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/releases/")
                         val snapshotsRepoUrl = uri("https://artifacts.metaborg.org/content/repositories/snapshots/")
                         name = METABORG_ARTIFACTS_PUBLICATION_NAME
-                        url = if (project.extra["isReleaseVersion"] as Boolean) releasesRepoUrl else snapshotsRepoUrl
+                        url = if (!version.toString().contains("-SNAPSHOT")) releasesRepoUrl else snapshotsRepoUrl
                         credentials {
                             username = project.findProperty("publish.repository.metaborg.artifacts.username") as String? ?: System.getenv("METABORG_ARTIFACTS_USERNAME")
                             password = project.findProperty("publish.repository.metaborg.artifacts.password") as String? ?: System.getenv("METABORG_ARTIFACTS_PASSWORD")
