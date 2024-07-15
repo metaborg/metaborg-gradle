@@ -12,7 +12,7 @@ import org.gradle.kotlin.dsl.maven
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-private val LOG: Logger = LoggerFactory.getLogger("FooPlugin")
+private val LOG: Logger = LoggerFactory.getLogger(SettingsConventionPlugin::class.java)
 
 /**
  * Configures a Gradle build.

@@ -1,7 +1,7 @@
 [versions]
 # Plugins
 kotlin                          = "1.8.20"                  # https://kotlinlang.org/
-gitonium                        = "1.5.3"                   # https://github.com/metaborg/gitonium
+gitonium                        = "1.5.4"                   # https://github.com/metaborg/gitonium
 foojay                          = "0.8.0"                   # https://github.com/gradle/foojay-toolchains
 metaborg-gradle-config          = "0.7.0"                   # https://github.com/metaborg/gradle.config
 devenv-spoofax-gradle           = "0.5.9"                   # https://github.com/metaborg/spoofax.gradle
