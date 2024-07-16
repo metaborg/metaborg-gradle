@@ -1,10 +1,9 @@
 import org.metaborg.convention.MavenPublishConventionExtension
 
-// Workaround for issue: https://youtrack.jetbrains.com/issue/KTIJ-19369
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("org.metaborg.convention.root-project")
-    alias(libs.plugins.gitonium)
+    // We don't use the version catalog here, to avoid a bootstrapping problem.
+    id("org.metaborg.gitonium") version "1.7.0"
 }
 
 allprojects {
