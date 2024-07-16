@@ -5,9 +5,15 @@ plugins {
     `maven-publish`
 //    signing
     // We don't use the version catalog here, to avoid a bootstrapping problem.
-    id("org.metaborg.gitonium") version "1.6.2"
+    id("org.metaborg.gitonium") version "1.7.0"
 }
 
+gitonium {
+    // Get the current version into the program
+    buildPropertiesFile.set(layout.buildDirectory.file("resources/main/org/metaborg/convention/version.properties"))
+}
+
+version = gitonium.version
 group = "org.metaborg"
 description = "The Metaborg Gradle convention plugin."
 
@@ -51,11 +57,6 @@ gradlePlugin {
             implementationClass = "org.metaborg.convention.RootProjectConventionPlugin"
         }
     }
-}
-
-// Get the current version into the program
-gitonium {
-    buildPropertiesFile.set(layout.buildDirectory.file("resources/main/org/metaborg/convention/version.properties"))
 }
 
 publishing {
