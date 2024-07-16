@@ -5,7 +5,7 @@ plugins {
     `maven-publish`
 //    signing
     // We don't use the version catalog here, to avoid a bootstrapping problem.
-    id("org.metaborg.gitonium") version "1.5.4"
+    id("org.metaborg.gitonium") version "1.6.2"
 }
 
 group = "org.metaborg"
