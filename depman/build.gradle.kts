@@ -19,4 +19,9 @@ allprojects {
             repoName.set("metaborg-gradle")
         }
     }
+
+    repositories {
+        maven(url = "https://artifacts.metaborg.org/content/groups/public/")
+        mavenCentral()
+    }
 }
