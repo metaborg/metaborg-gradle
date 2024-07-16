@@ -25,13 +25,6 @@ class JavaConventionPlugin: Plugin<Project> {
         // Apply the Java base plugin
         plugins.apply("java-base")
 
-        repositories {
-            // Maven Artifacts repository
-            maven(url = "https://artifacts.metaborg.org/content/groups/public/")
-            // Repository for other packages
-            mavenCentral()
-        }
-
         plugins.withType<JavaPlugin> {
             tasks.withType<Test> {
                 // Support any JUnit 5 compatible test runner
