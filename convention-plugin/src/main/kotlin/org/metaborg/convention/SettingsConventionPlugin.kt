@@ -31,9 +31,6 @@ class SettingsConventionPlugin: Plugin<Settings> {
 
         // This allows us to use the catalog in dependencies
         dependencyResolutionManagement {
-            repositories {
-                maven(url = "https://artifacts.metaborg.org/content/groups/public/")
-            }
             versionCatalogs {
                 create("libs") {
                     from("org.metaborg:catalog" + (catalogVersion?.let { ":$it" } ?: ""))
