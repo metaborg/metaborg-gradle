@@ -29,13 +29,6 @@ class SettingsConventionPlugin: Plugin<Settings> {
         val extension = extensions.create<SettingsConventionExtension>("settingsConvention")
         extension.setConvention()
 
-        // This allows us to use plugins from Metaborg Artifacts
-        pluginManagement {
-            repositories {
-                maven(url = "https://artifacts.metaborg.org/content/groups/public/")
-            }
-        }
-
         // This allows us to use the catalog in dependencies
         dependencyResolutionManagement {
             repositories {
