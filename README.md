@@ -50,8 +50,8 @@ https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/b
 [github:build]: https://github.com/metaborg/metaborg-gradle/actions
 [license-badge]: https://img.shields.io/github/license/metaborg/metaborg-gradle
 [license]: https://github.com/metaborg/metaborg-gradle/blob/main/LICENSE
-[github-badge:release]: https://img.shields.io/github/v/release/metaborg/metaborg-gradle
-[github:release]: https://github.com/metaborg/metaborg-gradle/releases?display_name=release
+[github-badge:release]: https://img.shields.io/github/v/release/metaborg/metaborg-gradle?display_name=release
+[github:release]: https://github.com/metaborg/metaborg-gradle/releases
 [documentation-badge]: https://img.shields.io/badge/docs-latest-brightgreen
 [documentation]: https://spoofax.dev/metaborg-gradle/
 [documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
