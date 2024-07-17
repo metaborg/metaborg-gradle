@@ -205,6 +205,7 @@ dependencies {
         api(libs.stratego2.lang)
 
         // Stratego XT (https://github.com/metaborg/strategoxt)
+        api(libs.strategoxt.jar)
         api(libs.strategoxt.minjar)
         api(libs.strategoxt.strj)
 

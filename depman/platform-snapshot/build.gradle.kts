@@ -205,6 +205,7 @@ dependencies {
         api(libs.stratego2.lang) { version { require("latest.integration") } }
 
         // Stratego XT (https://github.com/metaborg/strategoxt)
+        api(libs.strategoxt.jar) { version { require("latest.integration") } }
         api(libs.strategoxt.minjar) { version { require("latest.integration") } }
         api(libs.strategoxt.strj) { version { require("latest.integration") } }
 

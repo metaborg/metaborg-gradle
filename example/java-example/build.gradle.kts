@@ -28,6 +28,7 @@ publishing {
 
 repositories {
     maven("https://artifacts.metaborg.org/content/groups/public/")
+    maven("https://repo.gradle.org/gradle/libs-releases") // Required for Gradle tooling API.
 }
 
 dependencies {
@@ -228,6 +229,7 @@ dependencies {
 //    api(libs.stratego2.lang)                          // TODO: spoofax-language component
 
     // Stratego XT (https://github.com/metaborg/strategoxt)
+    api(libs.strategoxt.jar)
     api(libs.strategoxt.minjar)
     api(libs.strategoxt.strj)
 
@@ -254,6 +256,7 @@ dependencies {
     api(libs.jakarta.inject)
     api(libs.javax.inject)
     api(libs.checkerframework.android)
+    api(libs.jsr305)
 
     // Maven
     api(libs.maven.resolver.api)
@@ -264,8 +267,12 @@ dependencies {
     api(libs.bnd.gradle)
 
     // Gradle
+    api(libs.coronium)
     api(libs.gradle.develocityPlugin)
     api(libs.gradle.foojayPlugin)
+    api(libs.gradle.intellijPlugin)
+    api(libs.gradle.tooling.api)
+    api(libs.gradle.develocityAdapter)
 
     // ECJ
     api(libs.eclipse.jdt.core)
@@ -285,6 +292,15 @@ dependencies {
     api(libs.jackson.databind)
     api(libs.jackson.annotations)
     api(libs.jackson.dataformat.yaml)
+    api(libs.snakeyaml)
+
+    // Build
+    api(libs.pluto)
+    api(libs.pluto.build.java)
+    api(libs.jmustache)
+    api(libs.mustache.compiler)
+    api(libs.ant)
+    api(libs.ant.contrib)
 
     // Utils
     api(libs.commons.math3)
@@ -300,6 +316,8 @@ dependencies {
     api(libs.fst)
     api(libs.kryo)
     api(libs.lmdbjava)
+    api(libs.opencsv)
+    api(libs.classgraph)
 
     // Testing
     api(libs.junit)
@@ -313,6 +331,9 @@ dependencies {
     api(libs.kotest.property)
     api(libs.equalsverifier)
     api(libs.mockito.kotlin)
+    api(libs.jmh.core)
+    api(libs.jmh.generator.annprocess)
+    api(libs.junit4.benchmarks)
 
 }
 
