@@ -1,13 +1,19 @@
 rootProject.name = "metaborg-gradle-project"
 
-// This allows us to use plugins from Metaborg Artifacts
-pluginManagement {
+dependencyResolutionManagement {
     repositories {
         maven("https://artifacts.metaborg.org/content/groups/public/")
+        mavenCentral()
     }
 }
 
-// This downloads an appropriate JVM if not already available
+pluginManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+        gradlePluginPortal()
+    }
+}
+
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
