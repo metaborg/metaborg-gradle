@@ -128,7 +128,7 @@ intellij                                    = { id = "org.jetbrains.intellij",  
 metaborg-common                             = { module = "org.metaborg:common",                                         version.ref = "metaborg-common" }
 
 # Metaborg Depman (https://github.com/metaborg/spoofax3-depman)
-metaborg-platform                           = { module = "org.metaborg.spoofax3:platform",                              version.ref = "metaborg-depman" }
+metaborg-platform                           = { module = "org.metaborg:platform",                                       version.ref = "metaborg-depman" }
 
 # Metaborg Log (https://github.com/metaborg/log)
 metaborg-log-api                            = { module = "org.metaborg:log.api",                                        version.ref = "metaborg-log" }
