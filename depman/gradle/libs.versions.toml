@@ -256,6 +256,7 @@ spoofax3-transform-pie                      = { module = "org.metaborg:transform
 
 # ESV (https://github.com/metaborg/esv)
 esv-lang                                    = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "esv" }
+spoofax2-esv-lang                           = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 
 # Flowspec (https://github.com/metaborg/flowspec)
 flowspec-runtime                            = { module = "org.metaborg:flowspec.runtime",                               version.ref = "spoofax2" }  # Only spoofax 2 build
@@ -279,7 +280,7 @@ interpreter-library-index                   = { module = "org.metaborg.devenv:or
 spoofax-terms                               = { module = "org.metaborg.devenv:org.spoofax.terms",                       version.ref = "mb-rep" }
 
 # NaBL (https://github.com/metaborg/nabl)
-nabl-lang                                   = { module = "org.metaborg:org.metaborg.meta.lang.nabl",                    version.ref = "spoofax2" }  # Only spoofax 2 build
+spoofax2-nabl-lang                          = { module = "org.metaborg:org.metaborg.meta.lang.nabl",                    version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping (no Spoofax 3 build exists)
 nabl-praffrayi                              = { module = "org.metaborg.devenv:p_raffrayi",                              version.ref = "nabl" }
 nabl-renaming-java                          = { module = "org.metaborg.devenv:renaming.java",                           version.ref = "nabl" }
 nabl-scopegraph                             = { module = "org.metaborg.devenv:scopegraph",                              version.ref = "nabl" }
@@ -292,7 +293,7 @@ statix-generator                            = { module = "org.metaborg.devenv:st
 statix-lang                                 = { module = "org.metaborg.devenv:statix.lang",                             version.ref = "nabl" }
 statix-runtime                              = { module = "org.metaborg.devenv:statix.runtime",                          version.ref = "nabl" }
 statix-solver                               = { module = "org.metaborg.devenv:statix.solver",                           version.ref = "nabl" }
-ts-lang                                     = { module = "org.metaborg:org.metaborg.meta.lang.ts",                      version.ref = "spoofax2" }  # Only spoofax 2 build
+spoofax2-ts-lang                            = { module = "org.metaborg:org.metaborg.meta.lang.ts",                      version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping (no Spoofax 3 build exists)
 
 # Runtime Libraries (https://github.com/metaborg/runtime-libraries)
 meta-lib-analysis                           = { module = "org.metaborg:org.metaborg.meta.lib.analysis",                 version.ref = "spoofax2" }  # Only spoofax 2 build
@@ -304,6 +305,7 @@ sdf2parenthesize                            = { module = "org.metaborg.devenv:sd
 sdf2table                                   = { module = "org.metaborg.devenv:sdf2table",                               version.ref = "sdf" }
 sdf3-extstatix                              = { module = "org.metaborg.devenv:sdf3.ext.statix",                         version.ref = "sdf" }
 sdf3-lang                                   = { module = "org.metaborg.devenv:org.metaborg.meta.lang.template",         version.ref = "sdf" }
+spoofax2-sdf3-lang                          = { module = "org.metaborg:org.metaborg.meta.lang.template",                version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 
 # Spoofax Core (https://github.com/metaborg/spoofax)
 metaborg-core                               = { module = "org.metaborg.devenv:org.metaborg.core",                       version.ref = "spoofax-core" }

@@ -132,6 +132,7 @@ dependencies {
 
         // ESV (https://github.com/metaborg/esv)
         api(libs.esv.lang) { version { require("latest.integration") } }
+        api(libs.spoofax2.esv.lang) { version { require("latest.integration") } }
 
         // Flowspec (https://github.com/metaborg/flowspec)
         api(libs.flowspec.runtime) { version { require("latest.integration") } }
@@ -155,7 +156,7 @@ dependencies {
         api(libs.spoofax.terms) { version { require("latest.integration") } }
 
         // NaBL (https://github.com/metaborg/nabl)
-        api(libs.nabl.lang) { version { require("latest.integration") } }
+        api(libs.spoofax2.nabl.lang) { version { require("latest.integration") } }
         api(libs.nabl.praffrayi) { version { require("latest.integration") } }
         api(libs.nabl.renaming.java) { version { require("latest.integration") } }
         api(libs.nabl.scopegraph) { version { require("latest.integration") } }
@@ -168,7 +169,7 @@ dependencies {
         api(libs.statix.lang) { version { require("latest.integration") } }
         api(libs.statix.runtime) { version { require("latest.integration") } }
         api(libs.statix.solver) { version { require("latest.integration") } }
-        api(libs.ts.lang) { version { require("latest.integration") } }
+        api(libs.spoofax2.ts.lang) { version { require("latest.integration") } }
 
         // Runtime Libraries (https://github.com/metaborg/runtime-libraries)
         api(libs.meta.lib.analysis) { version { require("latest.integration") } }
@@ -180,6 +181,7 @@ dependencies {
         api(libs.sdf2table) { version { require("latest.integration") } }
         api(libs.sdf3.extstatix) { version { require("latest.integration") } }
         api(libs.sdf3.lang) { version { require("latest.integration") } }
+        api(libs.spoofax2.sdf3.lang) { version { require("latest.integration") } }
 
         // Spoofax Core (https://github.com/metaborg/spoofax)
         api(libs.metaborg.core) { version { require("latest.integration") } }

@@ -132,6 +132,7 @@ dependencies {
 
         // ESV (https://github.com/metaborg/esv)
         api(libs.esv.lang)
+        api(libs.spoofax2.esv.lang)
 
         // Flowspec (https://github.com/metaborg/flowspec)
         api(libs.flowspec.runtime)
@@ -155,7 +156,7 @@ dependencies {
         api(libs.spoofax.terms)
 
         // NaBL (https://github.com/metaborg/nabl)
-        api(libs.nabl.lang)
+        api(libs.spoofax2.nabl.lang)
         api(libs.nabl.praffrayi)
         api(libs.nabl.renaming.java)
         api(libs.nabl.scopegraph)
@@ -168,7 +169,7 @@ dependencies {
         api(libs.statix.lang)
         api(libs.statix.runtime)
         api(libs.statix.solver)
-        api(libs.ts.lang)
+        api(libs.spoofax2.ts.lang)
 
         // Runtime Libraries (https://github.com/metaborg/runtime-libraries)
         api(libs.meta.lib.analysis)
@@ -180,6 +181,7 @@ dependencies {
         api(libs.sdf2table)
         api(libs.sdf3.extstatix)
         api(libs.sdf3.lang)
+        api(libs.spoofax2.sdf3.lang)
 
         // Spoofax Core (https://github.com/metaborg/spoofax)
         api(libs.metaborg.core)
