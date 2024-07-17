@@ -45,8 +45,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 
 
-[github-badge:build]: 
-https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/build.yaml
+[github-badge:build]: https://img.shields.io/github/actions/workflow/status/metaborg/metaborg-gradle/build.yaml
 [github:build]: https://github.com/metaborg/metaborg-gradle/actions
 [license-badge]: https://img.shields.io/github/license/metaborg/metaborg-gradle
 [license]: https://github.com/metaborg/metaborg-gradle/blob/main/LICENSE
