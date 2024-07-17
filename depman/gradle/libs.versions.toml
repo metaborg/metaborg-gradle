@@ -129,6 +129,8 @@ metaborg-common                             = { module = "org.metaborg:common", 
 
 # Metaborg Depman (https://github.com/metaborg/spoofax3-depman)
 metaborg-platform                           = { module = "org.metaborg:platform",                                       version.ref = "metaborg-depman" }
+metaborg-platform-latest                    = { module = "org.metaborg:platform-latest",                                version.ref = "metaborg-depman" }
+metaborg-platform-nightly                   = { module = "org.metaborg:platform-nightly",                               version.ref = "metaborg-depman" }
 
 # Metaborg Log (https://github.com/metaborg/log)
 metaborg-log-api                            = { module = "org.metaborg:log.api",                                        version.ref = "metaborg-log" }

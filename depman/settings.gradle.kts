@@ -20,4 +20,5 @@ plugins {
 
 include(":catalog")
 include(":platform")
-include(":example")
+include(":platform-latest")
+include(":platform-nightly")
