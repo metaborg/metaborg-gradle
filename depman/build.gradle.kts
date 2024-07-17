@@ -3,7 +3,7 @@ import org.metaborg.convention.MavenPublishConventionExtension
 plugins {
     id("org.metaborg.convention.root-project")
     // We don't use the version catalog here, to avoid a bootstrapping problem.
-    id("org.metaborg.gitonium") version "1.7.0"
+    id("org.metaborg.gitonium") version "1.7.1"
 }
 
 allprojects {
