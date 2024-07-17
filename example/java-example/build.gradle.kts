@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform(libs.metaborg.platform.nightly))
+    implementation(platform(libs.metaborg.platform.snapshot))
 
     // Metaborg Common (https://github.com/metaborg/common)
     api(libs.metaborg.common)

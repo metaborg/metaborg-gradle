@@ -15,12 +15,12 @@ The Metaborg Gradle convention and development plugins, and the Metaborg depende
 | `org.metaborg.convention.maven-publish` | [![Release][mvn-rel-badge:convention.maven-publish]][mvn:convention.maven-publish] | [![Snapshot][mvn-snap-badge:convention.maven-publish]][mvn:convention.maven-publish] |
 | `org.metaborg.convention.root-project`  | [![Release][mvn-rel-badge:convention.root-project]][mvn:convention.root-project]   | [![Snapshot][mvn-snap-badge:convention.root-project]][mvn:convention.root-project]   |
 
-| Artifact                        | Latest Release                                                     | Latest Snapshot                                                      |
-|---------------------------------|--------------------------------------------------------------------|----------------------------------------------------------------------|
-| `org.metaborg:catalog`          | [![Release][mvn-rel-badge:catalog]][mvn:catalog]                   | [![Snapshot][mvn-snap-badge:catalog]][mvn:catalog]                   |
-| `org.metaborg:platform`         | [![Release][mvn-rel-badge:platform]][mvn:platform]                 | [![Snapshot][mvn-snap-badge:platform]][mvn:platform]                 |
-| `org.metaborg:platform-latest`  | [![Release][mvn-rel-badge:platform-latest]][mvn:platform-latest]   | [![Snapshot][mvn-snap-badge:platform-latest]][mvn:platform-latest]   |
-| `org.metaborg:platform-nightly` | [![Release][mvn-rel-badge:platform-nightly]][mvn:platform-nightly] | [![Snapshot][mvn-snap-badge:platform-nightly]][mvn:platform-nightly] |
+| Artifact                         | Latest Release                                                       | Latest Snapshot                                                        |
+|----------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------|
+| `org.metaborg:catalog`           | [![Release][mvn-rel-badge:catalog]][mvn:catalog]                     | [![Snapshot][mvn-snap-badge:catalog]][mvn:catalog]                     |
+| `org.metaborg:platform`          | [![Release][mvn-rel-badge:platform]][mvn:platform]                   | [![Snapshot][mvn-snap-badge:platform]][mvn:platform]                   |
+| `org.metaborg:platform-latest`   | [![Release][mvn-rel-badge:platform-latest]][mvn:platform-latest]     | [![Snapshot][mvn-snap-badge:platform-latest]][mvn:platform-latest]     |
+| `org.metaborg:platform-snapshot` | [![Release][mvn-rel-badge:platform-snapshot]][mvn:platform-snapshot] | [![Snapshot][mvn-snap-badge:platform-snapshot]][mvn:platform-snapshot] |
  
 
 ## Gradle Convention
@@ -36,6 +36,8 @@ The `org.metaborg.convention` plugins applies any conventional configuration to 
 The `org.metaborg:catalog` artifact provides recommended versions for dependencies, and should be used in projects that are part of Spoofax.
 
 The `org.metaborg:platform` artifact enforces particular versions for Spoofax dependencies, and should be used by consumers of Spoofax libraries.
+
+For special use cases, the `org.metaborg:platform-latest` and `org.metaborg:platform-snapshot` artifacts provide any latest releases and snapshots of Spoofax dependencies, respectively. These may not have been tested together. Therefore, it is recommended to use a particular release of `org.metaborg:platform` in production instead.
 
 
 ## License
@@ -64,7 +66,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn:catalog]:                              https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~catalog~~~
 [mvn:platform]:                             https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform~~~
 [mvn:platform-latest]:                      https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform-latest~~~
-[mvn:platform-nightly]:                     https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform-nightly~~~
+[mvn:platform-snapshot]:                    https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform-snapshot~~~
 
 [mvn-rel-badge:convention.settings]:        https://img.shields.io/nexus/r/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:convention.java]:            https://img.shields.io/nexus/r/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
@@ -73,7 +75,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn-rel-badge:catalog]:                    https://img.shields.io/nexus/r/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:platform]:                   https://img.shields.io/nexus/r/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:platform-latest]:            https://img.shields.io/nexus/r/org.metaborg/platform-latest?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-rel-badge:platform-nightly]:           https://img.shields.io/nexus/r/org.metaborg/platform-nightly?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:platform-snapshot]:          https://img.shields.io/nexus/r/org.metaborg/platform-snapshot?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 
 [mvn-snap-badge:convention.settings]:       https://img.shields.io/nexus/s/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:convention.java]:           https://img.shields.io/nexus/s/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
@@ -82,4 +84,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn-snap-badge:catalog]:                   https://img.shields.io/nexus/s/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:platform]:                  https://img.shields.io/nexus/s/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:platform-latest]:           https://img.shields.io/nexus/s/org.metaborg/platform-latest?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:platform-nightly]:          https://img.shields.io/nexus/s/org.metaborg/platform-nightly?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:platform-snapshot]:         https://img.shields.io/nexus/s/org.metaborg/platform-snapshot?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
