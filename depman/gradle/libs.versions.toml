@@ -256,7 +256,7 @@ spoofax3-transform-pie                      = { module = "org.metaborg:transform
 
 # ESV (https://github.com/metaborg/esv)
 esv-lang                                    = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "esv" }
-spoofax2-esv-lang                           = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
+spoofax2-esv-lang                           = { module = "org.metaborg:org.metaborg.meta.lang.esv",                     version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 
 # Flowspec (https://github.com/metaborg/flowspec)
 flowspec-runtime                            = { module = "org.metaborg:flowspec.runtime",                               version.ref = "spoofax2" }  # Only spoofax 2 build
