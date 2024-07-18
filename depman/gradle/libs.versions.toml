@@ -5,7 +5,7 @@ gitonium                        = "1.7.1"                   # https://github.com
 foojay                          = "0.8.0"                   # https://github.com/gradle/foojay-toolchains
 metaborg-gradle-config          = "0.7.0"                   # https://github.com/metaborg/gradle.config
 devenv-spoofax-gradle           = "0.5.9"                   # https://github.com/metaborg/spoofax.gradle
-metaborg-gradle                 = "0.8.2"                   # https://github.com/metaborg/metaborg-gradle
+metaborg-gradle                 = "0.8.4"                   # https://github.com/metaborg/metaborg-gradle
 develocity                      = "3.17.5"                  # https://docs.gradle.com/develocity/gradle-plugin/current/ (https://plugins.gradle.org/plugin/com.gradle.develocity)
 
 # Spoofax
