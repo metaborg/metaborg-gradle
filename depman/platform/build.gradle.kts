@@ -130,6 +130,9 @@ dependencies {
         api(libs.spoofax3.tooling.eclipsebundle)
         api(libs.spoofax3.transform.pie)
 
+        // Dynsem (https://github.com/metaborg/dynsem)
+        api(libs.spoofax2.dynsem.lang)
+
         // ESV (https://github.com/metaborg/esv)
         api(libs.esv.lang)
         api(libs.spoofax2.esv.lang)
@@ -165,6 +168,7 @@ dependencies {
         api(libs.nabl2.shared)
         api(libs.nabl2.solver)
         api(libs.nabl2.terms)
+        api(libs.spoofax2.nabl2.extdynsem)
         api(libs.statix.generator)
         api(libs.statix.lang)
         api(libs.statix.runtime)

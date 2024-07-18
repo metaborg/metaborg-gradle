@@ -130,6 +130,9 @@ dependencies {
         api(libs.spoofax3.tooling.eclipsebundle) { version { require("latest.release") } }
         api(libs.spoofax3.transform.pie) { version { require("latest.release") } }
 
+        // Dynsem (https://github.com/metaborg/dynsem)
+        api(libs.spoofax2.dynsem.lang) { version { require("latest.release") } }
+
         // ESV (https://github.com/metaborg/esv)
         api(libs.esv.lang) { version { require("latest.release") } }
         api(libs.spoofax2.esv.lang) { version { require("latest.release") } }
@@ -165,6 +168,7 @@ dependencies {
         api(libs.nabl2.shared) { version { require("latest.release") } }
         api(libs.nabl2.solver) { version { require("latest.release") } }
         api(libs.nabl2.terms) { version { require("latest.release") } }
+        api(libs.spoofax2.nabl2.extdynsem) { version { require("latest.release") } }
         api(libs.statix.generator) { version { require("latest.release") } }
         api(libs.statix.lang) { version { require("latest.release") } }
         api(libs.statix.runtime) { version { require("latest.release") } }

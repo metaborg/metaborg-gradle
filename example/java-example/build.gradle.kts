@@ -153,6 +153,8 @@ dependencies {
     api(libs.spoofax3.transform.pie)
 
 
+    // Dynsem (https://github.com/metaborg/dynsem)
+//    api(libs.spoofax2.dynsem.lang)                    // TODO: spoofax-language component
 
     // ESV (https://github.com/metaborg/esv)
 //    api(libs.esv.lang)                                // TODO: spoofax-language component
@@ -189,6 +191,7 @@ dependencies {
 //    api(libs.nabl2.shared)                            // TODO: spoofax-language component
     api(libs.nabl2.solver)
     api(libs.nabl2.terms)
+    api(libs.spoofax2.nabl2.extdynsem)
     api(libs.statix.generator)
 //    api(libs.statix.lang)                             // TODO: spoofax-language component
 //    api(libs.statix.runtime)                          // TODO: spoofax-language component

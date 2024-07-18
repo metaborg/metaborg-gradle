@@ -254,6 +254,9 @@ spoofax3-tooling-eclipsebundle              = { module = "org.metaborg:tooling.e
 spoofax3-transform-pie                      = { module = "org.metaborg:transform.pie",                                  version.ref = "spoofax3" }
 
 
+# Dynsem (https://github.com/metaborg/dynsem)
+spoofax2-dynsem-lang                        = { module = "org.metaborg:dynsem",                                         version.ref = "spoofax2" }
+
 # ESV (https://github.com/metaborg/esv)
 esv-lang                                    = { module = "org.metaborg.devenv:org.metaborg.meta.lang.esv",              version.ref = "esv" }
 spoofax2-esv-lang                           = { module = "org.metaborg:org.metaborg.meta.lang.esv",                     version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
@@ -289,6 +292,7 @@ nabl2-runtime                               = { module = "org.metaborg.devenv:or
 nabl2-shared                                = { module = "org.metaborg.devenv:org.metaborg.meta.nabl2.shared",          version.ref = "nabl" }
 nabl2-solver                                = { module = "org.metaborg.devenv:nabl2.solver",                            version.ref = "nabl" }
 nabl2-terms                                 = { module = "org.metaborg.devenv:nabl2.terms",                             version.ref = "nabl" }
+spoofax2-nabl2-extdynsem                    = { module = "org.metaborg:org.metaborg.meta.nabl2.ext.dynsem",             version.ref = "spoofax2" }
 statix-generator                            = { module = "org.metaborg.devenv:statix.generator",                        version.ref = "nabl" }
 statix-lang                                 = { module = "org.metaborg.devenv:statix.lang",                             version.ref = "nabl" }
 statix-runtime                              = { module = "org.metaborg.devenv:statix.runtime",                          version.ref = "nabl" }
