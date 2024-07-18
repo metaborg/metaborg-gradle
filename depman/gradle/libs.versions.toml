@@ -331,7 +331,7 @@ spt-lang                                    = { module = "org.metaborg.devenv:or
 # Stratego (https://github.com/metaborg/stratego)
 stratego-build                              = { module = "org.metaborg.devenv:stratego.build",                          version.ref = "stratego" }
 stratego-build-spoofax2                     = { module = "org.metaborg.devenv:stratego.build.spoofax2",                 version.ref = "stratego" }
-stratego-lang                               = { module = "org.metaborg.devenv:meta.lang.stratego",                      version.ref = "stratego" }
+stratego-lang                               = { module = "org.metaborg.devenv:org.metaborg.meta.lang.stratego",         version.ref = "stratego" }
 stratego2-lang                              = { module = "org.metaborg.devenv:stratego.lang",                           version.ref = "stratego" }
 
 # Stratego XT (https://github.com/metaborg/strategoxt)
