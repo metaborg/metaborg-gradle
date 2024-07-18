@@ -313,7 +313,7 @@ metaborg-core-test                          = { module = "org.metaborg.devenv:or
 metaborg-meta-core                          = { module = "org.metaborg.devenv:org.metaborg.meta.core",                  version.ref = "spoofax-core" }
 spoofax2-core                               = { module = "org.metaborg.devenv:org.metaborg.spoofax.core",               version.ref = "spoofax-core" }
 spoofax2-meta-core                          = { module = "org.metaborg.devenv:org.metaborg.spoofax.meta.core",          version.ref = "spoofax-core" }
-spoofax2-meta-lib-spoofax                   = { module = "org.metaborg.devenv:meta.lib.spoofax",                        version.ref = "spoofax-core" }
+meta-lib-spoofax                            = { module = "org.metaborg.devenv:meta.lib.spoofax",                        version.ref = "spoofax-core" }
 spoofax2-nativebundle                       = { module = "org.metaborg.devenv:org.metaborg.spoofax.nativebundle",       version.ref = "spoofax-core" }
 
 # Spoofax Gradle (https://github.com/metaborg/spoofax.gradle)

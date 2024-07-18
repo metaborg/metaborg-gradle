@@ -189,7 +189,7 @@ dependencies {
         api(libs.metaborg.meta.core) { version { require("latest.integration") } }
         api(libs.spoofax2.core) { version { require("latest.integration") } }
         api(libs.spoofax2.meta.core) { version { require("latest.integration") } }
-        api(libs.spoofax2.meta.lib.spoofax) { version { require("latest.integration") } }
+        api(libs.meta.lib.spoofax) { version { require("latest.integration") } }
         api(libs.spoofax2.nativebundle) { version { require("latest.integration") } }
 
         // Spoofax Gradle (https://github.com/metaborg/spoofax-gradle)

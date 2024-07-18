@@ -213,7 +213,7 @@ dependencies {
     api(libs.metaborg.meta.core)
     api(libs.spoofax2.core)
     api(libs.spoofax2.meta.core)
-//    api(libs.spoofax2.meta.lib.spoofax)               // TODO: spoofax-language component
+//    api(libs.meta.lib.spoofax)               // TODO: spoofax-language component
     api(libs.spoofax2.nativebundle)
 
     // Spoofax Gradle (https://github.com/metaborg/spoofax-gradle)
