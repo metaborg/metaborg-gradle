@@ -26,11 +26,6 @@ class JavaConventionPlugin: Plugin<Project> {
         plugins.apply("java-base")
 
         plugins.withType<JavaPlugin> {
-            tasks.withType<Test> {
-                // Support any JUnit 5 compatible test runner
-                useJUnitPlatform()
-            }
-
             configure<JavaPluginExtension> {
                 // Compile to a specific Java version
                 toolchain.languageVersion.set(extension.javaVersion)

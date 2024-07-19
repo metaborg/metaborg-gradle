@@ -48,6 +48,10 @@ gradlePlugin {
             id = "org.metaborg.convention.java"
             implementationClass = "org.metaborg.convention.JavaConventionPlugin"
         }
+        create("convention.junit") {
+            id = "org.metaborg.convention.junit"
+            implementationClass = "org.metaborg.convention.JUnitConventionPlugin"
+        }
         create("convention.maven-publish") {
             id = "org.metaborg.convention.maven-publish"
             implementationClass = "org.metaborg.convention.MavenPublishConventionPlugin"
