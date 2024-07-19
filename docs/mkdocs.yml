@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: Metaborg Gradle Convention
-site_description: Metaborg Gradle Convention
+site_name: Metaborg Gradle
+site_description: Metaborg Gradle
 site_author: Daniel A. A. Pelsmaeker
 
 docs_dir: content/
@@ -11,18 +11,25 @@ edit_uri: https://github.com/metaborg/metaborg-gradle/edit/main/docs
 nav:
   - Home:
       - index.md
+  - Conventions:
+      - conventions/index.md
+      - conventions/java.md
+      - conventions/junit.md
+      - conventions/mavenpublish.md
+      - conventions/rootproject.md
+      - conventions/settings.md
 
 theme:
   name: material
   language: en
   icon:
-    logo: fontawesome/solid/book
+    logo: fontawesome/solid/diagram-project
     repo: fontawesome/brands/github
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
+      primary: indigo
       accent: orange
       toggle:
         icon: material/weather-night
@@ -30,7 +37,7 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue grey
+      primary: indigo
       accent: orange
       toggle:
         icon: material/weather-sunny
