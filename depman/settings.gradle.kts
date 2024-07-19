@@ -20,5 +20,3 @@ plugins {
 
 include(":catalog")
 include(":platform")
-include(":platform-latest")
-include(":platform-snapshot")
