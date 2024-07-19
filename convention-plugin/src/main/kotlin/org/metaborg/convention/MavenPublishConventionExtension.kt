@@ -7,16 +7,7 @@ import org.gradle.api.provider.Property
 import org.gradle.kotlin.dsl.newInstance
 import javax.inject.Inject
 
-/**
- * Configuration for the Maven Publish convention.
- *
- * Create an instance like this:
- *
- * ```kotlin
- * extensions.create<MavenPublishConventionExtension>("mavenPublishConvention")
- * extension.setConvention()
- * ```
- */
+/** Configuration for the Maven Publish convention. */
 open class MavenPublishConventionExtension @Inject constructor(
     /** The Gradle object factory. */
     objects: ObjectFactory,
@@ -26,11 +17,6 @@ open class MavenPublishConventionExtension @Inject constructor(
     /** The name of the repository. */
     val repoName: Property<String> = objects.property(String::class.java)
 
-    /** Whether to publish to GitHub packages. */
-    val publishToGitHubPackages: Property<Boolean> = objects.property(Boolean::class.java)
-    /** Whether to publish to Metaborg Artifacts. */
-    val publishToMetaborgArtifacts: Property<Boolean> = objects.property(Boolean::class.java)
-
     /** The publication metadata (dot notation). */
     val metadata: MetadataHandler = objects.newInstance<MetadataHandler>()
 
@@ -39,39 +25,34 @@ open class MavenPublishConventionExtension @Inject constructor(
         action.execute(metadata)
     }
 
-    /**
-     * Sets the convention (default values) for the configuration extension.
-     */
-    fun setConvention() {
-        publishToGitHubPackages.convention(metadata.scm.map { it == SCM.GitHub })
-        publishToMetaborgArtifacts.convention(true)
-        metadata.setConvention()
-    }
+    /** Whether to publish to GitHub packages. */
+    val publishToGitHubPackages: Property<Boolean> = objects.property(Boolean::class.java)
+        .convention(metadata.scm.map { it == SCM.GitHub })
+    /** Whether to publish to Metaborg Artifacts. */
+    val publishToMetaborgArtifacts: Property<Boolean> = objects.property(Boolean::class.java)
+        .convention(true)
 
     /** Configuration of publication metadata. */
-    interface MetadataHandler {
+    open class MetadataHandler @Inject constructor(
+        /** The Gradle object factory. */
+        objects: ObjectFactory,
+    ) {
         /** The year the project was started. */
-        val inceptionYear: Property<String>
+        val inceptionYear: Property<String> = objects.property(String::class.java)
         /** The developers of the project. */
-        val developers: ListProperty<Developer>
+        val developers: ListProperty<Developer> = objects.listProperty(Developer::class.java)
         /** The source control management system. */
-        val scm: Property<SCM>
+        val scm: Property<SCM> = objects.property(SCM::class.java)
+            .convention(SCM.GitHub)
         /** The open source license that the project is published under. */
-        val license: Property<OpenSourceLicense>
+        val license: Property<OpenSourceLicense> = objects.property(OpenSourceLicense::class.java)
+            .convention(OpenSourceLicense.Apache2)
         /** The HTTP SCM URL format. */
-        val httpUrlFormat: Property<String>
+        val httpUrlFormat: Property<String> = objects.property(String::class.java)
+            .convention(scm.map { it.httpUrlFormat })
         /** The SCM URL format. */
-        val scmUrlFormat: Property<String>
-
-        /**
-         * Sets the convention (default values) for the configuration extension.
-         */
-        fun setConvention() {
-            scm.convention(SCM.GitHub)
-            license.convention(OpenSourceLicense.Apache2)
-            httpUrlFormat.convention(scm.map { it.httpUrlFormat })
-            scmUrlFormat.convention(scm.map { it.scmUrlFormat })
-        }
+        val scmUrlFormat: Property<String> = objects.property(String::class.java)
+            .convention(scm.map { it.scmUrlFormat })
     }
 }
 

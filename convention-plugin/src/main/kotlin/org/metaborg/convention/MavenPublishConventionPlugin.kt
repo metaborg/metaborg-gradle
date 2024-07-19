@@ -22,7 +22,6 @@ class MavenPublishConventionPlugin: Plugin<Project> {
     override fun apply(project: Project): Unit = with(project) {
         // Add the configuration extension
         val extension = extensions.create<MavenPublishConventionExtension>("mavenPublishConvention")
-        extension.setConvention()
 
         // Apply the Maven Publish plugin
         plugins.apply("maven-publish")

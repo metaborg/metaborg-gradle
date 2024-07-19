@@ -1,42 +1,40 @@
 package org.metaborg.convention
 
+import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.Property
+import javax.inject.Inject
 
 /** Configuration for the root project convention. */
-interface RootProjectConventionExtension {
-
+open class RootProjectConventionExtension @Inject constructor(
+    /** The Gradle object factory. */
+    objects: ObjectFactory,
+) {
     /** Suffix for all task names. */
-    val taskNameSuffix: Property<String>
+    val taskNameSuffix: Property<String> = objects.property(String::class.java)
+        .convention("")
 
     /** The name of the `assemble` task. */
-    val assembleTaskName: Property<String>
+    val assembleTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "assemble$it"} )
     /** The name of the `build` task. */
-    val buildTaskName: Property<String>
+    val buildTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "build$it"} )
     /** The name of the `clean` task. */
-    val cleanTaskName: Property<String>
+    val cleanTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "clean$it"} )
     /** The name of the `publish` task. */
-    val publishTaskName: Property<String>
+    val publishTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "publish$it"} )
     /** The name of the `publishToMavenLocal` task. */
-    val publishToMavenLocalTaskName: Property<String>
+    val publishToMavenLocalTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "publish${it}ToMavenLocal"} )
     /** The name of the `check` task. */
-    val checkTaskName: Property<String>
+    val checkTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "check$it"} )
     /** The name of the `test` task. */
-    val testTaskName: Property<String>
+    val testTaskName: Property<String> = objects.property(String::class.java)
+        .convention(taskNameSuffix.map { "test$it"} )
     /** The name of the `tasks` task. */
-    val tasksTaskName: Property<String>
-
-    /**
-     * Sets the convention (default values) for the configuration extension.
-     */
-    fun setConvention() {
-        taskNameSuffix.convention("")
-        assembleTaskName.convention(taskNameSuffix.map { "assemble$it"} )
-        buildTaskName.convention(taskNameSuffix.map { "build$it"} )
-        cleanTaskName.convention(taskNameSuffix.map { "clean$it"} )
-        publishTaskName.convention(taskNameSuffix.map { "publish$it"} )
-        publishToMavenLocalTaskName.convention(taskNameSuffix.map { "publish${it}ToMavenLocal"} )
-        checkTaskName.convention(taskNameSuffix.map { "check$it"} )
-        testTaskName.convention(taskNameSuffix.map { "test$it"} )
-        tasksTaskName.convention("allTasks")
-    }
+    val tasksTaskName: Property<String> = objects.property(String::class.java)
+        .convention("allTasks")
 }

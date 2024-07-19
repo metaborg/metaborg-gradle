@@ -21,7 +21,6 @@ class RootProjectConventionPlugin: Plugin<Project> {
     override fun apply(project: Project): Unit = with(project) {
         // Add the configuration extension
         val extension = extensions.create<RootProjectConventionExtension>("rootProjectConvention")
-        extension.setConvention()
 
         afterEvaluate {
             // Build tasks

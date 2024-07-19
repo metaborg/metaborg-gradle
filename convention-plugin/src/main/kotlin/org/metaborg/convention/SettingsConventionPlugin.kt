@@ -27,7 +27,6 @@ class SettingsConventionPlugin: Plugin<Settings> {
     override fun apply(settings: Settings): Unit = with(settings) {
         // Add the configuration extension
         val extension = extensions.create<SettingsConventionExtension>("settingsConvention")
-        extension.setConvention()
 
         // This allows us to use the catalog in dependencies
         dependencyResolutionManagement {

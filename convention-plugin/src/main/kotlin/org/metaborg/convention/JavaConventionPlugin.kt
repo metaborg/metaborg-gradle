@@ -20,7 +20,6 @@ class JavaConventionPlugin: Plugin<Project> {
     override fun apply(project: Project): Unit = with(project) {
         // Add the configuration extension
         val extension = extensions.create<JavaConventionExtension>("javaConvention")
-        extension.setConvention()
 
         // Apply the Java base plugin
         plugins.apply("java-base")
