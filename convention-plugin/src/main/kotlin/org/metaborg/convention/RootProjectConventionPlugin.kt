@@ -33,32 +33,32 @@ class RootProjectConventionPlugin: Plugin<Project> {
                 LifecycleBasePlugin.ASSEMBLE_TASK_NAME,
                 LifecycleBasePlugin.BUILD_GROUP,
                 "Assembles the outputs of this project, subprojects, and included builds.",
-                extension.addAggregateLifecycleTasks.get(),
-                extension.addStubLifecycleTasks.get(),
+                extension.registerLifecycleTasks.get(),
+                extension.registerStubLifecycleTasks.get(),
             )
             registerRootTasks(
                 "${LifecycleBasePlugin.BUILD_TASK_NAME}All",
                 LifecycleBasePlugin.BUILD_TASK_NAME,
                 LifecycleBasePlugin.BUILD_GROUP,
                 "Assembles and tests this project, subprojects, and included builds.",
-                extension.addAggregateLifecycleTasks.get(),
-                extension.addStubLifecycleTasks.get(),
+                extension.registerLifecycleTasks.get(),
+                extension.registerStubLifecycleTasks.get(),
             )
             registerRootTasks(
                 "${LifecycleBasePlugin.CLEAN_TASK_NAME}All",
                 LifecycleBasePlugin.CLEAN_TASK_NAME,
                 LifecycleBasePlugin.BUILD_GROUP,
                 "Cleans the outputs of this project, subprojects, and included builds.",
-                extension.addAggregateLifecycleTasks.get(),
-                extension.addStubLifecycleTasks.get(),
+                extension.registerLifecycleTasks.get(),
+                extension.registerStubLifecycleTasks.get(),
             )
             registerRootTasks(
                 "${LifecycleBasePlugin.CHECK_TASK_NAME}All",
                 LifecycleBasePlugin.CHECK_TASK_NAME,
                 LifecycleBasePlugin.VERIFICATION_GROUP,
                 "Runs all checks on this project, subprojects, and included builds.",
-                extension.addAggregateLifecycleTasks.get(),
-                extension.addStubLifecycleTasks.get(),
+                extension.registerLifecycleTasks.get(),
+                extension.registerStubLifecycleTasks.get(),
             )
 
             // Publish tasks
@@ -67,16 +67,16 @@ class RootProjectConventionPlugin: Plugin<Project> {
                 PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME,
                 PublishingPlugin.PUBLISH_TASK_GROUP,
                 "Publishes all publications produced by this project, subprojects, and included builds to remote Maven repositories.",
-                extension.addAggregatePublishTasks.get(),
-                extension.addStubPublishTasks.get(),
+                extension.registerPublishTasks.get(),
+                extension.registerStubPublishTasks.get(),
             )
             registerRootTasks(
                 "${PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME}AllToMavenLocal",
                 "${PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME}ToMavenLocal",
                 PublishingPlugin.PUBLISH_TASK_GROUP,
                 "Publishes all Maven publications produced by this project, subprojects, and included builds to the local Maven cache.",
-                extension.addAggregatePublishTasks.get(),
-                extension.addStubPublishTasks.get(),
+                extension.registerPublishTasks.get(),
+                extension.registerStubPublishTasks.get(),
             )
         }
     }

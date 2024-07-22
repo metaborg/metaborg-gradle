@@ -6,6 +6,10 @@ plugins {
     id("org.metaborg.gitonium") version "1.7.1"
 }
 
+rootProjectConvention {
+    registerPublishTasks.set(true)
+}
+
 allprojects {
     apply(plugin = "org.metaborg.gitonium")
 

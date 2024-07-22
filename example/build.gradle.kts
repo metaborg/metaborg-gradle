@@ -14,3 +14,7 @@ allprojects {
     }
 }
 
+
+rootProjectConvention {
+    registerStubPublishTasks.set(true)
+}

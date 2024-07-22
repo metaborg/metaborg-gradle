@@ -11,16 +11,16 @@ open class RootProjectConventionExtension @Inject constructor(
 ) {
 
     /** Whether to add the aggregate `assembleAll`, `buildAll`, `checkAll`, and `cleanAll` lifecycle tasks. */
-    val addAggregateLifecycleTasks: Property<Boolean> = objects.property(Boolean::class.java)
+    val registerLifecycleTasks: Property<Boolean> = objects.property(Boolean::class.java)
         .convention(true)
     /** Whether to add the aggregate `publishAll`, `publishAllToMavenLocal` lifecycle tasks. */
-    val addAggregatePublishTasks: Property<Boolean> = objects.property(Boolean::class.java)
+    val registerPublishTasks: Property<Boolean> = objects.property(Boolean::class.java)
         .convention(false)
 
-    /** Whether to add stub `assemble`, `build`, `check`, and `clean` lifecycle tasks that depend on their `*All` counterparts, if not already defined. */
-    val addStubLifecycleTasks: Property<Boolean> = objects.property(Boolean::class.java)
-        .convention(true)
+    /** Whether to register stub `assemble`, `build`, `check`, and `clean` lifecycle tasks that depend on their `*All` counterparts, if not already defined. */
+    val registerStubLifecycleTasks: Property<Boolean> = objects.property(Boolean::class.java)
+        .convention(registerLifecycleTasks)
     /** Whether to add stub `publish` and `publishToMavenLocal` tasks that depend on their `*All` counterparts, if not already defined. */
-    val addStubPublishTasks: Property<Boolean> = objects.property(Boolean::class.java)
-        .convention(false)
+    val registerStubPublishTasks: Property<Boolean> = objects.property(Boolean::class.java)
+        .convention(registerPublishTasks)
 }

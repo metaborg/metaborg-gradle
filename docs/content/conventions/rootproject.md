@@ -15,10 +15,10 @@ The plugin can be configured using the `rootProjectConvention` extension:
 
 ```kotlin title="build.gradle.kts"
 rootProjectConvention {
-    addAggregateLifecycleTasks.set(true)
-    addAggregatePublishTasks.set(false)
+    registerLifecycleTasks.set(true)
+    registerPublishTasks.set(false)
 
-    addStubLifecycleTasks.set(true)
-    addStubPublishTasks.set(false)
+    registerStubLifecycleTasks.set(true)
+    registerStubPublishTasks.set(false)
 }
 ```
