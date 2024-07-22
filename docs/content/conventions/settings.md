@@ -1,5 +1,5 @@
 ---
-title: "Root Project Convention"
+title: "Settings Convention"
 ---
 # Settings Convention Plugin
 The Settings convention applies the Gradle Develocity and Foojay plugins, and installs the Metaborg version catalog.
