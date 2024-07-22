@@ -25,6 +25,8 @@ jobs:
   publish-release:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
+      gradle-command: |
+        gradle :convention-plugin:publish
       gradle-version-command: |
         gradle -q :convention-plugin:printVersion
     if: "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release-')"
