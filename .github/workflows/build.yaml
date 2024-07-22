@@ -14,7 +14,7 @@ jobs:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
       gradle-command: |
-        gradle assemble publish -Pgitonium.isSnapshot=true
+        gradle :convention-plugin:publish -Pgitonium.isSnapshot=true
       gradle-version-command: |
         gradle -q :convention-plugin:printVersion -Pgitonium.isSnapshot=true
     if: "github.event_name == 'push' && github.ref == 'refs/heads/main'"
