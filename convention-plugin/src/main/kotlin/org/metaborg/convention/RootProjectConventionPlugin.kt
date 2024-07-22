@@ -2,7 +2,10 @@ package org.metaborg.convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPlugin
+import org.gradle.api.publish.plugins.PublishingPlugin
 import org.gradle.kotlin.dsl.create
+import org.gradle.language.base.plugins.LifecycleBasePlugin
 
 /**
  * Configures a root project of a multi-project build, by adding explicit tasks
@@ -25,50 +28,50 @@ class RootProjectConventionPlugin: Plugin<Project> {
         afterEvaluate {
             // Build tasks
             tasks.register(extension.assembleTaskName.get()) {
-                group = "Build"
+                group = LifecycleBasePlugin.BUILD_GROUP
                 description = "Assembles the outputs of the subprojects and included builds."
-                dependsOn(gradle.includedBuilds.map { it.task(":assemble") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("assemble") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${LifecycleBasePlugin.ASSEMBLE_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(LifecycleBasePlugin.ASSEMBLE_TASK_NAME) })
             }
             tasks.register(extension.buildTaskName.get()) {
-                group = "Build"
+                group = LifecycleBasePlugin.BUILD_GROUP
                 description = "Assembles and tests the subprojects and included builds."
-                dependsOn(gradle.includedBuilds.map { it.task(":build") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("build") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${LifecycleBasePlugin.BUILD_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(LifecycleBasePlugin.BUILD_TASK_NAME) })
             }
             tasks.register(extension.cleanTaskName.get()) {
-                group = "Build"
+                group = LifecycleBasePlugin.BUILD_GROUP
                 description = "Cleans the outputs of the subprojects and included builds."
-                dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("clean") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${LifecycleBasePlugin.CLEAN_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(LifecycleBasePlugin.CLEAN_TASK_NAME) })
             }
 
             // Publishing tasks
             tasks.register(extension.publishTaskName.get()) {
-                group = "Publishing"
+                group = PublishingPlugin.PUBLISH_TASK_GROUP
                 description = "Publishes all subprojects and included builds to a remote Maven repository."
-                dependsOn(gradle.includedBuilds.map { it.task(":publish") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("publish") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME) })
             }
             tasks.register(extension.publishToMavenLocalTaskName.get()) {
-                group = "Publishing"
+                group = PublishingPlugin.PUBLISH_TASK_GROUP
                 description = "Publishes all subprojects and included builds to the local Maven repository."
-                dependsOn(gradle.includedBuilds.map { it.task(":publishToMavenLocal") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("publishToMavenLocal") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME}ToMavenLocal") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("${PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME}ToMavenLocal") })
             }
 
             // Verification tasks
             tasks.register(extension.checkTaskName.get()) {
-                group = "Verification"
+                group = LifecycleBasePlugin.VERIFICATION_GROUP
                 description = "Runs all checks on the subprojects and included builds."
-                dependsOn(gradle.includedBuilds.map { it.task(":check") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("check") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${LifecycleBasePlugin.CHECK_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(LifecycleBasePlugin.CHECK_TASK_NAME) })
             }
             tasks.register(extension.testTaskName.get()) {
-                group = "Verification"
+                group = LifecycleBasePlugin.VERIFICATION_GROUP
                 description = "Runs all unit tests on the subprojects and included builds."
-                dependsOn(gradle.includedBuilds.map { it.task(":test") })
-                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName("test") })
+                dependsOn(gradle.includedBuilds.map { it.task(":${JavaPlugin.TEST_TASK_NAME}") })
+                dependsOn(project.subprojects.mapNotNull { it.tasks.findByName(JavaPlugin.TEST_TASK_NAME) })
             }
 
             // Help tasks
