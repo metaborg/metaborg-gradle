@@ -2,7 +2,7 @@
 title: "Root Project Convention"
 ---
 # Root Project Convention Plugin
-The Root Project convention plugin adds tasks that invoke the corresponding tasks on the sub-builds and subprojects.
+The Root Project convention plugin adds `buildAll`, `assembleAll`, `cleanAll`, and `checkAll` tasks that invoke the corresponding tasks on the sub-builds and subprojects. Optionally, it can add `publishAll` and `publishAllToMavenLocal` tasks as well, but this is generally not recommended as not all included builds may have the `maven-publish` plugin applied.
 
 ```kotlin title="build.gradle.kts"
 plugins {
@@ -15,15 +15,10 @@ The plugin can be configured using the `rootProjectConvention` extension:
 
 ```kotlin title="build.gradle.kts"
 rootProjectConvention {
-    // The suffix for tasks that invoke tasks in subprojects and included builds
-    taskNameSuffix.set("All")
-    assembleTaskName.set("assembleAll")
-    buildTaskName.set("buildAll")
-    cleanTaskName.set("cleanAll")
-    publishTaskName.set("publishAll")
-    publishToMavenLocalTaskName.set("publishAllToMavenLocal")
-    checkTaskName.set("checkAll")
-    testTaskName.set("testAll")
-    tasksTaskName.set("allTasks")
+    addAggregateLifecycleTasks.set(true)
+    addAggregatePublishTasks.set(false)
+
+    addStubLifecycleTasks.set(true)
+    addStubPublishTasks.set(false)
 }
 ```
