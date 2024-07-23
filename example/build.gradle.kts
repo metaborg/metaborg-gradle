@@ -16,5 +16,7 @@ allprojects {
 
 
 rootProjectConvention {
+    // Just register some stub `publish` and `publishToMavenLocal` tasks,
+    //  so we can call `publish` on all included builds from the root without issues.
     registerStubPublishTasks.set(true)
 }

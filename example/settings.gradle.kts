@@ -1,5 +1,3 @@
-import org.metaborg.convention.MavenPublishConventionExtension
-
 rootProject.name = "example-project"
 
 pluginManagement {
