@@ -14,6 +14,7 @@ The Metaborg Gradle convention and development plugins, and the Metaborg depende
 | `org.metaborg.convention.java`          | [![Release][mvn-rel-badge:convention.java]][mvn:convention.java]                   | [![Snapshot][mvn-snap-badge:convention.java]][mvn:convention.java]                   |
 | `org.metaborg.convention.maven-publish` | [![Release][mvn-rel-badge:convention.maven-publish]][mvn:convention.maven-publish] | [![Snapshot][mvn-snap-badge:convention.maven-publish]][mvn:convention.maven-publish] |
 | `org.metaborg.convention.root-project`  | [![Release][mvn-rel-badge:convention.root-project]][mvn:convention.root-project]   | [![Snapshot][mvn-snap-badge:convention.root-project]][mvn:convention.root-project]   |
+| `org.metaborg.devenv.root `             | [![Release][mvn-rel-badge:devenv.root]][mvn:devenv.root]                           | [![Snapshot][mvn-snap-badge:devenv.root]][mvn:devenv.root]                           |
 
 | Artifact                         | Latest Release                                                       | Latest Snapshot                                                        |
 |----------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------|
@@ -30,6 +31,12 @@ The `org.metaborg.convention` plugins applies any conventional configuration to 
 - `org.metaborg.convention.java`: Configures a project as a Java project (library or application).
 - `org.metaborg.convention.maven-publish`: Configures the Maven publications for a project.
 - `org.metaborg.convention.root-project`: Configures the root project of a Gradle multi-project build.
+
+
+## Gradle Devenv
+The `org.metaborg.devenv` plugins are used to configure the development environment for Spoofax projects. It has the following plugins:
+
+- `org.metaborg.devenv.root`: Configures the root project of a Gradle multi-project build for development.
 
 
 ## Gradle Dependency Management
@@ -63,6 +70,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn:convention.java]:                      https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.java~org.metaborg.convention.java.gradle.plugin~~~
 [mvn:convention.maven-publish]:             https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.maven-publish.gradle.plugin~~~
 [mvn:convention.root-project]:              https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.root-project~org.metaborg.convention.root-project.gradle.plugin~~~
+[mvn:devenv.root]:                          https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.devenv.root~org.metaborg.devenv.root.gradle.plugin~~~
 [mvn:catalog]:                              https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~catalog~~~
 [mvn:platform]:                             https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform~~~
 [mvn:platform-latest]:                      https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform-latest~~~
@@ -72,6 +80,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn-rel-badge:convention.java]:            https://img.shields.io/nexus/r/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:convention.maven-publish]:   https://img.shields.io/nexus/r/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:convention.root-project]:    https://img.shields.io/nexus/r/org.metaborg.convention.root-project/org.metaborg.convention.root-project.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:devenv.root]:                https://img.shields.io/nexus/r/org.metaborg.devenv.root/org.metaborg.devenv.root.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:catalog]:                    https://img.shields.io/nexus/r/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:platform]:                   https://img.shields.io/nexus/r/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:platform-latest]:            https://img.shields.io/nexus/r/org.metaborg/platform-latest?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
@@ -81,6 +90,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn-snap-badge:convention.java]:           https://img.shields.io/nexus/s/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:convention.maven-publish]:  https://img.shields.io/nexus/s/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:convention.root-project]:   https://img.shields.io/nexus/s/org.metaborg.convention.root-project/org.metaborg.convention.root-project.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:devenv.root]:               https://img.shields.io/nexus/s/org.metaborg.devenv.root/org.metaborg.devenv.root.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:catalog]:                   https://img.shields.io/nexus/s/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:platform]:                  https://img.shields.io/nexus/s/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:platform-latest]:           https://img.shields.io/nexus/s/org.metaborg/platform-latest?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20

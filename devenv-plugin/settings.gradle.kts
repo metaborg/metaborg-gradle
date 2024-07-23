@@ -1,4 +1,4 @@
-rootProject.name = "metaborg-gradle-project"
+rootProject.name = "devenv-plugin"
 
 dependencyResolutionManagement {
     repositories {
@@ -12,13 +12,11 @@ pluginManagement {
         maven("https://artifacts.metaborg.org/content/groups/public/")
         gradlePluginPortal()
     }
+
+    includeBuild("../convention-plugin")
+    includeBuild("../depman")
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+    id("org.metaborg.convention.settings")
 }
-
-includeBuild("convention-plugin/")
-includeBuild("devenv-plugin/")
-includeBuild("depman/")
-includeBuild("example/")
