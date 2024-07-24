@@ -4,7 +4,7 @@ kotlin                          = "1.8.20"                  # https://kotlinlang
 gitonium                        = "1.7.5"                   # https://github.com/metaborg/gitonium
 foojay                          = "0.8.0"                   # https://github.com/gradle/foojay-toolchains
 metaborg-gradle-config          = "0.7.3"                   # https://github.com/metaborg/gradle.config
-spoofax-gradle                  = "0.1.38"                  # https://github.com/metaborg/spoofax.gradle
+spoofax-gradle                  = "0.1.40"                  # https://github.com/metaborg/spoofax.gradle
 metaborg-gradle                 = "0.11.1"                  # https://github.com/metaborg/metaborg-gradle
 develocity                      = "3.17.5"                  # https://docs.gradle.com/develocity/gradle-plugin/current/ (https://plugins.gradle.org/plugin/com.gradle.develocity)
 
