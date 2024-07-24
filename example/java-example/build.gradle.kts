@@ -35,6 +35,9 @@ repositories {
 dependencies {
     implementation(platform(libs.metaborg.platform))
 
+    // Metaborg Git (https://github.com/metaborg/metaborg-git)
+    api(libs.metaborg.git)
+
     // Metaborg Common (https://github.com/metaborg/common)
     api(libs.metaborg.common)
 

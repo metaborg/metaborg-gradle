@@ -10,6 +10,7 @@ description = "A Spoofax 3 platform."
 
 // Here we use the versions defined in gradle.properties (or using -P on the command line)
 //  to set the versions of the dependencies that should work together.
+val metaborgGitVersion: String = property("metaborg-git.version") as String
 val metaborgCommonVersion: String = property("metaborg-common.version") as String
 val metaborgLogVersion: String = property("metaborg-log.version") as String
 val metaborgPieVersion: String = property("metaborg-pie.version") as String
@@ -31,6 +32,9 @@ val strategoxtVersion: String = property("strategoxt.version") as String
 dependencies {
     constraints {
         // NOTE: Also update part of libs.versions.toml
+
+        // Metaborg Git (https://github.com/metaborg/metaborg-git/)
+        api(libs.metaborg.git) { version { require(metaborgGitVersion) } }
 
         // Metaborg Common (https://github.com/metaborg/common)
         api(libs.metaborg.common) { version { require(metaborgCommonVersion) } }

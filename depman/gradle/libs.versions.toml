@@ -111,6 +111,9 @@ intellij                                    = { id = "org.jetbrains.intellij",  
 # We don't specify versions here, instead we specify versions in the platform definition.
 # NOTE: Also update: platform/build.gradle.kts
 
+# Metaborg Git (https://github.com/metaborg/metaborg-git/)
+metaborg-git                                = { module = "org.metaborg:git" }
+
 # Metaborg Common (https://github.com/metaborg/common)
 metaborg-common                             = { module = "org.metaborg:common" }
 
