@@ -3,30 +3,30 @@
 kotlin                          = "1.8.20"                  # https://kotlinlang.org/
 gitonium                        = "1.7.5"                   # https://github.com/metaborg/gitonium
 foojay                          = "0.8.0"                   # https://github.com/gradle/foojay-toolchains
-metaborg-gradle-config          = "0.7.0"                   # https://github.com/metaborg/gradle.config
+metaborg-gradle-config          = "0.7.3"                   # https://github.com/metaborg/gradle.config
 devenv-spoofax-gradle           = "0.5.9"                   # https://github.com/metaborg/spoofax.gradle
-metaborg-gradle                 = "0.10.0"                  # https://github.com/metaborg/metaborg-gradle
+metaborg-gradle                 = "0.11.1"                  # https://github.com/metaborg/metaborg-gradle
 develocity                      = "3.17.5"                  # https://docs.gradle.com/develocity/gradle-plugin/current/ (https://plugins.gradle.org/plugin/com.gradle.develocity)
 
 # Spoofax
-metaborg-common                 = "0.11.0"                  # https://github.com/metaborg/common/
+metaborg-common                 = "0.12.0"                  # https://github.com/metaborg/common/
 metaborg-log                    = "0.5.5"                   # https://github.com/metaborg/log/
 metaborg-pie                    = "0.21.0"                  # https://github.com/metaborg/pie/
 metaborg-resource               = "0.14.1"                  # https://github.com/metaborg/resource/
-spoofax3                        = "0.22.1"                  # https://github.com/metaborg/spoofax-pie/
+spoofax3                        = "0.23.1"                  # https://github.com/metaborg/spoofax-pie/
 
-spoofax2                        = "2.6.0-SNAPSHOT"          # https://spoofax.dev/ (https://github.com/metaborg/spoofax-releng)
-esv                             = "0.1.36"                  # https://github.com/metaborg/esv/
-jsglr                           = "0.1.36"                  # https://github.com/metaborg/jsglr/
-mb-exec                         = "0.1.36"                  # https://github.com/metaborg/mb-exec/
-mb-rep                          = "0.1.36"                  # https://github.com/metaborg/mb-rep/
-nabl                            = "0.1.36"                  # https://github.com/metaborg/nabl/
-sdf                             = "0.1.36"                  # https://github.com/metaborg/sdf/
-spoofax-core                    = "0.1.36"                  # https://github.com/metaborg/spoofax/
-spoofax-gradle                  = "0.1.36"                  # https://github.com/metaborg/spoofax.gradle/
-spt                             = "0.1.36"                  # https://github.com/metaborg/spt/
-stratego                        = "0.1.36"                  # https://github.com/metaborg/stratego/
-strategoxt                      = "0.1.36"                  # https://github.com/metaborg/strategoxt/
+spoofax2                        = "2.5.21"                  # https://spoofax.dev/ (https://github.com/metaborg/spoofax-releng)
+esv                             = "0.1.37"                  # https://github.com/metaborg/esv/
+jsglr                           = "0.1.37"                  # https://github.com/metaborg/jsglr/
+mb-exec                         = "0.1.37"                  # https://github.com/metaborg/mb-exec/
+mb-rep                          = "0.1.37"                  # https://github.com/metaborg/mb-rep/
+nabl                            = "0.1.37"                  # https://github.com/metaborg/nabl/
+sdf                             = "0.1.37"                  # https://github.com/metaborg/sdf/
+spoofax-core                    = "0.1.37"                  # https://github.com/metaborg/spoofax/
+spoofax-gradle                  = "0.1.37"                  # https://github.com/metaborg/spoofax.gradle/
+spt                             = "0.1.37"                  # https://github.com/metaborg/spt/
+stratego                        = "0.1.37"                  # https://github.com/metaborg/stratego/
+strategoxt                      = "0.1.37"                  # https://github.com/metaborg/strategoxt/
 
 
 # Kotlin
@@ -34,7 +34,7 @@ kotlinx-coroutines              = "1.8.1"                   # https://github.com
 # Collections
 capsule                         = "0.6.3"                   # https://usethesource.io/projects/capsule/ (https://github.com/usethesource/capsule)
 # Dependency Injection
-guice                           = "5.1.0"                   # https://github.com/google/guice
+guice                           = "7.0.0"                   # https://github.com/google/guice
 dagger                          = "2.36"                    # https://github.com/google/dagger
 # Annotations & Annotation Processors
 immutables                      = "2.10.1"                  # https://immutables.github.io/ (https://github.com/immutables/immutables)
