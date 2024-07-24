@@ -8,265 +8,285 @@ plugins {
 group = "org.metaborg"
 description = "A Spoofax 3 platform."
 
+// Here we use the versions defined in gradle.properties (or using -P on the command line)
+//  to set the versions of the dependencies that should work together.
+val metaborgCommonVersion: String = property("metaborg-common.version") as String
+val metaborgLogVersion: String = property("metaborg-log.version") as String
+val metaborgPieVersion: String = property("metaborg-pie.version") as String
+val metaborgResourceVersion: String = property("metaborg-resource.version") as String
+val spoofax3Version: String = property("spoofax3.version") as String
+val spoofax2Version: String = property("spoofax2.version") as String
+val esvVersion: String = property("esv.version") as String
+val jsglrVersion: String = property("jsglr.version") as String
+val mbExecVersion: String = property("mb-exec.version") as String
+val mbRepVersion: String = property("mb-rep.version") as String
+val nablVersion: String = property("nabl.version") as String
+val sdfVersion: String = property("sdf.version") as String
+val spoofaxCoreVersion: String = property("spoofax-core.version") as String
+val spoofaxGradleVersion: String = property("spoofax-gradle.version") as String
+val sptVersion: String = property("spt.version") as String
+val strategoVersion: String = property("stratego.version") as String
+val strategoxtVersion: String = property("strategoxt.version") as String
+
 dependencies {
     constraints {
         // NOTE: Also update part of libs.versions.toml
 
         // Metaborg Common (https://github.com/metaborg/common)
-        api(libs.metaborg.common)
+        api(libs.metaborg.common) { version { require(metaborgCommonVersion) } }
 
         // Metaborg Log (https://github.com/metaborg/log)
-        api(libs.metaborg.log.api)
-        api(libs.metaborg.log.backend.logback)
-        api(libs.metaborg.log.backend.slf4j)
-        api(libs.metaborg.log.dagger)
+        api(libs.metaborg.log.api) { version { require(metaborgLogVersion) } }
+        api(libs.metaborg.log.backend.logback) { version { require(metaborgLogVersion) } }
+        api(libs.metaborg.log.backend.slf4j) { version { require(metaborgLogVersion) } }
+        api(libs.metaborg.log.dagger) { version { require(metaborgLogVersion) } }
 
         // Metaborg PIE (https://github.com/metaborg/pie)
-        api(libs.metaborg.pie.api)
-        api(libs.metaborg.pie.api.test)
-        api(libs.metaborg.pie.dagger)
-        api(libs.metaborg.pie.graph)
-        api(libs.metaborg.pie.lang)
-        api(libs.metaborg.pie.lang.runtime.java)
-        api(libs.metaborg.pie.lang.runtime.kotlin)
-        api(libs.metaborg.pie.lang.test)
-        api(libs.metaborg.pie.runtime)
-        api(libs.metaborg.pie.runtime.test)
-        api(libs.metaborg.pie.serde.fst)
-        api(libs.metaborg.pie.serde.kryo)
-        api(libs.metaborg.pie.share.coroutine)
-        api(libs.metaborg.pie.store.lmdb)
-        api(libs.metaborg.pie.task.archive)
-        api(libs.metaborg.pie.task.java)
-        api(libs.metaborg.pie.task.java.ecj)
-        api(libs.metaborg.pie.taskdefs.guice)
+        api(libs.metaborg.pie.api) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.api.test) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.dagger) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.graph) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.lang) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.lang.runtime.java) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.lang.runtime.kotlin) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.lang.test) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.runtime) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.runtime.test) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.serde.fst) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.serde.kryo) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.share.coroutine) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.store.lmdb) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.task.archive) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.task.java) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.task.java.ecj) { version { require(metaborgPieVersion) } }
+        api(libs.metaborg.pie.taskdefs.guice) { version { require(metaborgPieVersion) } }
 
         // Metaborg Resource (https://github.com/metaborg/resource)
-        api(libs.metaborg.resource.api)
-        api(libs.metaborg.resource.dagger)
+        api(libs.metaborg.resource.api) { version { require(metaborgResourceVersion) } }
+        api(libs.metaborg.resource.dagger) { version { require(metaborgResourceVersion) } }
 
         // Spoofax 3/PIE (https://github.com/metaborg/spoofax-pie)
-        api(libs.spoofax3.aterm.common)
-        api(libs.spoofax3.cfg)
-        api(libs.spoofax3.cfg.cli)
-        api(libs.spoofax3.cfg.eclipse)
-        api(libs.spoofax3.cfg.intellij)
-        api(libs.spoofax3.cfg.spoofax2)
-        api(libs.spoofax3.cli)
-        api(libs.spoofax3.compiler)
-        api(libs.spoofax3.compiler.eclipsebundle)
-        api(libs.spoofax3.compiler.gradle)
-        api(libs.spoofax3.compiler.gradle.spoofax2)
-        api(libs.spoofax3.compiler.interfaces)
-        api(libs.spoofax3.compiler.spoofax2)
-        api(libs.spoofax3.compiler.spoofax2.dagger)
-        api(libs.spoofax3.constraint.common)
-        api(libs.spoofax3.constraint.pie)
-        api(libs.spoofax3.core)
-        api(libs.spoofax3.dynamix)
-        api(libs.spoofax3.dynamix.cli)
-        api(libs.spoofax3.dynamix.eclipse)
-        api(libs.spoofax3.dynamix.intellij)
-        api(libs.spoofax3.dynamix.spoofax2)
-        api(libs.spoofax3.eclipse)
-        api(libs.spoofax3.esv)
-        api(libs.spoofax3.esv.cli)
-        api(libs.spoofax3.esv.common)
-        api(libs.spoofax3.esv.eclipse)
-        api(libs.spoofax3.esv.intellij)
-        api(libs.spoofax3.gpp)
-        api(libs.spoofax3.gpp.eclipse)
-        api(libs.spoofax3.intellij)
-        api(libs.spoofax3.jsglr.common)
-        api(libs.spoofax3.jsglr.pie)
-        api(libs.spoofax3.jsglr1.common)
-        api(libs.spoofax3.jsglr2.common)
-        api(libs.spoofax3.libspoofax2)
-        api(libs.spoofax3.libspoofax2.eclipse)
-        api(libs.spoofax3.libstatix)
-        api(libs.spoofax3.libstatix.eclipse)
-        api(libs.spoofax3.lwb.compiler)
-        api(libs.spoofax3.lwb.compiler.gradle)
-        api(libs.spoofax3.lwb.dynamicloading)
-        api(libs.spoofax3.nabl2.common)
-        api(libs.spoofax3.resource)
-        api(libs.spoofax3.sdf3)
-        api(libs.spoofax3.sdf3.cli)
-        api(libs.spoofax3.sdf3.eclipse)
-        api(libs.spoofax3.sdf3.extdynamix)
-        api(libs.spoofax3.sdf3.extdynamix.eclipse)
-        api(libs.spoofax3.sdf3.extdynamix.spoofax2)
-        api(libs.spoofax3.sdf3.extstatix)
-        api(libs.spoofax3.sdf3.extstatix.eclipse)
-        api(libs.spoofax3.sdf3.intellij)
-        api(libs.spoofax3.spoofax.common)
-        api(libs.spoofax3.spoofax2.common)
-        api(libs.spoofax3.spt)
-        api(libs.spoofax3.spt.api)
-        api(libs.spoofax3.spt.cli)
-        api(libs.spoofax3.spt.dynamicloading)
-        api(libs.spoofax3.spt.eclipse)
-        api(libs.spoofax3.spt.intellij)
-        api(libs.spoofax3.statix)
-        api(libs.spoofax3.statix.cli)
-        api(libs.spoofax3.statix.codecompletion)
-        api(libs.spoofax3.statix.codecompletion.pie)
-        api(libs.spoofax3.statix.common)
-        api(libs.spoofax3.statix.eclipse)
-        api(libs.spoofax3.statix.intellij)
-        api(libs.spoofax3.statix.multilang)
-        api(libs.spoofax3.statix.multilang.eclipse)
-        api(libs.spoofax3.statix.pie)
-        api(libs.spoofax3.stratego)
-        api(libs.spoofax3.stratego.cli)
-        api(libs.spoofax3.stratego.common)
-        api(libs.spoofax3.stratego.eclipse)
-        api(libs.spoofax3.stratego.intellij)
-        api(libs.spoofax3.stratego.pie)
-        api(libs.spoofax3.strategolib)
-        api(libs.spoofax3.strategolib.eclipse)
-        api(libs.spoofax3.tego.runtime)
-        api(libs.spoofax3.test)
-        api(libs.spoofax3.tooling.eclipsebundle)
-        api(libs.spoofax3.transform.pie)
+        api(libs.spoofax3.aterm.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cfg) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cfg.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cfg.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cfg.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cfg.spoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.eclipsebundle) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.gradle) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.gradle.spoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.interfaces) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.spoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.compiler.spoofax2.dagger) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.constraint.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.constraint.pie) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.core) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.dynamix) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.dynamix.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.dynamix.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.dynamix.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.dynamix.spoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.esv) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.esv.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.esv.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.esv.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.esv.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.gpp) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.gpp.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.jsglr.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.jsglr.pie) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.jsglr1.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.jsglr2.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.libspoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.libspoofax2.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.libstatix) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.libstatix.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.lwb.compiler) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.lwb.compiler.gradle) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.lwb.dynamicloading) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.nabl2.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.resource) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.extdynamix) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.extdynamix.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.extdynamix.spoofax2) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.extstatix) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.extstatix.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.sdf3.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spoofax.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spoofax2.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt.api) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt.dynamicloading) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.spt.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.codecompletion) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.codecompletion.pie) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.multilang) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.multilang.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.statix.pie) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego.cli) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego.common) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego.intellij) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.stratego.pie) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.strategolib) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.strategolib.eclipse) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.tego.runtime) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.test) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.tooling.eclipsebundle) { version { require(spoofax3Version) } }
+        api(libs.spoofax3.transform.pie) { version { require(spoofax3Version) } }
 
 
         // Dynsem (https://github.com/metaborg/dynsem)
-        api(libs.spoofax2.dynsem.lang)
+        api(libs.spoofax2.dynsem.lang) { version { require(spoofax2Version) } }
 
         // ESV (https://github.com/metaborg/esv)
-        api(libs.esv.lang)
+        api(libs.esv.lang) { version { require(esvVersion) } }
 
-        api(libs.spoofax2.esv.lang)
+        api(libs.spoofax2.esv.lang) { version { require(spoofax2Version) } }
 
         // Flowspec (https://github.com/metaborg/flowspec)
-        api(libs.spoofax2.flowspec.runtime)
+        api(libs.spoofax2.flowspec.runtime) { version { require(spoofax2Version) } }
 
         // JSGLR (https://github.com/metaborg/jsglr)
-        api(libs.interpreter.library.jsglr)
-        api(libs.jsglr)
-        api(libs.jsglr.shared)
-        api(libs.jsglr2)
+        api(libs.interpreter.library.jsglr) { version { require(jsglrVersion) } }
+        api(libs.jsglr) { version { require(jsglrVersion) } }
+        api(libs.jsglr.shared) { version { require(jsglrVersion) } }
+        api(libs.jsglr2) { version { require(jsglrVersion) } }
 
-        api(libs.spoofax2.interpreter.library.jsglr)
-        api(libs.spoofax2.jsglr)
-        api(libs.spoofax2.jsglr.shared)
-        api(libs.spoofax2.jsglr2)
-        api(libs.spoofax2.makepermissive)
+        api(libs.spoofax2.interpreter.library.jsglr) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.jsglr) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.jsglr.shared) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.jsglr2) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.makepermissive) { version { require(spoofax2Version) } }
 
         // MB Exec (https://github.com/metaborg/mb-exec)
-        api(libs.interpreter.core)
-        api(libs.interpreter.library.java)
-        api(libs.interpreter.library.xml)
-        api(libs.metaborg.util)
-        api(libs.util.vfs2)
+        api(libs.interpreter.core) { version { require(mbExecVersion) } }
+        api(libs.interpreter.library.java) { version { require(mbExecVersion) } }
+        api(libs.interpreter.library.xml) { version { require(mbExecVersion) } }
+        api(libs.metaborg.util) { version { require(mbExecVersion) } }
+        api(libs.util.vfs2) { version { require(mbExecVersion) } }
 
-        api(libs.spoofax2.interpreter.core)
-        api(libs.spoofax2.interpreter.library.java)
-        api(libs.spoofax2.interpreter.library.xml)
-        api(libs.spoofax2.metaborg.util)
-        api(libs.spoofax2.util.vfs2)
+        api(libs.spoofax2.interpreter.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.interpreter.library.java) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.interpreter.library.xml) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.metaborg.util) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.util.vfs2) { version { require(spoofax2Version) } }
 
         // MB Rep (https://github.com/metaborg/mb-rep)
-        api(libs.interpreter.library.index)
-        api(libs.spoofax.terms)
+        api(libs.interpreter.library.index) { version { require(mbRepVersion) } }
+        api(libs.spoofax.terms) { version { require(mbRepVersion) } }
 
-        api(libs.spoofax2.interpreter.library.index)
-        api(libs.spoofax2.spoofax.terms)
+        api(libs.spoofax2.interpreter.library.index) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spoofax.terms) { version { require(spoofax2Version) } }
 
         // NaBL (https://github.com/metaborg/nabl)
-        api(libs.nabl.praffrayi)
-        api(libs.nabl.renaming.java)
-        api(libs.nabl.scopegraph)
-        api(libs.nabl2.lang)
-        api(libs.nabl2.runtime)
-        api(libs.nabl2.shared)
-        api(libs.nabl2.solver)
-        api(libs.nabl2.terms)
-        api(libs.statix.generator)
-        api(libs.statix.lang)
-        api(libs.statix.runtime)
-        api(libs.statix.solver)
+        api(libs.nabl.praffrayi) { version { require(nablVersion) } }
+        api(libs.nabl.renaming.java) { version { require(nablVersion) } }
+        api(libs.nabl.scopegraph) { version { require(nablVersion) } }
+        api(libs.nabl2.lang) { version { require(nablVersion) } }
+        api(libs.nabl2.runtime) { version { require(nablVersion) } }
+        api(libs.nabl2.shared) { version { require(nablVersion) } }
+        api(libs.nabl2.solver) { version { require(nablVersion) } }
+        api(libs.nabl2.terms) { version { require(nablVersion) } }
+        api(libs.statix.generator) { version { require(nablVersion) } }
+        api(libs.statix.lang) { version { require(nablVersion) } }
+        api(libs.statix.runtime) { version { require(nablVersion) } }
+        api(libs.statix.solver) { version { require(nablVersion) } }
 
-        api(libs.spoofax2.nabl.lang)
-        api(libs.spoofax2.nabl.praffrayi)
-        api(libs.spoofax2.nabl.renaming.java)
-        api(libs.spoofax2.nabl.scopegraph)
-        api(libs.spoofax2.nabl2.extdynsem)
-        api(libs.spoofax2.nabl2.lang)
-        api(libs.spoofax2.nabl2.runtime)
-        api(libs.spoofax2.nabl2.shared)
-        api(libs.spoofax2.nabl2.solver)
-        api(libs.spoofax2.nabl2.terms)
-        api(libs.spoofax2.statix.generator)
-        api(libs.spoofax2.statix.lang)
-        api(libs.spoofax2.statix.runtime)
-        api(libs.spoofax2.statix.solver)
-        api(libs.spoofax2.ts.lang)
+        api(libs.spoofax2.nabl.lang) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl.praffrayi) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl.renaming.java) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl.scopegraph) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.extdynsem) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.lang) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.runtime) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.shared) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.solver) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.nabl2.terms) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.statix.generator) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.statix.lang) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.statix.runtime) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.statix.solver) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.ts.lang) { version { require(spoofax2Version) } }
 
         // Runtime Libraries (https://github.com/metaborg/runtime-libraries)
-        api(libs.spoofax2.meta.lib.analysis)
-        api(libs.spoofax2.metaborg.runtime.task)
+        api(libs.spoofax2.meta.lib.analysis) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.metaborg.runtime.task) { version { require(spoofax2Version) } }
 
         // SDF (https://github.com/metaborg/sdf)
-        api(libs.parsetable)
-        api(libs.sdf2parenthesize)
-        api(libs.sdf2table)
-        api(libs.sdf3.extstatix)
-        api(libs.sdf3.lang)
+        api(libs.parsetable) { version { require(sdfVersion) } }
+        api(libs.sdf2parenthesize) { version { require(sdfVersion) } }
+        api(libs.sdf2table) { version { require(sdfVersion) } }
+        api(libs.sdf3.extstatix) { version { require(sdfVersion) } }
+        api(libs.sdf3.lang) { version { require(sdfVersion) } }
 
-        api(libs.spoofax2.parsetable)
-        api(libs.spoofax2.sdf2parenthesize)
-        api(libs.spoofax2.sdf2table)
-        api(libs.spoofax2.sdf3.extstatix)
-        api(libs.spoofax2.sdf3.lang)
+        api(libs.spoofax2.parsetable) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.sdf2parenthesize) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.sdf2table) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.sdf3.extstatix) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.sdf3.lang) { version { require(spoofax2Version) } }
 
         // Spoofax Core (https://github.com/metaborg/spoofax)
-        api(libs.meta.lib.spoofax)
-        api(libs.metaborg.core)
-        api(libs.metaborg.core.test)
-        api(libs.metaborg.meta.core)
-        api(libs.spoofax.core)
-        api(libs.spoofax.meta.core)
-        api(libs.spoofax.nativebundle)
+        api(libs.meta.lib.spoofax) { version { require(spoofaxCoreVersion) } }
+        api(libs.metaborg.core) { version { require(spoofaxCoreVersion) } }
+        api(libs.metaborg.core.test) { version { require(spoofaxCoreVersion) } }
+        api(libs.metaborg.meta.core) { version { require(spoofaxCoreVersion) } }
+        api(libs.spoofax.core) { version { require(spoofaxCoreVersion) } }
+        api(libs.spoofax.meta.core) { version { require(spoofaxCoreVersion) } }
+        api(libs.spoofax.nativebundle) { version { require(spoofaxCoreVersion) } }
 
-        api(libs.spoofax2.meta.lib.spoofax)
-        api(libs.spoofax2.metaborg.core)
-        api(libs.spoofax2.metaborg.core.test)
-        api(libs.spoofax2.metaborg.meta.core)
-        api(libs.spoofax2.spoofax.core)
-        api(libs.spoofax2.spoofax.meta.core)
-        api(libs.spoofax2.spoofax.nativebundle)
+        api(libs.spoofax2.meta.lib.spoofax) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.metaborg.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.metaborg.core.test) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.metaborg.meta.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spoofax.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spoofax.meta.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spoofax.nativebundle) { version { require(spoofax2Version) } }
 
         // Spoofax Gradle (https://github.com/metaborg/spoofax.gradle)
-        api(libs.spoofax3.gradle)
+        api(libs.spoofax3.gradle) { version { require(spoofaxGradleVersion) } }
 
         // SPT (https://github.com/metaborg/spt)
-        api(libs.mbt.core)
-        api(libs.spt.core)
-        api(libs.spt.lang)
+        api(libs.mbt.core) { version { require(sptVersion) } }
+        api(libs.spt.core) { version { require(sptVersion) } }
+        api(libs.spt.lang) { version { require(sptVersion) } }
 
-        api(libs.spoofax2.mbt.core)
-        api(libs.spoofax2.spt.core)
-        api(libs.spoofax2.spt.lang)
+        api(libs.spoofax2.mbt.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spt.core) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.spt.lang) { version { require(spoofax2Version) } }
 
         // Stratego (https://github.com/metaborg/stratego)
-        api(libs.stratego.build)
-        api(libs.stratego.build.spoofax2)
-        api(libs.stratego.lang)
-        api(libs.stratego2.lang)
+        api(libs.stratego.build) { version { require(strategoVersion) } }
+        api(libs.stratego.build.spoofax2) { version { require(strategoVersion) } }
+        api(libs.stratego.lang) { version { require(strategoVersion) } }
+        api(libs.stratego2.lang) { version { require(strategoVersion) } }
 
-        api(libs.spoofax2.stratego.build)
-        api(libs.spoofax2.stratego.build.spoofax2)
-        api(libs.spoofax2.stratego.lang)
-        api(libs.spoofax2.stratego2.lang)
+        api(libs.spoofax2.stratego.build) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.stratego.build.spoofax2) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.stratego.lang) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.stratego2.lang) { version { require(spoofax2Version) } }
 
         // Stratego XT (https://github.com/metaborg/strategoxt)
-        api(libs.strategoxt.strj)
+        api(libs.strategoxt.strj) { version { require(strategoxtVersion) } }
 
-        api(libs.spoofax2.strategoxt.jar)
-        api(libs.spoofax2.strategoxt.minjar)
-        api(libs.spoofax2.strategoxt.strj)
+        api(libs.spoofax2.strategoxt.jar) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.strategoxt.minjar) { version { require(spoofax2Version) } }
+        api(libs.spoofax2.strategoxt.strj) { version { require(spoofax2Version) } }
     }
 }
 
