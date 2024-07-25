@@ -68,3 +68,4 @@ local.properties
 .cache
 .DS_Store
 *.lock
+jte-classes/

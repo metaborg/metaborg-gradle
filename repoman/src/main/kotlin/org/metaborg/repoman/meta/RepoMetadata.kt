@@ -1,7 +1,7 @@
 package org.metaborg.repoman.meta
 
 import kotlinx.serialization.Serializable
-import org.metaborg.repoman.templates.Markdown
+import org.metaborg.repoman.Markdown
 
 @Serializable
 data class RepoMetadata(

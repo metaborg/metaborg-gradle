@@ -1,4 +1,4 @@
-package org.metaborg.repoman.templates
+package org.metaborg.repoman
 
 /** A Markdown string. */
 typealias Markdown = String

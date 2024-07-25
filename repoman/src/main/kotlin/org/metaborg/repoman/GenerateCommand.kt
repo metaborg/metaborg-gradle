@@ -44,6 +44,7 @@ object GenerateCommand: CliktCommand(
         val metadata = readMetadata(repoDir)
         val resolver = ResourceCodeResolver("templates", Program::class.java.classLoader)
         val engine = TemplateEngine.create(resolver, ContentType.Plain)
+        engine.setTrimControlStructures(true)
         val generator = Generator(repoDir, engine, metadata)
 
         generator.generateReadme()
@@ -104,7 +105,9 @@ object GenerateCommand: CliktCommand(
                 return
             }
 
-            engine.render("$filename.kte", metadata, FileOutput(outputFile))
+            FileOutput(outputFile).use { output ->
+                engine.render("$filename.kte", metadata, output)
+            }
 
             if (!outputFileExisted) {
                 println("$filename: Generated")

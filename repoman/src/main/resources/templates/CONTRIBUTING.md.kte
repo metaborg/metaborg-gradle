@@ -1,7 +1,5 @@
 @import org.metaborg.repoman.meta.RepoMetadata
-
 @param meta: RepoMetadata
-
 # ${meta.title}
 
 ## How to Contribute
