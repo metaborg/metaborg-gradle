@@ -1,5 +1,3 @@
-rootProject.name = "metaborg-gradle-project"
-
 dependencyResolutionManagement {
     repositories {
         maven("https://artifacts.metaborg.org/content/groups/public/")
@@ -15,10 +13,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+    id("org.metaborg.convention.settings") version "latest.integration"
 }
 
-includeBuild("convention-plugin/")
-includeBuild("depman/")
-includeBuild("example/")
-includeBuild("repoman/")
+rootProject.name = "repoman"
