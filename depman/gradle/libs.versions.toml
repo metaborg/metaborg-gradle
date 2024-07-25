@@ -102,6 +102,7 @@ junit4-benchmarks               = "0.7.2"                   # https://labs.carro
 
 [plugins]
 kotlin-jvm                                  = { id = "org.jetbrains.kotlin.jvm",                                        version.ref = "kotlin" }
+kotlin-serialization                        = { id = "org.jetbrains.kotlin.plugin.serialization",                       version.ref = "kotlin" }
 gitonium                                    = { id = "org.metaborg.gitonium",                                           version.ref = "gitonium" }
 coronium-bundle                             = { id = "org.metaborg.coronium.bundle",                                    version.ref = "coronium" }
 foojay-resolver-convention                  = { id = "org.gradle.toolchains.foojay-resolver-convention",                version.ref = "foojay" }
