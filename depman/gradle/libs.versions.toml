@@ -372,15 +372,19 @@ spoofax2-spt-core                           = { module = "org.metaborg:org.metab
 spoofax2-spt-lang                           = { module = "org.metaborg:org.metaborg.meta.lang.spt",                     version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 
 # Stratego (https://github.com/metaborg/stratego)
+gpp-lang                                    = { module = "org.metaborg.devenv:gpp",                                     version.ref = "stratego" }
 stratego-build                              = { module = "org.metaborg.devenv:stratego.build",                          version.ref = "stratego" }
 stratego-build-spoofax2                     = { module = "org.metaborg.devenv:stratego.build.spoofax2",                 version.ref = "stratego" }
 stratego-lang                               = { module = "org.metaborg.devenv:org.metaborg.meta.lang.stratego",         version.ref = "stratego" }
 stratego2-lang                              = { module = "org.metaborg.devenv:stratego.lang",                           version.ref = "stratego" }
+strategolib                                 = { module = "org.metaborg.devenv:strategolib",                             version.ref = "stratego" }
 
+spoofax2-gpp-lang                           = { module = "org.metaborg:gpp",                                            version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 spoofax2-stratego-build                     = { module = "org.metaborg:stratego.build",                                 version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 spoofax2-stratego-build-spoofax2            = { module = "org.metaborg:stratego.build.spoofax2",                        version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 spoofax2-stratego-lang                      = { module = "org.metaborg:org.metaborg.meta.lang.stratego",                version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 spoofax2-stratego2-lang                     = { module = "org.metaborg:stratego.lang",                                  version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
+spoofax2-strategolib                        = { module = "org.metaborg:strategolib",                                    version.ref = "spoofax2" }  # Use Spoofax 2 language for bootstrapping
 
 # Stratego XT (https://github.com/metaborg/strategoxt)
 strategoxt-strj                             = { module = "org.metaborg.devenv:org.strategoxt.strj",                     version.ref = "strategoxt" }
