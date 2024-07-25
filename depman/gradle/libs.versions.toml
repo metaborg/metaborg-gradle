@@ -35,7 +35,7 @@ kotlinx-coroutines              = "1.8.1"                   # https://github.com
 capsule                         = "0.6.3"                   # https://usethesource.io/projects/capsule/ (https://github.com/usethesource/capsule)
 # Dependency Injection
 guice                           = "7.0.0"                   # https://github.com/google/guice
-dagger                          = "2.51.1"                  # https://github.com/google/dagger
+dagger                          = "2.48.1"                  # https://github.com/google/dagger
 # Annotations & Annotation Processors
 immutables                      = "2.10.1"                  # https://immutables.github.io/ (https://github.com/immutables/immutables)
 derive4j                        = "1.1.1"                   # https://github.com/derive4j/derive4j
