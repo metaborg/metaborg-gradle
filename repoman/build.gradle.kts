@@ -38,8 +38,10 @@ javaConvention {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("mavenApp") {
             from(components["java"])
+            artifact(tasks.distZip)
+            artifact(tasks.distTar)
         }
     }
 }
