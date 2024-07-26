@@ -18,6 +18,10 @@ nav:
       - conventions/mavenpublish.md
       - conventions/rootproject.md
       - conventions/settings.md
+  - Projects:
+      - projects/index.md
+      - projects/application.md
+      - projects/library.md
 
 theme:
   name: material
