@@ -16,7 +16,7 @@ jobs:
       gradle-command: |
         gradle ${meta.files.githubWorkflows.buildTask}
 @if(meta.files.githubWorkflows.publishSnapshot)
-
+# Publish snapshots
   publish-snapshot:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
@@ -27,13 +27,11 @@ jobs:
     if: "github.event_name == 'push' && github.ref == 'refs/heads/${meta.mainBranch}'"
     needs: [build]
     secrets:
-    @raw
-      METABORG_ARTIFACTS_USERNAME: ${{ secrets.METABORG_ARTIFACTS_USERNAME }}
-      METABORG_ARTIFACTS_PASSWORD: ${{ secrets.METABORG_ARTIFACTS_PASSWORD }}
-    @endraw
+      METABORG_ARTIFACTS_USERNAME: ${'$'}{{ secrets.METABORG_ARTIFACTS_USERNAME }}
+      METABORG_ARTIFACTS_PASSWORD: ${'$'}{{ secrets.METABORG_ARTIFACTS_PASSWORD }}
 @endif
 @if(meta.files.githubWorkflows.publishRelease)
-
+# Publish releases
   publish-release:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
@@ -44,8 +42,6 @@ jobs:
     if: "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/${meta.releaseTagPrefix}')"
     needs: [build]
     secrets:
-    @raw
-      METABORG_ARTIFACTS_USERNAME: ${{ secrets.METABORG_ARTIFACTS_USERNAME }}
-      METABORG_ARTIFACTS_PASSWORD: ${{ secrets.METABORG_ARTIFACTS_PASSWORD }}
-    @endraw
+      METABORG_ARTIFACTS_USERNAME: ${'$'}{{ secrets.METABORG_ARTIFACTS_USERNAME }}
+      METABORG_ARTIFACTS_PASSWORD: ${'$'}{{ secrets.METABORG_ARTIFACTS_PASSWORD }}
 @endif

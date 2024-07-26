@@ -36,3 +36,4 @@ files:
   githubWorkflows:
     publishRelease: true
     publishSnapshot: true
+    printVersionTask: ":convention-plugin:printVersion"
