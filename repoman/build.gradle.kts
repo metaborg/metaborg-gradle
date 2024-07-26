@@ -46,7 +46,7 @@ publishing {
 
 mavenPublishConvention {
     repoOwner.set("metaborg")
-    repoName.set("metaborg-git")
+    repoName.set("metaborg-gradle")
 
     metadata {
         inceptionYear.set("2024")
