@@ -1,0 +1,56 @@
+@import org.metaborg.repoman.meta.Defaults
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+import org.metaborg.convention.Developer
+import org.metaborg.convention.MavenPublishConventionExtension
+
+// Workaround for issue: https://youtrack.jetbrains.com/issue/KTIJ-19369
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    id("org.metaborg.convention.root-project")
+    alias(libs.plugins.gitonium)
+}
+
+@if(meta.files.gradleRootProject.createPublishTasks)
+rootProjectConvention {
+    // Add `publishAll` and `publish` tasks that delegate to the subprojects and included builds.
+    registerPublishTasks.set(true)
+}
+@endif
+
+allprojects {
+    apply(plugin = "org.metaborg.gitonium")
+
+@if(meta.mainBranch != Defaults.MAIN_BRANCH || meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
+    // Configure Gitonium before setting the version
+    gitonium {
+    @if(meta.mainBranch != Defaults.MAIN_BRANCH)
+        mainBranch.set("${meta.mainBranch}")
+    @endif
+    @if(meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
+        tagPrefix.set("${meta.releaseTagPrefix}")
+    @endif
+    }
+@endif
+
+    version = gitonium.version
+    group = "${meta.mavenGroup}"
+
+    pluginManager.withPlugin("org.metaborg.convention.maven-publish") {
+        extensions.configure(MavenPublishConventionExtension::class.java) {
+            repoOwner.set("${meta.repoOwner}")
+            repoName.set("${meta.repoName}")
+
+            metadata {
+                inceptionYear.set("${meta.inceptionYear}")
+@if(meta.developers.isNotEmpty())
+                developers.set(listOf(
+    @for(entry in meta.developers)
+                    Developer("${entry.id}", "${entry.name}", "${entry.email}"),
+    @endfor
+                ))
+@endif
+            }
+        }
+    }
+}

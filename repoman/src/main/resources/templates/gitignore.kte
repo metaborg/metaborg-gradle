@@ -1,3 +1,5 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
 # Java
 *.class
 *.log
@@ -69,3 +71,8 @@ local.properties
 .DS_Store
 *.lock
 jte-classes/
+
+@if(meta.files.gitignore.extra != null)
+# Extra
+${meta.files.gitignore.extra}
+@endif

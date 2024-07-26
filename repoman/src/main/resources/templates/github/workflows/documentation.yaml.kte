@@ -1,0 +1,14 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+---
+name: 'Documentation'
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - ${meta.mainBranch}
+  workflow_dispatch: {} # Allow running this workflow manually (Actions tab)
+
+jobs:
+  documentation:
+    uses: metaborg/actions/.github/workflows/mkdocs-material.yaml@main
