@@ -16,17 +16,17 @@ metaborg-resource               = "0.14.1"                  # https://github.com
 spoofax3                        = "0.23.1"                  # https://github.com/metaborg/spoofax-pie/
 
 spoofax2                        = "2.5.21"                  # https://spoofax.dev/ (https://github.com/metaborg/spoofax-releng)
-esv                             = "0.1.38"                  # https://github.com/metaborg/esv/
-jsglr                           = "0.1.38"                  # https://github.com/metaborg/jsglr/
-mb-exec                         = "0.1.38"                  # https://github.com/metaborg/mb-exec/
-mb-rep                          = "0.1.38"                  # https://github.com/metaborg/mb-rep/
-nabl                            = "0.1.38"                  # https://github.com/metaborg/nabl/
-sdf                             = "0.1.38"                  # https://github.com/metaborg/sdf/
-spoofax-core                    = "0.1.38"                  # https://github.com/metaborg/spoofax/
-spoofax-gradle                  = "0.1.40"                  # https://github.com/metaborg/spoofax.gradle/
-spt                             = "0.1.38"                  # https://github.com/metaborg/spt/
-stratego                        = "0.1.38"                  # https://github.com/metaborg/stratego/
-strategoxt                      = "0.1.38"                  # https://github.com/metaborg/strategoxt/
+esv                             = "0.1.41"                  # https://github.com/metaborg/esv/
+jsglr                           = "0.1.41"                  # https://github.com/metaborg/jsglr/
+mb-exec                         = "0.1.41"                  # https://github.com/metaborg/mb-exec/
+mb-rep                          = "0.1.41"                  # https://github.com/metaborg/mb-rep/
+nabl                            = "0.1.41"                  # https://github.com/metaborg/nabl/
+sdf                             = "0.1.41"                  # https://github.com/metaborg/sdf/
+spoofax-core                    = "0.1.41"                  # https://github.com/metaborg/spoofax/
+spoofax-gradle                  = "0.1.41"                  # https://github.com/metaborg/spoofax.gradle/
+spt                             = "0.1.41"                  # https://github.com/metaborg/spt/
+stratego                        = "0.1.41"                  # https://github.com/metaborg/stratego/
+strategoxt                      = "0.1.41"                  # https://github.com/metaborg/strategoxt/
 
 
 # Kotlin
