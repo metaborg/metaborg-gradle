@@ -36,3 +36,12 @@ files:
     publishRelease: true
     publishSnapshot: true
     printVersionTask: ":convention-plugin:printVersion"
+  gradleRootProject:
+    update: true
+    createPublishTasks: true
+    rootProjectName: "metaborg-gradle-project"
+    includedBuilds:
+      - path: "convention-plugin/"
+      - path: "depman/"
+      - path: "example/"
+      - path: "repoman/"
