@@ -1,7 +1,7 @@
 @import org.metaborg.repoman.meta.Defaults
 @import org.metaborg.repoman.meta.RepoMetadata
 @param meta: RepoMetadata
-import org.metaborg.convention.Developer
+import org.metaborg.convention.Person
 import org.metaborg.convention.MavenPublishConventionExtension
 
 // Workaround for issue: https://youtrack.jetbrains.com/issue/KTIJ-19369
@@ -46,7 +46,14 @@ allprojects {
 @if(meta.developers.isNotEmpty())
                 developers.set(listOf(
     @for(entry in meta.developers)
-                    Developer("${entry.id}", "${entry.name}", "${entry.email}"),
+                    Person("${entry.name}", email = ${if (entry.email != null) "\"${entry.email}\"" else "null"}, id = ${if (entry.id != null) "\"${entry.id}\"" else "null"}),
+    @endfor
+                ))
+@endif
+@if(meta.contributors.isNotEmpty())
+                contributors.set(listOf(
+    @for(entry in meta.contributors)
+                    Person("${entry.name}", email = ${if (entry.email != null) "\"${entry.email}\"" else "null"}, id = ${if (entry.id != null) "\"${entry.id}\"" else "null"}),
     @endfor
                 ))
 @endif

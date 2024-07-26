@@ -30,7 +30,6 @@ plugins:
 developers:
   - id: "Virtlink"
     name: "Daniel A. A. Pelsmaeker"
-    email: "developer@pelsmaeker.net"
 
 files:
   githubWorkflows:

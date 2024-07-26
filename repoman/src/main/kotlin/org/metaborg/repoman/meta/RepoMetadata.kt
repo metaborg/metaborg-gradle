@@ -43,8 +43,10 @@ data class RepoMetadata(
     /** A list of Gradle plugins published by the repo. */
     val plugins: List<GradlePlugin> = emptyList(),
 
-    /** An ordered list of (main) developers that worked on the repo. */
-    val developers: List<Developer> = emptyList(),
+    /** An ordered list of developers that may be contacted about the repo. */
+    val developers: List<Person> = emptyList(),
+    /** An ordered list of (main) contributors that also worked on the repo. */
+    val contributors: List<Person> = emptyList(),
 
     /** The configurations for the generated files. */
     val files: Files = Files(),
@@ -204,15 +206,15 @@ data class GradlePlugin(
     val description: Markdown? = null,
 )
 
-/** A developer. */
+/** A person. */
 @Serializable
-data class Developer(
-    /** The ID of the developer, usually their GitHub nickname. */
-    val id: String,
-    /** The (full) name of the developer. */
+data class Person(
+    /** The ID of the person, usually their GitHub nickname. */
+    val id: String? = null,
+    /** The (full) name of the person. */
     val name: String,
-    /** The e-mail address of the developer. */
-    val email: String,
+    /** The e-mail address of the person. */
+    val email: String? = null,
 )
 
 /** An included build. */

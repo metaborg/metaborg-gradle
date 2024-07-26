@@ -47,13 +47,27 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                                     distribution.set("repo")
                                 }
                             }
+                            organization {
+                                name.set("Programming Languages Group, Delft University of Technology")
+                                url.set("https://pl.ewi.tudelft.nl/")
+                            }
                             developers {
                                 metadata.developers.map {
-                                    for (dev in it) {
+                                    for (person in it) {
                                         developer {
-                                            id.set(dev.id)
-                                            name.set(dev.name)
-                                            email.set(dev.email)
+                                            id.set(person.id)
+                                            name.set(person.name)
+                                            email.set(person.email)
+                                        }
+                                    }
+                                }
+                            }
+                            contributors {
+                                metadata.contributors.map {
+                                    for (person in it) {
+                                        contributor {
+                                            name.set(person.name)
+                                            email.set(person.email)
                                         }
                                     }
                                 }
