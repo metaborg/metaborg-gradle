@@ -1,0 +1,39 @@
+---
+repoOwner: "metaborg"
+repoName: "metaborg-gradle"
+mainBranch: "main"
+
+title: "Metaborg Gradle"
+description: |
+  The Metaborg Gradle convention and development plugins, and the Metaborg dependency management and Gradle platform.
+documentationLink: https://spoofax.dev/metaborg-gradle/
+inceptionYear: "2024"
+
+libraries:
+  - group: "org.metaborg"
+    name: "catalog"
+    description: "Version catalog"
+  - group: "org.metaborg"
+    name: "platform"
+    description: "Spoofax platform"
+
+plugins:
+  - id: "org.metaborg.convention.settings"
+    description: "Settings convention plugin"
+  - id: "org.metaborg.convention.java"
+    description: "Java convention plugin"
+  - id: "org.metaborg.convention.maven-publish"
+    description: "Maven publish convention plugin"
+  - id: "org.metaborg.convention.root-project"
+    description: "Root project convention plugin"
+
+developers:
+  - id: "Virtlink"
+    name: "Daniel A. A. Pelsmaeker"
+    email: "developer@pelsmaeker.net"
+
+files:
+  githubWorkflows:
+    publishRelease: true
+    publishSnapshot: true
+    printVersionTask: ":convention-plugin:printVersion"

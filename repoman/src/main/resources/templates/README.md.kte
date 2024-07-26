@@ -1,0 +1,88 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+# ${meta.title}
+[![Build][github-badge:build]][github:build]
+[![License][license-badge]][license]
+[![GitHub Release][github-badge:release]][github:release]
+@if(meta.documentationLink != null)
+[![Documentation][documentation-badge]][documentation]
+@endif
+
+
+${meta.description}
+
+@if(meta.documentationLink != null)
+[![Documentation][documentation-button]][documentation]
+
+@endif
+
+@if(meta.languages.isNotEmpty())
+| Language | Latest Release | Latest Snapshot |
+|----------|----------------|-----------------|
+@for(entry in meta.languages)
+| `${entry.group}:${entry.name}` | [![Release][mvn-rel-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] | [![Snapshot][mvn-snap-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] |
+@endfor
+
+@endif
+
+
+@if(meta.libraries.isNotEmpty())
+| Artifact | Latest Release | Latest Snapshot |
+|----------|----------------|-----------------|
+@for(entry in meta.libraries)
+| `${entry.group}:${entry.name}` | [![Release][mvn-rel-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] | [![Snapshot][mvn-snap-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] |
+@endfor
+
+@endif
+
+
+@if(meta.plugins.isNotEmpty())
+| Gradle Plugin | Latest Release | Latest Snapshot |
+|---------------|----------------|-----------------|
+@for(entry in meta.plugins)
+| `${entry.id}` | [![Release][mvn-rel-badge:${entry.id}:${entry.id}.gradle.plugin]][mvn:${entry.id}:${entry.id}.gradle.plugin] | [![Snapshot][mvn-snap-badge:${entry.id}:${entry.id}.gradle.plugin]][mvn:${entry.id}:${entry.id}.gradle.plugin] |
+@endfor
+
+@endif
+
+
+@if(meta.files.readme.body != null)
+${meta.files.readme.body}
+
+@endif
+
+## License
+Copyright ${if (meta.inceptionYear != meta.currentYear) meta.inceptionYear + "-" + meta.currentYear else meta.inceptionYear} [Programming Languages Group](https://pl.ewi.tudelft.nl/), [Delft University of Technology](https://www.tudelft.nl/)
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <https://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an **"as is" basis, without warranties or conditions of any kind**, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+[github-badge:build]: https://img.shields.io/github/actions/workflow/status/${meta.repoOwner}/${meta.repoName}/build.yaml
+[github:build]: https://github.com/${meta.repoOwner}/${meta.repoName}/actions
+[license-badge]: https://img.shields.io/github/license/${meta.repoOwner}/${meta.repoName}
+[license]: https://github.com/${meta.repoOwner}/${meta.repoName}/blob/${meta.mainBranch}/LICENSE.md
+[github-badge:release]: https://img.shields.io/github/v/release/${meta.repoOwner}/${meta.repoName}?display_name=release
+[github:release]: https://github.com/${meta.repoOwner}/${meta.repoName}/releases
+@if(meta.documentationLink != null)
+[documentation-badge]: https://img.shields.io/badge/docs-latest-brightgreen
+[documentation]: ${meta.documentationLink}
+[documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
+@endif
+
+
+@for(entry in meta.languages)
+[mvn:${entry.group}:${entry.name}]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.group}~${entry.name}~~~
+[mvn-rel-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/r/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/s/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor
+@for(entry in meta.libraries)
+[mvn:${entry.group}:${entry.name}]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.group}~${entry.name}~~~
+[mvn-rel-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/r/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/s/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor
+@for(entry in meta.plugins)
+[mvn:${entry.id}:${entry.id}.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.id}~${entry.id}.gradle.plugin~~~
+[mvn-rel-badge:${entry.id}:${entry.id}.gradle.plugin]: https://img.shields.io/nexus/r/${entry.id}/${entry.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:${entry.id}:${entry.id}.gradle.plugin]: https://img.shields.io/nexus/s/${entry.id}/${entry.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor

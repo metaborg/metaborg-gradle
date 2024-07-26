@@ -1,0 +1,38 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+dependencyResolutionManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+        mavenCentral()
+    }
+}
+
+pluginManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id("org.metaborg.convention.settings") version "${meta.files.gradleRootProject.conventionVersion}"
+}
+
+@if(meta.files.gradleRootProject.rootProjectName != null)
+rootProject.name = "${meta.files.gradleRootProject.rootProjectName}"
+@endif
+
+@for(entry in meta.files.gradleRootProject.includedProjects)
+include(":${entry.name}")
+    @if(entry.path != null)
+project(":${entry.name}").projectDir = file("${entry.path}")
+    @endif
+@endfor
+
+@for(entry in meta.files.gradleRootProject.includedBuilds)
+    @if(entry.name != null)
+includeBuild("${entry.path}") { name = "${entry.name}" }
+    @else
+includeBuild("${entry.path}")
+    @endif
+@endfor
