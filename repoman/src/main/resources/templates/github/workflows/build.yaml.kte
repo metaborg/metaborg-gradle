@@ -15,8 +15,8 @@ jobs:
     with:
       gradle-command: |
         gradle ${meta.files.githubWorkflows.buildTask}
-@if(meta.files.githubWorkflows.publishSnapshot)
-# Publish snapshots
+  @if(meta.files.githubWorkflows.publishSnapshot)
+  # Publish snapshots
   publish-snapshot:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
@@ -29,9 +29,9 @@ jobs:
     secrets:
       METABORG_ARTIFACTS_USERNAME: ${'$'}{{ secrets.METABORG_ARTIFACTS_USERNAME }}
       METABORG_ARTIFACTS_PASSWORD: ${'$'}{{ secrets.METABORG_ARTIFACTS_PASSWORD }}
-@endif
-@if(meta.files.githubWorkflows.publishRelease)
-# Publish releases
+  @endif
+  @if(meta.files.githubWorkflows.publishRelease)
+  # Publish releases
   publish-release:
     uses: metaborg/actions/.github/workflows/gradle-publish.yaml@main
     with:
@@ -44,4 +44,4 @@ jobs:
     secrets:
       METABORG_ARTIFACTS_USERNAME: ${'$'}{{ secrets.METABORG_ARTIFACTS_USERNAME }}
       METABORG_ARTIFACTS_PASSWORD: ${'$'}{{ secrets.METABORG_ARTIFACTS_PASSWORD }}
-@endif
+  @endif
