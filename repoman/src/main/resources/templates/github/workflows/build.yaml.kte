@@ -1,6 +1,12 @@
 @import org.metaborg.repoman.meta.RepoMetadata
 @param meta: RepoMetadata
 ---
+@if(meta.files.githubWorkflows.update)
+# !! THIS FILE WAS GENERATED USING repoman !!
+# Modify `repo.yaml` instead and use `repoman` to update this file
+# See: https://github.com/metaborg/metaborg-gradle/
+
+@endif
 name: 'Build & Publish'
 
 on:  # yamllint disable-line rule:truthy
