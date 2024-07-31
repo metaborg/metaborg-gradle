@@ -23,9 +23,9 @@ rootProject.name = "${meta.files.gradleRootProject.rootProjectName}"
 @endif
 
 @for(entry in meta.files.gradleRootProject.includedProjects)
-include(":${entry.name}")
+include(":${entry.name.trimStart(':')}")
     @if(entry.path != null)
-project(":${entry.name}").projectDir = file("${entry.path}")
+project(":${entry.name.trimStart(':')}").projectDir = file("${entry.path}")
     @endif
 @endfor
 
