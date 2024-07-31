@@ -4,6 +4,7 @@ import com.charleskorn.kaml.Yaml
 import com.charleskorn.kaml.decodeFromStream
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.default
+import com.github.ajalt.clikt.parameters.options.defaultLazy
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.path
@@ -32,16 +33,19 @@ object GenerateCommand: CliktCommand(
     name = "generate",
     help = "Generates a README.md file for a specific repository."
 ) {
-    /** The file with the repository metadata. */
-    val metadataFile: Path? by option("-m", "--meta", help = "The file with the repository metadata")
-        .path(canBeFile = true, canBeDir = false, mustExist = true)
 
     /** The directory with the repository. */
-    val repoDir: Path? by option("-r", "--repo", help = "The directory with the repository")
+    val repoDir: Path by option("-r", "--repo", help = "The directory with the repository")
         .path(canBeFile = false, canBeDir = true, mustExist = true)
+        .defaultLazy { Path.of(System.getProperty("user.dir")) }
+
+    /** The file with the repository metadata. */
+    val metadataFile: Path by option("-m", "--meta", help = "The file with the repository metadata")
+        .path(canBeFile = true, canBeDir = false, mustExist = true)
+        .defaultLazy { repoDir.resolve("repo.yaml").let { d -> firstThatExistsOf(d, repoDir.resolve("repo.yml")) ?: d } }
 
     /** The Gradle binary to invoke. */
-    val gradleBin: String? by option("--gradle-bin", help = "The Gradle binary to invoke")
+    val gradleBin: String by option("--gradle-bin", help = "The Gradle binary to invoke")
         .default("gradle")
 
     /** Whether to force updating files even if they exist. Use this to just update all files and manually
@@ -51,8 +55,7 @@ object GenerateCommand: CliktCommand(
 
 
     override fun run() {
-        val repoDir = repoDir ?: Path.of(System.getProperty("user.dir"))
-        val metadata = readMetadata(repoDir)
+        val metadata = readMetadata()
         val resolver = ResourceCodeResolver("templates", Program::class.java.classLoader)
         val engine = TemplateEngine.create(resolver, ContentType.Plain)
         engine.setTrimControlStructures(true)
@@ -71,13 +74,19 @@ object GenerateCommand: CliktCommand(
         println("Done!")
     }
 
-    private fun readMetadata(repoDir: Path): RepoMetadata {
+    private fun readMetadata(): RepoMetadata {
         println("Reading metadata...")
 
-        val metadataFile = metadataFile ?: repoDir.resolve("repo.yaml")
         val metadata = Yaml.default.decodeFromStream<RepoMetadata>(metadataFile.inputStream())
 
         return metadata
+    }
+
+    private fun firstThatExistsOf(vararg paths: Path?): Path? {
+        for (path in paths) {
+            if (path != null && path.exists()) return path
+        }
+        return null
     }
 
     class Generator(
