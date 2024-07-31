@@ -7,6 +7,7 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.engine.spec.tempdir
 import io.kotest.matchers.file.shouldNotBeEmpty
 import io.kotest.matchers.shouldBe
+import java.nio.file.Path
 
 /** Tests the [GenerateCommand]. */
 class GenerateCommandTests: FunSpec({
@@ -95,7 +96,7 @@ class GenerateCommandTests: FunSpec({
               gradleWrapper:
                 generate: true
                 update: true
-                gradleVersion: "latest"
+                gradleVersion: "8.9"  # change this into `latest` when using Gradle 8
                 gradleDistributionType: "all"
               gradleRootProject:
                 generate: true
@@ -139,6 +140,7 @@ class GenerateCommandTests: FunSpec({
             "generate",
             "--meta", metadataFile.toString(),
             "--repo", projectDir.toString(),
+            "--gradle-bin", Path.of(System.getProperty("user.dir")).resolve("../gradlew").toString(),
             "--force-update"
         ))
         
