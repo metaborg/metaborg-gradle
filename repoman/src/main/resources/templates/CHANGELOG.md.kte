@@ -1,5 +1,13 @@
 @import org.metaborg.repoman.meta.RepoMetadata
 @param meta: RepoMetadata
+@if(meta.files.changelog.update)
+<!--
+!! THIS FILE WAS GENERATED USING repoman !!
+I don't know why you would do that.
+See: https://github.com/metaborg/metaborg-gradle/
+-->
+
+@endif
 # Changelog
 
 All notable changes to this project will be documented in this file.

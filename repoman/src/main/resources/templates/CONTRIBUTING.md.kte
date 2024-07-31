@@ -1,5 +1,13 @@
 @import org.metaborg.repoman.meta.RepoMetadata
 @param meta: RepoMetadata
+@if(meta.files.contributing.update)
+<!--
+!! THIS FILE WAS GENERATED USING repoman !!
+Modify `repo.yaml` instead and use `repoman` to update this file
+See: https://github.com/metaborg/metaborg-gradle/
+-->
+
+@endif
 # ${meta.title}
 
 ## How to Contribute

@@ -1,5 +1,11 @@
 @import org.metaborg.repoman.meta.RepoMetadata
 @param meta: RepoMetadata
+@if(meta.files.gradleRootProject.update)
+// !! THIS FILE WAS GENERATED USING repoman !!
+// Modify `repo.yaml` instead and use `repoman` to update this file
+// See: https://github.com/metaborg/metaborg-gradle/
+
+@endif
 dependencyResolutionManagement {
     repositories {
         maven("https://artifacts.metaborg.org/content/groups/public/")
