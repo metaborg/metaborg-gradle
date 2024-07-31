@@ -2,6 +2,7 @@ package org.metaborg.repoman.meta
 
 import kotlinx.serialization.Serializable
 import org.metaborg.repoman.Markdown
+import java.time.Year
 
 /** Default values. */
 object Defaults {
@@ -34,7 +35,7 @@ data class RepoMetadata(
     /** The inception year of the repository (required). */
     val inceptionYear: String,
     /** The current year in which the repository is still maintained. */
-    val currentYear: String = "2024",
+    val currentYear: String = Year.now().toString(),
 
     /** A list of Maven libraries published by the repo. */
     val libraries: List<MavenArtifact> = emptyList(),
@@ -199,6 +200,18 @@ data class GithubIssueTemplates(
     val assignDevelopers: Boolean = true,
     /** Whether to use the GitHub Discussions tab. */
     val useDiscussions: Boolean = true,
+    /** The type label to apply to bugs; or `null` to not apply a label. */
+    val bugTypeLabel: String? = "bug",
+    /** The type label to apply to feature requests; or `null` to not apply a label. */
+    val featureRequestTypeLabel: String? = "feature-request",
+    /** The type label to apply to questions; or `null` to not apply a label. */
+    val questionTypeLabel: String? = "question",
+    /** The state label to apply to new bugs; or `null` to not apply a label. */
+    val bugStateLabel: String? = "needs-triage",
+    /** The state label to apply to new feature requests; or `null` to not apply a label. */
+    val featureRequestStateLabel: String? = null,
+    /** The state label to apply to new questions; or `null` to not apply a label. */
+    val questionStateLabel: String? = null,
 )
 
 /** A Maven artifact. */

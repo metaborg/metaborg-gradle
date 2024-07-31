@@ -10,7 +10,13 @@
 name: "🐞 Report a Bug"
 description: File a bug report or issue for any project in ${meta.title}.
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels:
+  @if(meta.files.githubIssueTemplates.bugTypeLabel != null)
+  - "${meta.files.githubIssueTemplates.bugTypeLabel}"
+  @endif
+  @if(meta.files.githubIssueTemplates.bugStateLabel != null)
+  - "${meta.files.githubIssueTemplates.bugStateLabel}"
+  @endif
 @if(meta.files.githubIssueTemplates.assignDevelopers)
 assignees:
   @for(person in meta.developers)
