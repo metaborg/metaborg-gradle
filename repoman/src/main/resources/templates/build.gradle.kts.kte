@@ -21,17 +21,17 @@ rootProjectConvention {
 allprojects {
     apply(plugin = "org.metaborg.gitonium")
 
-@if(meta.mainBranch != Defaults.MAIN_BRANCH || meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
+    @if(meta.mainBranch != Defaults.MAIN_BRANCH || meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
     // Configure Gitonium before setting the version
     gitonium {
-    @if(meta.mainBranch != Defaults.MAIN_BRANCH)
+        @if(meta.mainBranch != Defaults.MAIN_BRANCH)
         mainBranch.set("${meta.mainBranch}")
-    @endif
-    @if(meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
+        @endif
+        @if(meta.releaseTagPrefix != Defaults.RELEASE_TAG_PREFIX)
         tagPrefix.set("${meta.releaseTagPrefix}")
-    @endif
+        @endif
     }
-@endif
+    @endif
 
     version = gitonium.version
     group = "${meta.mavenGroup}"
@@ -43,20 +43,20 @@ allprojects {
 
             metadata {
                 inceptionYear.set("${meta.inceptionYear}")
-@if(meta.developers.isNotEmpty())
+                @if(meta.developers.isNotEmpty())
                 developers.set(listOf(
-    @for(entry in meta.developers)
+                    @for(entry in meta.developers)
                     Person("${entry.name}", email = ${if (entry.email != null) "\"${entry.email}\"" else "null"}, id = ${if (entry.id != null) "\"${entry.id}\"" else "null"}),
-    @endfor
+                    @endfor
                 ))
-@endif
-@if(meta.contributors.isNotEmpty())
+                @endif
+                @if(meta.contributors.isNotEmpty())
                 contributors.set(listOf(
-    @for(entry in meta.contributors)
+                    @for(entry in meta.contributors)
                     Person("${entry.name}", email = ${if (entry.email != null) "\"${entry.email}\"" else "null"}, id = ${if (entry.id != null) "\"${entry.id}\"" else "null"}),
-    @endfor
+                    @endfor
                 ))
-@endif
+                @endif
             }
         }
     }

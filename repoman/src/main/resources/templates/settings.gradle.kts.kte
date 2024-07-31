@@ -24,15 +24,15 @@ rootProject.name = "${meta.files.gradleRootProject.rootProjectName}"
 
 @for(entry in meta.files.gradleRootProject.includedProjects)
 include(":${entry.name.trimStart(':')}")
-    @if(entry.path != null)
+@if(entry.path != null)
 project(":${entry.name.trimStart(':')}").projectDir = file("${entry.path}")
-    @endif
+@endif
 @endfor
 
 @for(entry in meta.files.gradleRootProject.includedBuilds)
-    @if(entry.name != null)
+@if(entry.name != null)
 includeBuild("${entry.path}") { name = "${entry.name}" }
-    @else
+@else
 includeBuild("${entry.path}")
-    @endif
+@endif
 @endfor
