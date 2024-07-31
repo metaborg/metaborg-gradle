@@ -209,7 +209,7 @@ data class GithubIssueTemplates(
     /** The state label to apply to new bugs; or `null` to not apply a label. */
     val bugStateLabel: String? = "needs-triage",
     /** The state label to apply to new feature requests; or `null` to not apply a label. */
-    val featureRequestStateLabel: String? = null,
+    val featureRequestStateLabel: String? = "needs-triage",
     /** The state label to apply to new questions; or `null` to not apply a label. */
     val questionStateLabel: String? = null,
 )
