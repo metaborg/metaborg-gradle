@@ -67,6 +67,7 @@ object GenerateCommand: CliktCommand(
         generator.generateGradleWrapper()
         generator.generateGradleRootProject()
         generator.generateGithubWorkflows()
+        generator.generateGithubIssueTemplates()
         println("Done!")
     }
 
@@ -140,6 +141,13 @@ object GenerateCommand: CliktCommand(
             if (metadata.files.githubWorkflows.buildDocs) {
                 generate("github/workflows/documentation.yaml", generate, update, path = ".github/workflows/documentation.yaml")
             }
+        }
+
+        fun generateGithubIssueTemplates() {
+            val generate = metadata.files.githubIssueTemplates.generate
+            val update = metadata.files.githubIssueTemplates.update || forceUpdate
+            generate("github/ISSUE_TEMPLATE/config.yml", generate, update, path = ".github/ISSUE_TEMPLATE/config.yml")
+            generate("github/ISSUE_TEMPLATE/20-report-a-bug.yml", generate, update, path = ".github/ISSUE_TEMPLATE/20-report-a-bug.yml")
         }
 
         private fun generate(templateName: String, generate: Boolean, update: Boolean, path: String = templateName) {

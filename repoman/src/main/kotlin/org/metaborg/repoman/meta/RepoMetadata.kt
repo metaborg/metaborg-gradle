@@ -73,6 +73,8 @@ data class Files(
     val gradleRootProject: GradleRootProject = GradleRootProject(),
     /** The metadata for the GitHub workflows. */
     val githubWorkflows: GithubWorkflows = GithubWorkflows(),
+    /** The metadata for GitHub issue templates. */
+    val githubIssueTemplates: GithubIssueTemplates = GithubIssueTemplates(),
 )
 
 /** Metadata for the README.md file. */
@@ -186,6 +188,19 @@ data class GithubWorkflows(
     val buildDocs: Boolean = false,
 )
 
+/** Metadata for GitHub issue templates. */
+@Serializable
+data class GithubIssueTemplates(
+    /** Whether to generate the files. */
+    val generate: Boolean = true,
+    /** Whether to update the file. */
+    val update: Boolean = true,
+    /** Whether to automatically assign developers to issues. */
+    val assignDevelopers: Boolean = true,
+    /** Whether to use the GitHub Discussions tab. */
+    val useDiscussions: Boolean = true,
+)
+
 /** A Maven artifact. */
 @Serializable
 data class MavenArtifact(
@@ -209,7 +224,7 @@ data class GradlePlugin(
 /** A person. */
 @Serializable
 data class Person(
-    /** The ID of the person, usually their GitHub nickname. */
+    /** The GitHub nickname of the person. */
     val id: String? = null,
     /** The (full) name of the person. */
     val name: String,
