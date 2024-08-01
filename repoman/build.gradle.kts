@@ -16,10 +16,11 @@ version = gitonium.version
 group = "org.metaborg"
 description = "Repository manager for Metaborg/Spoofax projects."
 
+val jteVersion = "3.1.12"
 dependencies {
     implementation("com.github.ajalt.clikt:clikt:4.4.0")            // CLI interface
-    implementation("gg.jte:jte:3.1.12")                             // Templating engine
-    implementation("gg.jte:jte-kotlin:3.1.12")                      // Templating engine (Kotlin support)
+    implementation("gg.jte:jte:$jteVersion")                        // Templating engine
+    implementation("gg.jte:jte-kotlin:$jteVersion")                 // Templating engine (Kotlin support)
     implementation("com.charleskorn.kaml:kaml:0.59.0")              // Deserialize YAML files
 
     testImplementation  (libs.kotest)

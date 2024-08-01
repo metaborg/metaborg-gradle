@@ -131,9 +131,9 @@ data class CodeOfConduct(
 @Serializable
 data class Changelog(
     /** Whether to generate the file. */
-    val generate: Boolean = true,
+    val generate: Boolean = false,
     /** Whether to update the file. */
-    val update: Boolean = false,
+    val update: Boolean = generate,
 )
 
 /** Metadata for the .gitignore file. */
@@ -164,9 +164,9 @@ data class GradleWrapper(
 @Serializable
 data class GradleRootProject(
     /** Whether to generate the files. */
-    val generate: Boolean = true,
+    val generate: Boolean = false,
     /** Whether to update the file. */
-    val update: Boolean = false,
+    val update: Boolean = generate,
     /** The name of the root project. */
     val rootProjectName: String? = null,
     /** Included builds. */
@@ -176,7 +176,7 @@ data class GradleRootProject(
     /** The version of the Metaborg Gradle convention to use. */
     val conventionVersion: String = "latest.integration",
     /** Whether to create `publish` tasks that delegate to the included builds and subprojects. */
-    val createPublishTasks: Boolean = false,
+    val createPublishTasks: Boolean = true,
 )
 
 /** Metadata for the GitHub workflows. */
@@ -204,7 +204,7 @@ data class GithubWorkflows(
 @Serializable
 data class GithubIssueTemplates(
     /** Whether to generate the files. */
-    val generate: Boolean = true,
+    val generate: Boolean = false,
     /** Whether to update the file. */
     val update: Boolean = generate,
     /** Whether to automatically assign developers to issues. */
