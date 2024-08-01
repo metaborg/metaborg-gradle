@@ -9,7 +9,7 @@ description: |
 documentationLink: https://spoofax.dev/metaborg-gradle/
 inceptionYear: "2024"
 
-libraries:
+spoofax3Languages:
   - group: "org.metaborg"
     name: "catalog"
     description: "Version catalog"
@@ -17,7 +17,7 @@ libraries:
     name: "platform"
     description: "Spoofax platform"
 
-plugins:
+spoofax3Plugins:
   - id: "org.metaborg.convention.settings"
     description: "Settings convention plugin"
   - id: "org.metaborg.convention.java"

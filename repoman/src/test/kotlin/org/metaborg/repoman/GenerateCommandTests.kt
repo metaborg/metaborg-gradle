@@ -32,7 +32,20 @@ class GenerateCommandTests: FunSpec({
             inceptionYear: "2000"
             currentYear: "2373"
             
-            libraries:
+            spoofax2Libraries:
+              - group: "org.metaborg"
+                name: "gorn"
+                description: "Grn."
+              - group: "org.metaborg"
+                name: "trill"
+                description: "Trl."
+            
+            spoofax2Languages:
+              - group: "org.metaborg"
+                name: "Klingon"
+                description: "CHEGH-chew jaj-VAM jaj-KAK."
+            
+            spoofax3Libraries:
               - group: "org.metaborgcube"
                 name: "picard"
                 description: "Make it so."
@@ -40,15 +53,15 @@ class GenerateCommandTests: FunSpec({
                 name: "riker"
                 description: "Engage."
             
-            languages:
+            spoofax3Languages:
               - group: "org.metaborgcube"
-                name: "worf"
-                description: "Today is a good day to die."
+                name: "borg"
+                description: "We are the Borg."
               - group: "org.metaborgcube"
-                name: "data"
-                description: "I am fully functional."
+                name: "ferengi"
+                description: "Rules of Acquisition."
             
-            plugins:
+            spoofax3Plugins:
               - id: "org.metaborgcube.enterprise"
                 description: "NCC-1701-D"
               - id: "org.metaborgcube.voyager"
@@ -79,6 +92,7 @@ class GenerateCommandTests: FunSpec({
               license:
                 generate: true
                 update: true
+                markdown: true
               contributing:
                 generate: true
                 update: true

@@ -37,6 +37,18 @@ data class RepoMetadata(
     /** The current year in which the repository is still maintained. */
     val currentYear: String = Year.now().toString(),
 
+    /** A list of Maven libraries published by the repo as part of Spoofax 2. */
+    val spoofax2Libraries: List<MavenArtifact> = emptyList(),
+    /** A list of Spoofax languages published by the repo as part of Spoofax 2. */
+    val spoofax2Languages: List<MavenArtifact> = emptyList(),
+
+    /** A list of Maven libraries published by the repo as part of Spoofax 3. */
+    val spoofax3Libraries: List<MavenArtifact> = emptyList(),
+    /** A list of Spoofax languages published by the repo as part of Spoofax 3. */
+    val spoofax3Languages: List<MavenArtifact> = emptyList(),
+    /** A list of Gradle plugins published by the repo as part of Spoofax 3. */
+    val spoofax3Plugins: List<GradlePlugin> = emptyList(),
+
     /** A list of Maven libraries published by the repo. */
     val libraries: List<MavenArtifact> = emptyList(),
     /** A list of Spoofax languages published by the repo. */
@@ -51,7 +63,11 @@ data class RepoMetadata(
 
     /** The configurations for the generated files. */
     val files: Files = Files(),
-)
+) {
+    /** All libraries and languages published by the repo (both Spoofax 2 and 3), except Gradle plugins. */
+    val allArtifacts: List<MavenArtifact> get() =
+        (spoofax2Libraries + spoofax2Languages + spoofax3Libraries + spoofax3Languages).sortedBy { "${it.group}:${it.name}" }
+}
 
 /** Metadata for the files to generate. */
 @Serializable
@@ -69,11 +85,11 @@ data class Files(
     /** The metadata for the .gitignore file. */
     val gitignore: Gitignore = Gitignore(),
     /** The metadata for the Gradle wrapper files. */
-    val gradleWrapper: GradleWrapper = GradleWrapper(),
+    val gradleWrapper: GradleWrapper = GradleWrapper(),             // Spoofax 3
     /** The metadata for the Gradle root project files. */
-    val gradleRootProject: GradleRootProject = GradleRootProject(),
+    val gradleRootProject: GradleRootProject = GradleRootProject(), // Spoofax 3
     /** The metadata for the GitHub workflows. */
-    val githubWorkflows: GithubWorkflows = GithubWorkflows(),
+    val githubWorkflows: GithubWorkflows = GithubWorkflows(),       // Spoofax 3
     /** The metadata for GitHub issue templates. */
     val githubIssueTemplates: GithubIssueTemplates = GithubIssueTemplates(),
 )
@@ -225,7 +241,9 @@ data class MavenArtifact(
     val name: String,
     /** A short description. For example: `"Resource management library."` */
     val description: Markdown? = null,
-)
+) {
+    override fun toString(): String = "$group:$name"
+}
 
 /** A Gradle plugin. */
 @Serializable

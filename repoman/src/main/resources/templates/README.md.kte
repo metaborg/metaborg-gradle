@@ -24,34 +24,56 @@ ${meta.description}
 
 @endif
 
-@if(meta.languages.isNotEmpty())
-| Language | Latest Release | Latest Snapshot |
-|----------|----------------|-----------------|
-@for(entry in meta.languages)
-| `${entry.group}:${entry.name}` | [![Release][mvn-rel-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] | [![Snapshot][mvn-snap-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] |
-@endfor
+@if(meta.spoofax3Libraries.isNotEmpty() || meta.spoofax3Languages.isNotEmpty() || meta.spoofax3Plugins.isNotEmpty())
+## Spoofax 3 Artifacts
 
+@if(meta.spoofax3Languages.isNotEmpty())
+| Spoofax Language | Latest Release | Latest Snapshot |
+|----------|----------------|-----------------|
+@for(artifact in meta.spoofax3Languages)
+| `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
+@endfor
 @endif
 
-
-@if(meta.libraries.isNotEmpty())
-| Artifact | Latest Release | Latest Snapshot |
+@if(meta.spoofax3Libraries.isNotEmpty())
+| Maven Artifact | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
-@for(entry in meta.libraries)
-| `${entry.group}:${entry.name}` | [![Release][mvn-rel-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] | [![Snapshot][mvn-snap-badge:${entry.group}:${entry.name}]][mvn:${entry.group}:${entry.name}] |
+@for(artifact in meta.spoofax3Libraries)
+| `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
 @endfor
-
 @endif
 
-
-@if(meta.plugins.isNotEmpty())
+@if(meta.spoofax3Plugins.isNotEmpty())
 | Gradle Plugin | Latest Release | Latest Snapshot |
 |---------------|----------------|-----------------|
-@for(entry in meta.plugins)
-| `${entry.id}` | [![Release][mvn-rel-badge:${entry.id}:${entry.id}.gradle.plugin]][mvn:${entry.id}:${entry.id}.gradle.plugin] | [![Snapshot][mvn-snap-badge:${entry.id}:${entry.id}.gradle.plugin]][mvn:${entry.id}:${entry.id}.gradle.plugin] |
+@for(plugin in meta.spoofax3Plugins)
+| `${plugin.id}` | [![Release][mvn-rel-badge:${plugin.id}:${plugin.id}.gradle.plugin]][mvn:${plugin.id}:${plugin.id}.gradle.plugin] | [![Snapshot][mvn-snap-badge:${plugin.id}:${plugin.id}.gradle.plugin]][mvn:${plugin.id}:${plugin.id}.gradle.plugin] |
 @endfor
+@endif
 
 @endif
+
+@if(meta.spoofax2Libraries.isNotEmpty() || meta.spoofax2Languages.isNotEmpty())
+## Spoofax 2 Artifacts
+
+@if(meta.spoofax2Languages.isNotEmpty())
+| Spoofax Language | Latest Release | Latest Snapshot |
+|----------|----------------|-----------------|
+@for(artifact in meta.spoofax2Languages)
+| `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
+@endfor
+@endif
+
+@if(meta.spoofax2Libraries.isNotEmpty())
+| Maven Artifact | Latest Release | Latest Snapshot |
+|----------|----------------|-----------------|
+@for(artifact in meta.spoofax2Libraries)
+| `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
+@endfor
+@endif
+
+@endif
+
 
 
 @if(meta.files.readme.body != null)
@@ -69,7 +91,11 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [github-badge:build]: https://img.shields.io/github/actions/workflow/status/${meta.repoOwner}/${meta.repoName}/build.yaml
 [github:build]: https://github.com/${meta.repoOwner}/${meta.repoName}/actions
 [license-badge]: https://img.shields.io/github/license/${meta.repoOwner}/${meta.repoName}
+@if(meta.files.license.markdown)
 [license]: https://github.com/${meta.repoOwner}/${meta.repoName}/blob/${meta.mainBranch}/LICENSE.md
+@else
+[license]: https://github.com/${meta.repoOwner}/${meta.repoName}/blob/${meta.mainBranch}/LICENSE
+@endif
 [github-badge:release]: https://img.shields.io/github/v/release/${meta.repoOwner}/${meta.repoName}?display_name=release
 [github:release]: https://github.com/${meta.repoOwner}/${meta.repoName}/releases
 @if(meta.documentationLink != null)
@@ -78,19 +104,21 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
 @endif
 
-
-@for(entry in meta.languages)
-[mvn:${entry.group}:${entry.name}]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.group}~${entry.name}~~~
-[mvn-rel-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/r/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/s/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@for(artifact in meta.allArtifacts)
+[mvn:${artifact.group}:${artifact.name}]: https://artifacts.metaborg.org/#nexus-search;gav~${artifact.group}~${artifact.name}~~~
 @endfor
-@for(entry in meta.libraries)
-[mvn:${entry.group}:${entry.name}]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.group}~${entry.name}~~~
-[mvn-rel-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/r/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:${entry.group}:${entry.name}]: https://img.shields.io/nexus/s/${entry.group}/${entry.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@for(plugin in meta.spoofax3Plugins)
+[mvn:${plugin.id}:${plugin.id}.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~${plugin.id}~${plugin.id}.gradle.plugin~~~
 @endfor
-@for(entry in meta.plugins)
-[mvn:${entry.id}:${entry.id}.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~${entry.id}~${entry.id}.gradle.plugin~~~
-[mvn-rel-badge:${entry.id}:${entry.id}.gradle.plugin]: https://img.shields.io/nexus/r/${entry.id}/${entry.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:${entry.id}:${entry.id}.gradle.plugin]: https://img.shields.io/nexus/s/${entry.id}/${entry.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@for(artifact in meta.allArtifacts)
+[mvn-rel-badge:${artifact.group}:${artifact.name}]: https://img.shields.io/nexus/r/${artifact.group}/${artifact.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor
+@for(plugin in meta.spoofax3Plugins)
+[mvn-rel-badge:${plugin.id}:${plugin.id}.gradle.plugin]: https://img.shields.io/nexus/r/${plugin.id}/${plugin.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor
+@for(artifact in meta.allArtifacts)
+[mvn-rel-badge:${artifact.group}:${artifact.name}]: https://img.shields.io/nexus/s/${artifact.group}/${artifact.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+@endfor
+@for(plugin in meta.spoofax3Plugins)
+[mvn-snap-badge:${plugin.id}:${plugin.id}.gradle.plugin]: https://img.shields.io/nexus/s/${plugin.id}/${plugin.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 @endfor
