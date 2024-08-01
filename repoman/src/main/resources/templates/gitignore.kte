@@ -78,6 +78,10 @@ local.properties
 *.lock
 jte-classes/
 
+# Spoofax
+src-gen/
+target/
+
 @if(meta.files.gitignore.extra != null)
 # Extra
 ${meta.files.gitignore.extra}
