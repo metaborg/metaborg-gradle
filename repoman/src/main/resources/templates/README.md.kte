@@ -117,7 +117,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [mvn-rel-badge:${plugin.id}:${plugin.id}.gradle.plugin]: https://img.shields.io/nexus/r/${plugin.id}/${plugin.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 @endfor
 @for(artifact in meta.allArtifacts)
-[mvn-rel-badge:${artifact.group}:${artifact.name}]: https://img.shields.io/nexus/s/${artifact.group}/${artifact.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:${artifact.group}:${artifact.name}]: https://img.shields.io/nexus/s/${artifact.group}/${artifact.name}?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 @endfor
 @for(plugin in meta.spoofax3Plugins)
 [mvn-snap-badge:${plugin.id}:${plugin.id}.gradle.plugin]: https://img.shields.io/nexus/s/${plugin.id}/${plugin.id}.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20

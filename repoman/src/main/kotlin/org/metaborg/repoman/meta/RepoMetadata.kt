@@ -22,7 +22,7 @@ data class RepoMetadata(
     /** The name of the main branch. For example: `"master"` */
     val mainBranch: String = Defaults.MAIN_BRANCH,
     /** The release tag prefix to use. For example: `"devenv-release/"` */
-    val releaseTagPrefix: String = Defaults.RELEASE_TAG_PREFIX,
+    val releaseTagPrefix: String = Defaults.RELEASE_TAG_PREFIX,     // Spoofax 3
     /** The default Maven group of the artifacts in the build. For example: `"org.metaborg.devenv"` */
     val mavenGroup: String = "org.metaborg",
 
@@ -48,13 +48,6 @@ data class RepoMetadata(
     val spoofax3Languages: List<MavenArtifact> = emptyList(),
     /** A list of Gradle plugins published by the repo as part of Spoofax 3. */
     val spoofax3Plugins: List<GradlePlugin> = emptyList(),
-
-    /** A list of Maven libraries published by the repo. */
-    val libraries: List<MavenArtifact> = emptyList(),
-    /** A list of Spoofax languages published by the repo. */
-    val languages: List<MavenArtifact> = emptyList(),
-    /** A list of Gradle plugins published by the repo. */
-    val plugins: List<GradlePlugin> = emptyList(),
 
     /** An ordered list of developers that may be contacted about the repo. */
     val developers: List<Person> = emptyList(),
@@ -100,7 +93,7 @@ data class Readme(
     /** Whether to generate the file. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** Content to include in the main body of the readme; or `null`. */
     val body: Markdown? = null,
 )
@@ -111,7 +104,7 @@ data class License(
     /** Whether to generate the file. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** Whether to use a Markdown license file. */
     val markdown: Boolean = true,
 )
@@ -122,7 +115,7 @@ data class Contributing(
     /** Whether to generate the file. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
 )
 
 /** Metadata for the CODE_OF_CONDUCT.md file. */
@@ -131,7 +124,7 @@ data class CodeOfConduct(
     /** Whether to generate the file. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
 )
 
 /** Metadata for the CHANGELOG.md file. */
@@ -149,7 +142,7 @@ data class Gitignore(
     /** Whether to generate the file. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** Extra entries to include at the bottom of the .gitignore file; or `null`. */
     val extra: String? = null,
 )
@@ -160,7 +153,7 @@ data class GradleWrapper(
     /** Whether to generate the files. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** The version of the Gradle wrapper to generate. */
     val gradleVersion: String = "7.6.4",
     /** The kind of Gradle distribution type to use, either `"bin"` or `"all"`. */
@@ -192,7 +185,7 @@ data class GithubWorkflows(
     /** Whether to generate the files. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** Whether to publish releases using GitHub CI (instead of Jenkins or something else). */
     val publishRelease: Boolean = false,
     /** Whether to publish snapshots using GitHub CI. */
@@ -213,7 +206,7 @@ data class GithubIssueTemplates(
     /** Whether to generate the files. */
     val generate: Boolean = true,
     /** Whether to update the file. */
-    val update: Boolean = true,
+    val update: Boolean = generate,
     /** Whether to automatically assign developers to issues. */
     val assignDevelopers: Boolean = true,
     /** Whether to use the GitHub Discussions tab. */

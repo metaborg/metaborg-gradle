@@ -44,3 +44,5 @@ files:
       - path: "depman/"
       - path: "example/"
       - path: "repoman/"
+  githubIssueTemplates:
+    generate: false
