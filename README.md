@@ -1,3 +1,9 @@
+<!--
+!! THIS FILE WAS GENERATED USING repoman !!
+Modify `repo.yaml` instead and use `repoman` to update this file
+See: https://github.com/metaborg/metaborg-gradle/
+-->
+
 # Metaborg Gradle
 [![Build][github-badge:build]][github:build]
 [![License][license-badge]][license]
@@ -9,18 +15,19 @@ The Metaborg Gradle convention and development plugins, and the Metaborg depende
 
 [![Documentation][documentation-button]][documentation]
 
+## Spoofax 3 Artifacts
 
-| Artifact | Latest Release | Latest Snapshot |
+| Spoofax Language | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
 | `org.metaborg:catalog` | [![Release][mvn-rel-badge:org.metaborg:catalog]][mvn:org.metaborg:catalog] | [![Snapshot][mvn-snap-badge:org.metaborg:catalog]][mvn:org.metaborg:catalog] |
 | `org.metaborg:platform` | [![Release][mvn-rel-badge:org.metaborg:platform]][mvn:org.metaborg:platform] | [![Snapshot][mvn-snap-badge:org.metaborg:platform]][mvn:org.metaborg:platform] |
-
 | Gradle Plugin | Latest Release | Latest Snapshot |
 |---------------|----------------|-----------------|
 | `org.metaborg.convention.settings` | [![Release][mvn-rel-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]][mvn:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin] | [![Snapshot][mvn-snap-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]][mvn:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin] |
 | `org.metaborg.convention.java` | [![Release][mvn-rel-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]][mvn:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin] | [![Snapshot][mvn-snap-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]][mvn:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin] |
 | `org.metaborg.convention.maven-publish` | [![Release][mvn-rel-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]][mvn:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin] | [![Snapshot][mvn-snap-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]][mvn:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin] |
 | `org.metaborg.convention.root-project` | [![Release][mvn-rel-badge:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin]][mvn:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin] | [![Snapshot][mvn-snap-badge:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin]][mvn:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin] |
+
 
 ## License
 Copyright 2024 [Programming Languages Group](https://pl.ewi.tudelft.nl/), [Delft University of Technology](https://www.tudelft.nl/)
@@ -38,22 +45,21 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [documentation-badge]: https://img.shields.io/badge/docs-latest-brightgreen
 [documentation]: https://spoofax.dev/metaborg-gradle/
 [documentation-button]: https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white
-
 [mvn:org.metaborg:catalog]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~catalog~~~
-[mvn-rel-badge:org.metaborg:catalog]: https://img.shields.io/nexus/r/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:org.metaborg:catalog]: https://img.shields.io/nexus/s/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn:org.metaborg:platform]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg~platform~~~
-[mvn-rel-badge:org.metaborg:platform]: https://img.shields.io/nexus/r/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:org.metaborg:platform]: https://img.shields.io/nexus/s/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.settings~org.metaborg.convention.settings.gradle.plugin~~~
-[mvn-rel-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.java~org.metaborg.convention.java.gradle.plugin~~~
-[mvn-rel-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.maven-publish~org.metaborg.convention.maven-publish.gradle.plugin~~~
-[mvn-rel-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
-[mvn-snap-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin]: https://artifacts.metaborg.org/#nexus-search;gav~org.metaborg.convention.root-project~org.metaborg.convention.root-project.gradle.plugin~~~
+[mvn-rel-badge:org.metaborg:catalog]: https://img.shields.io/nexus/r/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg:platform]: https://img.shields.io/nexus/r/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-rel-badge:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin]: https://img.shields.io/nexus/r/org.metaborg.convention.root-project/org.metaborg.convention.root-project.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg:catalog]: https://img.shields.io/nexus/s/org.metaborg/catalog?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-rel-badge:org.metaborg:platform]: https://img.shields.io/nexus/s/org.metaborg/platform?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:org.metaborg.convention.settings:org.metaborg.convention.settings.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.settings/org.metaborg.convention.settings.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:org.metaborg.convention.java:org.metaborg.convention.java.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.java/org.metaborg.convention.java.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
+[mvn-snap-badge:org.metaborg.convention.maven-publish:org.metaborg.convention.maven-publish.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.maven-publish/org.metaborg.convention.maven-publish.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
 [mvn-snap-badge:org.metaborg.convention.root-project:org.metaborg.convention.root-project.gradle.plugin]: https://img.shields.io/nexus/s/org.metaborg.convention.root-project/org.metaborg.convention.root-project.gradle.plugin?server=https%3A%2F%2Fartifacts.metaborg.org&label=%20
