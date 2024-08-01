@@ -92,69 +92,73 @@ object GenerateCommand: CliktCommand(
     class Generator(
         private val repoDir: Path,
         private val engine: TemplateEngine,
-        private val metadata: RepoMetadata,
+        private val meta: RepoMetadata,
     ) {
         fun generateReadme() {
-            val generate = metadata.files.readme.generate
-            val update = metadata.files.readme.update || forceUpdate
+            val generate = meta.files.readme.generate
+            val update = meta.files.readme.update || forceUpdate
             generate("README.md", generate, update)
         }
 
         fun generateLicense() {
-            val generate = metadata.files.license.generate
-            val update = metadata.files.license.update || forceUpdate
-            generate("LICENSE.md", generate, update)
+            val generate = meta.files.license.generate
+            val update = meta.files.license.update || forceUpdate
+            if (meta.files.license.markdown) {
+                generate("LICENSE.md", generate, update)
+            } else {
+                generate("LICENSE", generate, update)
+            }
         }
 
         fun generateContributing() {
-            val generate = metadata.files.contributing.generate
-            val update = metadata.files.contributing.update || forceUpdate
+            val generate = meta.files.contributing.generate
+            val update = meta.files.contributing.update || forceUpdate
             generate("CONTRIBUTING.md", generate, update)
         }
 
         fun generateCodeOfConduct() {
-            val generate = metadata.files.codeOfConduct.generate
-            val update = metadata.files.codeOfConduct.update || forceUpdate
+            val generate = meta.files.codeOfConduct.generate
+            val update = meta.files.codeOfConduct.update || forceUpdate
             generate("CODE_OF_CONDUCT.md", generate, update)
         }
 
         fun generateChangelog() {
-            val generate = metadata.files.changelog.generate
-            val update = metadata.files.changelog.update || forceUpdate
+            val generate = meta.files.changelog.generate
+            val update = meta.files.changelog.update || forceUpdate
             generate("CHANGELOG.md", generate, update)
         }
 
         fun generateGitignore() {
-            val generate = metadata.files.gitignore.generate
-            val update = metadata.files.gitignore.update || forceUpdate
+            val generate = meta.files.gitignore.generate
+            val update = meta.files.gitignore.update || forceUpdate
             generate("gitignore", generate, update, path = ".gitignore")
         }
 
         fun generateGradleWrapper() {
-            val generate = metadata.files.gradleWrapper.generate
-            val update = metadata.files.gradleWrapper.update || forceUpdate
+            val generate = meta.files.gradleWrapper.generate
+            val update = meta.files.gradleWrapper.update || forceUpdate
             generateGradleWrapper(generate, update)
         }
 
         fun generateGradleRootProject() {
-            val generate = metadata.files.gradleRootProject.generate
-            val update = metadata.files.gradleRootProject.update || forceUpdate
+            val generate = meta.files.gradleRootProject.generate
+            val update = meta.files.gradleRootProject.update || forceUpdate
             generate("settings.gradle.kts", generate, update)
             generate("build.gradle.kts", generate, update)
         }
 
         fun generateGithubWorkflows() {
-            val generate = metadata.files.githubWorkflows.generate
-            val update = metadata.files.githubWorkflows.update || forceUpdate
+            val generate = meta.files.githubWorkflows.generate
+            val update = meta.files.githubWorkflows.update || forceUpdate
             generate("github/workflows/build.yaml", generate, update, path = ".github/workflows/build.yaml")
-            if (metadata.files.githubWorkflows.buildDocs) {
+            if (meta.files.githubWorkflows.buildDocs) {
                 generate("github/workflows/documentation.yaml", generate, update, path = ".github/workflows/documentation.yaml")
             }
         }
 
         fun generateGithubIssueTemplates() {
-            val generate = metadata.files.githubIssueTemplates.generate
-            val update = metadata.files.githubIssueTemplates.update || forceUpdate
+            val generate = meta.files.githubIssueTemplates.generate
+            val update = meta.files.githubIssueTemplates.update || forceUpdate
             generate("github/ISSUE_TEMPLATE/config.yml", generate, update, path = ".github/ISSUE_TEMPLATE/config.yml")
             generate("github/ISSUE_TEMPLATE/20-report-a-bug.yml", generate, update, path = ".github/ISSUE_TEMPLATE/20-report-a-bug.yml")
         }
@@ -171,7 +175,7 @@ object GenerateCommand: CliktCommand(
             }
 
             FileOutput(outputFile).use { output ->
-                engine.render("$templateName.kte", metadata, output)
+                engine.render("$templateName.kte", meta, output)
             }
 
             if (!outputFileExisted) {
@@ -204,8 +208,8 @@ object GenerateCommand: CliktCommand(
                 command(
                     gradleBin,
                     "wrapper",
-                    "--gradle-version=${metadata.files.gradleWrapper.gradleVersion}",
-                    "--distribution-type=${metadata.files.gradleWrapper.gradleDistributionType}",
+                    "--gradle-version=${meta.files.gradleWrapper.gradleVersion}",
+                    "--distribution-type=${meta.files.gradleWrapper.gradleDistributionType}",
                     "--quiet",
                 )
                 directory(tmpDir.toFile())

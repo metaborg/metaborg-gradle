@@ -58,7 +58,7 @@ data class RepoMetadata(
 data class Files(
     /** The metadata for the README.md file. */
     val readme: Readme = Readme(),
-    /** The metadata for the LICENSE.md file. */
+    /** The metadata for the LICENSE/LICENSE.md file. */
     val license: License = License(),
     /** The metadata for the CONTRIBUTING.md file. */
     val contributing: Contributing = Contributing(),
@@ -96,6 +96,8 @@ data class License(
     val generate: Boolean = true,
     /** Whether to update the file. */
     val update: Boolean = true,
+    /** Whether to use a Markdown license file. */
+    val markdown: Boolean = true,
 )
 
 /** Metadata for the CONTRIBUTING.md file. */
