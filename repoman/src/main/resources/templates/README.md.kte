@@ -28,48 +28,62 @@ ${meta.description}
 ## Spoofax 3 Artifacts
 
 @if(meta.spoofax3Languages.isNotEmpty())
+
 | Spoofax Language | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
 @for(artifact in meta.spoofax3Languages)
 | `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
 @endfor
+
 @endif
 
+
 @if(meta.spoofax3Libraries.isNotEmpty())
+
 | Maven Artifact | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
 @for(artifact in meta.spoofax3Libraries)
 | `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
 @endfor
+
 @endif
 
+
 @if(meta.spoofax3Plugins.isNotEmpty())
+
 | Gradle Plugin | Latest Release | Latest Snapshot |
 |---------------|----------------|-----------------|
 @for(plugin in meta.spoofax3Plugins)
 | `${plugin.id}` | [![Release][mvn-rel-badge:${plugin.id}:${plugin.id}.gradle.plugin]][mvn:${plugin.id}:${plugin.id}.gradle.plugin] | [![Snapshot][mvn-snap-badge:${plugin.id}:${plugin.id}.gradle.plugin]][mvn:${plugin.id}:${plugin.id}.gradle.plugin] |
 @endfor
+
 @endif
 
 @endif
+
 
 @if(meta.spoofax2Libraries.isNotEmpty() || meta.spoofax2Languages.isNotEmpty())
 ## Spoofax 2 Artifacts
 
 @if(meta.spoofax2Languages.isNotEmpty())
+
 | Spoofax Language | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
 @for(artifact in meta.spoofax2Languages)
 | `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
 @endfor
+
 @endif
 
+
 @if(meta.spoofax2Libraries.isNotEmpty())
+
 | Maven Artifact | Latest Release | Latest Snapshot |
 |----------|----------------|-----------------|
 @for(artifact in meta.spoofax2Libraries)
 | `${artifact.group}:${artifact.name}` | [![Release][mvn-rel-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] | [![Snapshot][mvn-snap-badge:${artifact.group}:${artifact.name}]][mvn:${artifact.group}:${artifact.name}] |
 @endfor
+
 @endif
 
 @endif
