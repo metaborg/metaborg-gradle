@@ -104,8 +104,10 @@ object GenerateCommand: CliktCommand(
             val generate = meta.files.license.generate
             val update = meta.files.license.update || forceUpdate
             if (meta.files.license.markdown) {
+                if (update) repoDir.resolve("LICENSE").deleteIfExists()
                 generate("LICENSE.md", generate, update)
             } else {
+                if (update) repoDir.resolve("LICENSE.md").deleteIfExists()
                 generate("LICENSE", generate, update)
             }
         }
