@@ -209,8 +209,10 @@ data class GithubIssueTemplates(
     val update: Boolean = generate,
     /** Whether to automatically assign developers to issues. */
     val assignDevelopers: Boolean = true,
-    /** Whether to use the GitHub Discussions tab. */
-    val useDiscussions: Boolean = true,
+    /** The category for Ideas/Feature Requests in the Discussions feature; or `null` to not use it. */
+    val ideasDiscussionCategory: String? = "ideas",
+    /** The category for Questions in the Discussions feature; or `null` to not use it. */
+    val questionsDiscussionCategory: String? = "q-a",
     /** The type label to apply to bugs; or `null` to not apply a label. */
     val bugTypeLabel: String? = "bug",
     /** The type label to apply to feature requests; or `null` to not apply a label. */

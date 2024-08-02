@@ -139,7 +139,8 @@ class GenerateCommandTests: FunSpec({
                 generate: true
                 update: true
                 assignDevelopers: true
-                useDiscussions: true
+                ideasDiscussionCategory: "feature-requests"
+                questionsDiscussionCategory: "ask-a-question"
                 bugTypeLabel: "Type-Bug"
                 featureRequestTypeLabel: "Type-Enhancement"
                 questionTypeLabel: "Type-Question"
