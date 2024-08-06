@@ -40,7 +40,9 @@ open class MavenPublishConventionExtension @Inject constructor(
         /** The year the project was started. */
         val inceptionYear: Property<String> = objects.property(String::class.java)
         /** The developers of the project. */
-        val developers: ListProperty<Developer> = objects.listProperty(Developer::class.java)
+        val developers: ListProperty<Person> = objects.listProperty(Person::class.java)
+        /** The (main) contributors of the project. */
+        val contributors: ListProperty<Person> = objects.listProperty(Person::class.java)
         /** The source control management system. */
         val scm: Property<SCM> = objects.property(SCM::class.java)
             .convention(SCM.GitHub)
@@ -57,14 +59,14 @@ open class MavenPublishConventionExtension @Inject constructor(
 }
 
 
-/** Specifies a developer. */
-data class Developer(
-    /** The developer's ID or username. */
-    val id: String,
-    /** The developer's full name. */
+/** Specifies a person. */
+data class Person(
+    /** The person's full name. */
     val name: String,
-    /** The developer's email address. */
-    val email: String,
+    /** The person's ID or username. */
+    val id: String? = null,
+    /** The person's email address. */
+    val email: String? = null,
 )
 
 

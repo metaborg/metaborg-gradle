@@ -1,4 +1,4 @@
-import org.metaborg.convention.Developer
+import org.metaborg.convention.Person
 
 plugins {
     `java-library`
@@ -16,13 +16,16 @@ group = "org.metaborg"
 description = "The Metaborg Gradle Devenv plugin."
 
 repositories {
+    maven("https://artifacts.metaborg.org/content/groups/public/")
     mavenCentral()
     gradlePluginPortal()
 }
 
 dependencies {
+    implementation(platform("org.metaborg:platform:0.16.1"))
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
+    implementation("org.metaborg:git")
 
     testImplementation("io.kotest:kotest-runner-junit5:5.8.1")
     testImplementation("io.kotest:kotest-assertions-core:5.8.1")
@@ -46,8 +49,8 @@ mavenPublishConvention {
     metadata {
         inceptionYear.set("2018")
         developers.set(listOf(
-            Developer("gohla", "Gabriel Konat", "g.d.p.konat@tudelft.nl"),
-            Developer("virtlink", "Daniel A. A. Pelsmaeker", "d.a.a.pelsmaeker@tudelft.nl"),
+            Person("gohla", "Gabriel Konat", "g.d.p.konat@tudelft.nl"),
+            Person("virtlink", "Daniel A. A. Pelsmaeker", "d.a.a.pelsmaeker@tudelft.nl"),
         ))
     }
 }

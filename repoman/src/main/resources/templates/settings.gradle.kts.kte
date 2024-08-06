@@ -1,0 +1,44 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+@if(meta.files.gradleRootProject.update)
+// !! THIS FILE WAS GENERATED USING repoman !!
+// Modify `repo.yaml` instead and use `repoman` to update this file
+// See: https://github.com/metaborg/metaborg-gradle/
+
+@endif
+dependencyResolutionManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+        mavenCentral()
+    }
+}
+
+pluginManagement {
+    repositories {
+        maven("https://artifacts.metaborg.org/content/groups/public/")
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id("org.metaborg.convention.settings") version "${meta.files.gradleRootProject.conventionVersion}"
+}
+
+@if(meta.files.gradleRootProject.rootProjectName != null)
+rootProject.name = "${meta.files.gradleRootProject.rootProjectName}"
+@endif
+
+@for(entry in meta.files.gradleRootProject.includedProjects)
+include(":${entry.name.trimStart(':')}")
+@if(entry.path != null)
+project(":${entry.name.trimStart(':')}").projectDir = file("${entry.path}")
+@endif
+@endfor
+
+@for(entry in meta.files.gradleRootProject.includedBuilds)
+@if(entry.name != null)
+includeBuild("${entry.path}") { name = "${entry.name}" }
+@else
+includeBuild("${entry.path}")
+@endif
+@endfor

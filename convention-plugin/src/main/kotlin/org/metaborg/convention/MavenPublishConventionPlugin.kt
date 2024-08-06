@@ -1,13 +1,15 @@
 package org.metaborg.convention
 
+import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.api.publish.maven.tasks.AbstractPublishToMaven
+import org.gradle.api.publish.maven.tasks.PublishToMavenLocal
 import org.gradle.api.publish.maven.tasks.PublishToMavenRepository
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.extra
 import org.gradle.kotlin.dsl.withType
 import java.util.*
 
@@ -45,13 +47,27 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                                     distribution.set("repo")
                                 }
                             }
+                            organization {
+                                name.set("Programming Languages Group, Delft University of Technology")
+                                url.set("https://pl.ewi.tudelft.nl/")
+                            }
                             developers {
                                 metadata.developers.map {
-                                    for (dev in it) {
+                                    for (person in it) {
                                         developer {
-                                            id.set(dev.id)
-                                            name.set(dev.name)
-                                            email.set(dev.email)
+                                            id.set(person.id)
+                                            name.set(person.name)
+                                            email.set(person.email)
+                                        }
+                                    }
+                                }
+                            }
+                            contributors {
+                                metadata.contributors.map {
+                                    for (person in it) {
+                                        contributor {
+                                            name.set(person.name)
+                                            email.set(person.email)
                                         }
                                     }
                                 }
@@ -100,7 +116,32 @@ class MavenPublishConventionPlugin: Plugin<Project> {
             }
         }
 
+        // Ensure we don't allow publishing if the repository is dirty or unversioned
+        val assertValidVersion = project.tasks.register("assertValidVersion") {
+            group = "Verification"
+            description = "Asserts that there is a valid version for $project."
+
+            doLast {
+                val versionString = project.version.toString()
+                if (versionString == Project.DEFAULT_VERSION) {
+                    throw GradleException("Cannot publish, project has no version: ${project.version}")
+                } else if (versionString.endsWith("+dirty")) {
+                    throw GradleException("Cannot publish, project has a dirty version: ${project.version}")
+                }
+            }
+        }
+
+        tasks.withType<AbstractPublishToMaven>().configureEach {
+            // Make publishing depend on having a valid version
+            dependsOn(assertValidVersion)
+        }
+
         gradle.taskGraph.whenReady {
+            tasks.withType<PublishToMavenLocal>().configureEach {
+                doLast {
+                    println("Published ${publication.name} to mavenLocal: ${project.group}:${project.name}:${project.version}")
+                }
+            }
             tasks.withType<PublishToMavenRepository>().configureEach {
                 // Conditionally enable the tasks that publish to the respective repositories
                 when {
@@ -110,6 +151,10 @@ class MavenPublishConventionPlugin: Plugin<Project> {
                     name.endsWith("PublicationTo${GITHUB_PACKAGES_PUBLICATION_NAME}Repository") -> {
                         onlyIf { extension.publishToGitHubPackages.get() }
                     }
+                }
+
+                doLast {
+                    println("Published ${publication.name} to ${repository.name}: ${project.group}:${project.name}:${project.version}")
                 }
             }
         }

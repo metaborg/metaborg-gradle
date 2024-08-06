@@ -35,6 +35,9 @@ repositories {
 dependencies {
     implementation(platform(libs.metaborg.platform))
 
+    // Metaborg Git (https://github.com/metaborg/metaborg-git)
+    api(libs.metaborg.git)
+
     // Metaborg Common (https://github.com/metaborg/common)
     api(libs.metaborg.common)
 
@@ -273,15 +276,19 @@ dependencies {
 //    api(libs.spoofax2.spt.lang)                       // TODO: spoofax-language component
 
     // Stratego (https://github.com/metaborg/stratego)
+//    api(libs.gpp.lang)                                // TODO: spoofax-language component
     api(libs.stratego.build)
     api(libs.stratego.build.spoofax2)
 //    api(libs.stratego.lang)                           // TODO: spoofax-language component
 //    api(libs.stratego2.lang)                          // TODO: spoofax-language component
+//    api(libs.strategolib)                             // TODO: spoofax-language component
 
+//    api(libs.spoofax2.gpp.lang)                       // TODO: spoofax-language component
     api(libs.spoofax2.stratego.build)
     api(libs.spoofax2.stratego.build.spoofax2)
 //    api(libs.spoofax2.stratego.lang)                  // TODO: spoofax-language component
 //    api(libs.spoofax2.stratego2.lang)                 // TODO: spoofax-language component
+//    api(libs.spoofax2.strategolib)                    // TODO: spoofax-language component
 
     // Stratego XT (https://github.com/metaborg/strategoxt)
     api(libs.strategoxt.strj)

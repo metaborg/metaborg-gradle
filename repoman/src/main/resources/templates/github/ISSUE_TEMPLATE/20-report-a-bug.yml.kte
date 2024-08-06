@@ -1,0 +1,86 @@
+@import org.metaborg.repoman.meta.RepoMetadata
+@param meta: RepoMetadata
+---
+@if(meta.files.githubIssueTemplates.update)
+# !! THIS FILE WAS GENERATED USING repoman !!
+# Modify `repo.yaml` instead and use `repoman` to update this file
+# See: https://github.com/metaborg/metaborg-gradle/
+ 
+@endif
+name: "🐞 Report a Bug"
+description: File a bug report or issue for any project in ${meta.title}.
+title: "[Bug]: "
+labels:
+  @if(meta.files.githubIssueTemplates.bugTypeLabel != null)
+  - "${meta.files.githubIssueTemplates.bugTypeLabel}"
+  @endif
+  @if(meta.files.githubIssueTemplates.bugStateLabel != null)
+  - "${meta.files.githubIssueTemplates.bugStateLabel}"
+  @endif
+@if(meta.files.githubIssueTemplates.assignDevelopers)
+assignees:
+  @for(person in meta.developers)
+  - ${person.id}
+  @endfor
+@endif
+body:
+  @if(meta.files.gradleRootProject.includedBuilds.isNotEmpty() || meta.files.gradleRootProject.includedProjects.isNotEmpty())
+  - type: dropdown
+    id: project
+    attributes:
+      label: For which project in this repository does the issue occur?
+      multiple: true
+      options:
+        @for(project in meta.files.gradleRootProject.includedProjects)
+        - "${project.name}"
+        @endfor
+        @for(build in meta.files.gradleRootProject.includedBuilds)
+        - "${build.name}"
+        @endfor
+  @else
+  - type: textarea
+    attributes:
+      label: Project
+      description: For which project in this repository does the issue occur?
+    validations:
+      required: false
+  @endif
+  - type: textarea
+    attributes:
+      label: Version
+      description: The version of Spoofax or the commit of this project where the issue occurs.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Describe the issue
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A concise description of what you expected to happen.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Actual Behavior
+      description: A concise description of what happened instead.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Anything else?
+      description: |
+        Links? References? Anything that will give us more context about the issue you are encountering!
+        
+        Tip: You can attach images, log files, or an example project by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false

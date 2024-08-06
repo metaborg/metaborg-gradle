@@ -12,6 +12,9 @@ dependencies {
     constraints {
         // NOTE: Also update part of libs.versions.toml
 
+        // Metaborg Git (https://github.com/metaborg/metaborg-git/)
+        api(libs.metaborg.git)
+
         // Metaborg Common (https://github.com/metaborg/common)
         api(libs.metaborg.common)
 
@@ -251,15 +254,19 @@ dependencies {
         api(libs.spoofax2.spt.lang)
 
         // Stratego (https://github.com/metaborg/stratego)
+        api(libs.gpp.lang)
         api(libs.stratego.build)
         api(libs.stratego.build.spoofax2)
         api(libs.stratego.lang)
         api(libs.stratego2.lang)
+        api(libs.strategolib)
 
+        api(libs.spoofax2.gpp.lang)
         api(libs.spoofax2.stratego.build)
         api(libs.spoofax2.stratego.build.spoofax2)
         api(libs.spoofax2.stratego.lang)
         api(libs.spoofax2.stratego2.lang)
+        api(libs.spoofax2.strategolib)
 
         // Stratego XT (https://github.com/metaborg/strategoxt)
         api(libs.strategoxt.strj)

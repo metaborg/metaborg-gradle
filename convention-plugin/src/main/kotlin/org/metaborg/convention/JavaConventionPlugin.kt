@@ -2,13 +2,16 @@ package org.metaborg.convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.ApplicationPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.api.tasks.JavaExec
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.javadoc.Javadoc
 import org.gradle.api.tasks.testing.Test
 import org.gradle.external.javadoc.CoreJavadocOptions
 import org.gradle.kotlin.dsl.*
+import org.gradle.process.JavaForkOptions
 
 /**
  * Configures a Gradle project that builds a Java library or application.
@@ -34,7 +37,7 @@ class JavaConventionPlugin: Plugin<Project> {
                 withJavadocJar()
             }
 
-            tasks.withType<JavaCompile> {
+            tasks.withType<JavaCompile>().configureEach {
                 // Use UTF-8 encoding by default
                 options.encoding = "UTF-8"
                 // Warn for unchecked casts
@@ -47,7 +50,7 @@ class JavaConventionPlugin: Plugin<Project> {
                 options.compilerArgs.add("-Xdoclint:none")
             }
 
-            tasks.withType<Javadoc> {
+            tasks.withType<Javadoc>().configureEach {
                 options {
                     this as CoreJavadocOptions
                     // Use UTF-8 encoding by default
@@ -61,6 +64,35 @@ class JavaConventionPlugin: Plugin<Project> {
                     quiet()
                 }
             }
+
+            tasks.named<Test>(JavaPlugin.TEST_TASK_NAME) {
+                addPropertiesWithPrefix("test.", project)
+            }
+        }
+
+        plugins.withType<ApplicationPlugin> {
+            tasks.named<JavaExec>(ApplicationPlugin.TASK_RUN_NAME) {
+                addPropertiesWithPrefix("run.", project)
+            }
+        }
+    }
+
+    /**
+     * Adds all system properties and project properties that have the given [prefix] (case-insensitive)
+     * to the properties of the Java process (without the prefix).
+     *
+     * @param prefix The property prefix to look for.
+     * @param project The Gradle project.
+     */
+    private fun JavaForkOptions.addPropertiesWithPrefix(prefix: String, project: Project) {
+        @Suppress("UNCHECKED_CAST")
+        for ((k, v) in System.getProperties() as Map<String, *>) {
+            if (!k.startsWith(prefix, ignoreCase = true)) continue
+            systemProperty(k.substring(prefix.length), v.toString())
+        }
+        for ((k, v) in project.properties) {
+            if (!k.startsWith(prefix, ignoreCase = true)) continue
+            systemProperty(k.substring(prefix.length), v.toString())
         }
     }
 }
